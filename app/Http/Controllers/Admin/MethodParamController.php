@@ -1,25 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\Docs;
 
 use App\Http\Controllers\Controller;
-use App\Method;
-use App\MethodTag;
+use App\MethodParam;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 
-class MethodController extends Controller
+class MethodParamController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return View
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return View('api.methods', [
-            'tags' => MethodTag::all(),
-        ]);
+        //
     }
 
     /**
@@ -35,7 +31,7 @@ class MethodController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -46,24 +42,21 @@ class MethodController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param string $method
-     * @return View
+     * @param  \App\MethodParam  $methodParam
+     * @return \Illuminate\Http\Response
      */
-    public function show(string $method)
+    public function show(MethodParam $methodParam)
     {
-        return view('api.method', [
-            'title' => "$method - API Method",
-            'method' => Method::where('name', $method)->firstOrFail(),
-        ]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Method $method
+     * @param  \App\MethodParam  $methodParam
      * @return \Illuminate\Http\Response
      */
-    public function edit(Method $method)
+    public function edit(MethodParam $methodParam)
     {
         //
     }
@@ -71,11 +64,11 @@ class MethodController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Method $method
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\MethodParam  $methodParam
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Method $method)
+    public function update(Request $request, MethodParam $methodParam)
     {
         //
     }
@@ -83,10 +76,10 @@ class MethodController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Method $method
+     * @param  \App\MethodParam  $methodParam
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Method $method)
+    public function destroy(MethodParam $methodParam)
     {
         //
     }

@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get("/api", "API\ApiController@index")->name('api');
-Route::get("/methods", "API\MethodController@index")->name('methods');
+Route::get("/api", "Docs\ApiController@index")->name('api');
+Route::get("/methods", "Docs\ApiController@methods")->name('methods');
 
-Route::get("/method/{method}", "API\MethodController@show")->name('method');
+Route::get("/method/{method}", "Docs\ApiController@method")->name('method');
 
 \Illuminate\Support\Facades\Auth::routes([
     'register' => false, // Registration Routes...

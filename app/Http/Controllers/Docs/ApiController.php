@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Docs;
 use App\Http\Controllers\Controller;
 use App\Method;
 use App\MethodTag;
+use App\Type;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -43,6 +44,18 @@ class ApiController extends Controller
         return view('api.method', [
             'title' => "$method - API Method",
             'method' => Method::where('name', $method)->firstOrFail(),
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return View
+     */
+    public function types()
+    {
+        return View('api.types', [
+            'types' => Type::all(),
         ]);
     }
 }

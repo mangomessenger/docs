@@ -14,10 +14,10 @@
             </h2>
         </div>
         <div class="row">
-            <a href="/types">&#9679; API Types</a>
+            <a href="{{ route('types') }}">&#9679; API Types</a>
         </div>
         <div class="row">
-            <a href="/methods">&#9679; API Methods</a>
+            <a href="{{ route('methods') }}">&#9679; API Methods</a>
         </div>
     </div>
 @endsection

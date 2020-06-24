@@ -7,10 +7,10 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($tag->methods as $method)
+        @foreach($types as $type)
             <tr>
-                <td><a href="{{ route('method', $method->name) }}">{{ $method->name }}</a></td>
-                <td>{{ $method->description }}</td>
+                <td><a href="{{ route('type', $type->name) }}">{{ $type->name }}</a></td>
+                <td>{{ $type->description }}</td>
             </tr>
         @endforeach
         </tbody>

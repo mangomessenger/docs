@@ -45,5 +45,20 @@ class DatabaseSeeder extends Seeder
             'email' => 'dnldcode@gmail.com',
             'password' => \Illuminate\Support\Facades\Hash::make("test"),
         ]);
+
+        DB::table('types')->insert([
+            'name' => 'Bool',
+            'description' => 'Boolean type.',
+        ]);
+
+        DB::table('types')->insert([
+            'name' => 'TermsOfServiceUpdate',
+            'description' => 'Update of Telegram\'s terms of service',
+        ]);
+
+        DB::table('types')->insert([
+            'name' => 'string',
+            'description' => 'String type.',
+        ]);
     }
 }

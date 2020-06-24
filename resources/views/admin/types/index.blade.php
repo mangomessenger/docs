@@ -6,9 +6,8 @@
             <h2>Types</h2>
         </div>
         <div class="row">
-            <a class="btn btn-primary" href="#">Create new</a>
+            <a class="btn btn-primary" href="{{ route('type.create') }}">Create new</a>
         </div>
-
 
         <div class="row py-3">
             <table class="table">

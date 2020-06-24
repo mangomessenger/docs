@@ -27,6 +27,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/', 'Admin\PanelController@index')->name('panel');
         Route::get('/types', 'Admin\TypeController@index')->name('admin.types');
         Route::delete('/types/{type}', 'Admin\TypeController@destroy')->name('type.destroy');
+        Route::get('/types/create', 'Admin\TypeController@create')->name('type.create');
+        Route::post('/types/', 'Admin\TypeController@store')->name('type.store');
     });
 });
 

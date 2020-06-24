@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TypeRequest;
 use App\Type;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return View('admin.types.create');
     }
 
     /**
@@ -36,9 +37,11 @@ class TypeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TypeRequest $request)
     {
-        //
+        Type::create($request->except('_token'));
+
+        return redirect()->route('admin.types');
     }
 
     /**

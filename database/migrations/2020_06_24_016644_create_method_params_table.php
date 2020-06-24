@@ -15,13 +15,11 @@ class CreateMethodParamsTable extends Migration
     {
         Schema::create('method_params', function (Blueprint $table) {
             $table->id();
-            $table->integer("method_id");
+            $table->foreignId('method_id')->constrained('methods');
             $table->string("name");
             $table->string("type");
             $table->string("description");
             $table->timestamps();
-
-            $table->foreignId('method_id')->constrained('methods');
         });
     }
 

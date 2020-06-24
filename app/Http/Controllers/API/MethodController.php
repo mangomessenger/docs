@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Method;
+use App\MethodTag;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -12,11 +13,13 @@ class MethodController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function index()
     {
-        //
+        return View('api.methods', [
+            'tags' => MethodTag::all(),
+        ]);
     }
 
     /**

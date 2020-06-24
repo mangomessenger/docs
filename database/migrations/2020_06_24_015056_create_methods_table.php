@@ -15,13 +15,11 @@ class CreateMethodsTable extends Migration
     {
         Schema::create('methods', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('tag_id')->constrained('method_tags');
             $table->string("name");
-            $table->integer("tag_id");
             $table->string("description");
             $table->string("return_type");
             $table->timestamps();
-
-            $table->foreignId('tag_id')->constrained('method_tags');
         });
     }
 

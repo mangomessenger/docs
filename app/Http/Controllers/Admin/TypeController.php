@@ -42,17 +42,6 @@ class TypeController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Type  $type
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Type $type)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Type  $type
@@ -79,10 +68,11 @@ class TypeController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Type  $type
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Type $type)
     {
-        //
+        $type->delete();
+        return redirect()->back();
     }
 }

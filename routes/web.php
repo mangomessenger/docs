@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('panel')->group(function (){
         Route::get('/', 'Admin\PanelController@index')->name('panel');
         Route::get('/types', 'Admin\TypeController@index')->name('admin.types');
+        Route::delete('/types/{type}', 'Admin\TypeController@destroy')->name('type.destroy');
     });
 });
 

@@ -26,7 +26,11 @@
                         <td>{{ $type->description }}</td>
                         <td>
                             <a class="btn btn-primary" href="#">Edit</a>
-                            <a class="btn btn-danger" href="#">Delete</a>
+                            <form method="post" action="{{ route("type.destroy", $type) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

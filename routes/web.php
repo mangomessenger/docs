@@ -20,4 +20,8 @@ Route::get("/methods", "API\MethodController@index")->name('methods');
 
 Route::get("/method/{method}", "API\MethodController@show")->name('method');
 
-//Auth::routes();
+\Illuminate\Support\Facades\Auth::routes([
+    'register' => false, // Registration Routes...
+    'reset' => false, // Password Reset Routes...
+    'verify' => false, // Email Verification Routes...
+]);

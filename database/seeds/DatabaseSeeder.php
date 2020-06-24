@@ -14,17 +14,30 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('method_tags')->insert([
             'id' => 1,
-            'method_id' => 1,
             'tag' => 'protection',
             'name' => 'Dealing with spam and ToS violations',
         ]);
 
         DB::table('methods')->insert([
             'id' => 1,
-            'name' => 'reportSpam',
             'tag_id' => 1,
+            'name' => 'reportSpam',
             'description' => 'Report a new incoming chat for spam, if the peer settings of the chat allow us to do that',
             'return_type' => 'InputPeer',
+        ]);
+
+        DB::table('method_tags')->insert([
+            'id' => 2,
+            'tag' => 'auth',
+            'name' => 'Registration/Authorization',
+        ]);
+
+        DB::table('methods')->insert([
+            'id' => 2,
+            'tag_id' => 2,
+            'name' => 'signIn',
+            'description' => 'Signs in a user with a validated phone number.',
+            'return_type' => 'Authorization',
         ]);
     }
 }

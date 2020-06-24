@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="text-center">
-        <h1>Messenger</h1>
+        <h1>{{ config('app.name', 'Laravel') }}</h1>
         <p class="m-5">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel urna in arcu iaculis tempus. Morbi sed metus in arcu molestie congue non a ligula. Nam egestas metus at felis pellentesque dignissim. Sed nec massa dapibus, pulvinar augue sed, posuere ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin fermentum cursus neque, in commodo lectus feugiat ullamcorper. Nulla ut imperdiet neque. Integer pharetra, magna non convallis vestibulum, odio diam aliquet orci, id mattis magna ligula vitae ante.
 

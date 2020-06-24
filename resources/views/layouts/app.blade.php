@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
+    <title>{{ $title ?? config('app.name', 'Laravel') . ' API' }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -36,7 +36,7 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Apps</a>
@@ -63,7 +63,7 @@
             <div class="row">
                 <div class="col-6">
                     <div class="row">
-                        <b>Messenger</b>
+                        <b>{{ config('app.name', 'Laravel') }}</b>
                     </div>
                     <div class="row pr-5 pt-2">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel urna in arcu iaculis tempus.

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <h2>Messenger API</h2>
+            <h2>{{ config('app.name', 'Laravel') }} API</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel urna in arcu iaculis tempus.
                 Morbi sed metus in arcu molestie congue non a ligula. Nam egestas metus at felis pellentesque
                 dignissim.</p>

@@ -22,8 +22,11 @@ Route::get('/types', 'Docs\ApiController@types')->name('types');
 Route::get('/type/{type}', 'Docs\ApiController@type')->name('type');
 
 /* Admin Panel */
-Route::middleware('auth')->group( function () {
-    Route::get('/panel', 'Admin\PanelController@index')->name('panel');
+Route::middleware('auth')->group(function () {
+    Route::prefix('panel')->group(function (){
+        Route::get('/', 'Admin\PanelController@index')->name('panel');
+        Route::get('/types', 'Admin\TypeController@index')->name('admin.types');
+    });
 });
 
 \Illuminate\Support\Facades\Auth::routes([

@@ -39,7 +39,7 @@
                         <a class="nav-link" href="{{ route('panel') }}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Types</a>
+                        <a class="nav-link" href="{{ route('admin.types') }}">Types</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Methods</a>
@@ -61,7 +61,7 @@
     <main class="py-4">
         <div class="container py-3">
             <div class="row justify-content-center">
-                <div class="col-md-10">
+                <div class="col-md-12">
                     @yield('content')
                 </div>
             </div>

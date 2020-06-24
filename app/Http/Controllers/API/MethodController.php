@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Method;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class MethodController extends Controller
 {
@@ -31,7 +32,7 @@ class MethodController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -42,18 +43,21 @@ class MethodController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Method  $method
-     * @return \Illuminate\Http\Response
+     * @param string $method
+     * @return View
      */
-    public function show(Method $method)
+    public function show(string $method)
     {
-        //
+        return view('api.method', [
+            'title' => "$method - API Method",
+            'method' => Method::where('name', $method)->firstOrFail(),
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Method  $method
+     * @param \App\Method $method
      * @return \Illuminate\Http\Response
      */
     public function edit(Method $method)
@@ -64,8 +68,8 @@ class MethodController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Method  $method
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Method $method
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Method $method)
@@ -76,7 +80,7 @@ class MethodController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Method  $method
+     * @param \App\Method $method
      * @return \Illuminate\Http\Response
      */
     public function destroy(Method $method)

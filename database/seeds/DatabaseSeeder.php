@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             'tag_id' => 1,
             'name' => 'reportSpam',
             'description' => 'Report a new incoming chat for spam, if the peer settings of the chat allow us to do that',
-            'return_type' => 'InputPeer',
+            'return_type_id' => null,
         ]);
 
         DB::table('method_tags')->insert([
@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
             'tag_id' => 2,
             'name' => 'signIn',
             'description' => 'Signs in a user with a validated phone number.',
-            'return_type' => 'Authorization',
+            'return_type_id' => null,
         ]);
     }
 }

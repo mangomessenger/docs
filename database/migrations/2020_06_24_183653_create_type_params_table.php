@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMethodsTable extends Migration
+class CreateTypeParamsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateMethodsTable extends Migration
      */
     public function up()
     {
-        Schema::create('methods', function (Blueprint $table) {
+        Schema::create('type_params', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('tag_id')->constrained('method_tags');
+            $table->foreignId('ref_type_id')->constrained('types');
             $table->string("name");
+            $table->foreignId('type_id')->constrained('types');
             $table->string("description");
-            $table->integer("return_type_id")->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateMethodsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('methods');
+        Schema::dropIfExists('type_params');
     }
 }

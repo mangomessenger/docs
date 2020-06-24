@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
-use App\Method;
+use App\Http\Controllers\Controller;
+use App\MethodParam;
 use Illuminate\Http\Request;
 
-class MethodController extends Controller
+class MethodParamController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class MethodController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Method  $method
+     * @param  \App\MethodParam  $methodParam
      * @return \Illuminate\Http\Response
      */
-    public function show(Method $method)
+    public function show(MethodParam $methodParam)
     {
         //
     }
@@ -52,10 +53,10 @@ class MethodController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Method  $method
+     * @param  \App\MethodParam  $methodParam
      * @return \Illuminate\Http\Response
      */
-    public function edit(Method $method)
+    public function edit(MethodParam $methodParam)
     {
         //
     }
@@ -64,10 +65,10 @@ class MethodController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Method  $method
+     * @param  \App\MethodParam  $methodParam
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Method $method)
+    public function update(Request $request, MethodParam $methodParam)
     {
         //
     }
@@ -75,10 +76,10 @@ class MethodController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Method  $method
+     * @param  \App\MethodParam  $methodParam
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Method $method)
+    public function destroy(MethodParam $methodParam)
     {
         //
     }

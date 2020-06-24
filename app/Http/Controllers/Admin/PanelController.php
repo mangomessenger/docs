@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\TypeParam;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
-class TypeParamController extends Controller
+class PanelController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class TypeParamController extends Controller
      */
     public function index()
     {
-        //
+        return View('admin.panel');
     }
 
     /**
@@ -41,10 +42,10 @@ class TypeParamController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\TypeParam  $typeParam
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(TypeParam $typeParam)
+    public function show($id)
     {
         //
     }
@@ -52,10 +53,10 @@ class TypeParamController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\TypeParam  $typeParam
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(TypeParam $typeParam)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +65,10 @@ class TypeParamController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\TypeParam  $typeParam
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TypeParam $typeParam)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +76,10 @@ class TypeParamController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\TypeParam  $typeParam
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TypeParam $typeParam)
+    public function destroy($id)
     {
         //
     }

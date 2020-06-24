@@ -39,5 +39,11 @@ class DatabaseSeeder extends Seeder
             'description' => 'Signs in a user with a validated phone number.',
             'return_type_id' => null,
         ]);
+
+        DB::table('users')->insert([
+            'name' => 'Donald',
+            'email' => 'dnldcode@gmail.com',
+            'password' => \Illuminate\Support\Facades\Hash::make("test"),
+        ]);
     }
 }

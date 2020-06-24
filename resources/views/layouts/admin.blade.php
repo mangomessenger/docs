@@ -36,18 +36,24 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ route('panel') }}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Apps</a>
+                        <a class="nav-link" href="#">Types</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/api">API</a>
+                        <a class="nav-link" href="#">Methods</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-link text-primary underline" href="{{ route('home') }}"><u>Go on main page</u></a>
                     </li>
                 </ul>
-                <span class="navbar-text">
-                    Twitter
-                </span>
+                <a class="log-out-btn" href="#"
+                   onclick="event.preventDefault();document.getElementById('logout-form').submit();"> Logout </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
             </div>
         </div>
     </nav>

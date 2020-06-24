@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="row py-3">
+        <div class="row">
             <h2>Methods</h2>
         </div>
 

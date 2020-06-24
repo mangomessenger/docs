@@ -104,7 +104,7 @@
                         <b>Platform</b>
                     </div>
                     <div class="row">
-                        <a href="#">Link</a>
+                        <a href=" {{ route('api') }}">API</a>
                     </div>
                     <div class="row">
                         <a href="#">Link</a>

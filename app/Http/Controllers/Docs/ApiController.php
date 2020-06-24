@@ -58,4 +58,18 @@ class ApiController extends Controller
             'types' => Type::all(),
         ]);
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param string $type
+     * @return View
+     */
+    public function type(string $type)
+    {
+        return view('api.type', [
+            'title' => "$type - API Type",
+            'type' => Type::where('name', $type)->firstOrFail(),
+        ]);
+    }
 }

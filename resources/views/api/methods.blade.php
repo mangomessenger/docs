@@ -10,25 +10,7 @@
             <div class="row">
                 <h4>{{ $tag->name }}</h4>
             </div>
-            <div class="row py-3">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Description</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        @foreach($tag->methods as $method)
-                            <td><a href="{{ route('method', $method->name) }}">{{ $method->name }}</a></td>
-                            <td>{{ $method->description }}</td>
-                        @endforeach
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-
+            @include('api.partials.methods_table')
         @endforeach
     </div>
 @endsection

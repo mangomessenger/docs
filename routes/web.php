@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get("method/{method}", "API\MethodController@show");
+Route::get("/api", "API\ApiController@index");
+
+Route::get("/method/{method}", "API\MethodController@show");
 
 //Auth::routes();

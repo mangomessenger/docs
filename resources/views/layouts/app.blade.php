@@ -42,7 +42,7 @@
                         <a class="nav-link" href="#">Apps</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">API</a>
+                        <a class="nav-link" href="/api">API</a>
                     </li>
                 </ul>
                 <span class="navbar-text">

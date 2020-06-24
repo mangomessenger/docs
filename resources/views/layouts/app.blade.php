@@ -84,10 +84,7 @@
                         <b>About</b>
                     </div>
                     <div class="row">
-                        <a href="#">Link</a>
-                    </div>
-                    <div class="row">
-                        <a href="#">Link</a>
+                        <a href="{{ route('home') }}">Main Page</a>
                     </div>
                 </div>
 
@@ -96,10 +93,10 @@
                         <b>Apps</b>
                     </div>
                     <div class="row">
-                        <a href="#">Link</a>
+                        <a href="#" class="disabled">Google Play</a>
                     </div>
                     <div class="row">
-                        <a href="#">Link</a>
+                        <a href="#" class="disabled">Apple Store</a>
                     </div>
                 </div>
 
@@ -111,7 +108,10 @@
                         <a href=" {{ route('api') }}">API</a>
                     </div>
                     <div class="row">
-                        <a href="#">Link</a>
+                        <a href=" {{ route('types') }}">Types</a>
+                    </div>
+                    <div class="row">
+                        <a href=" {{ route('methods') }}">Methods</a>
                     </div>
                 </div>
             </div>

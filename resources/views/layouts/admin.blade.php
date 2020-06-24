@@ -76,48 +76,7 @@
                         <b>{{ config('app.name', 'Laravel') }}</b>
                     </div>
                     <div class="row pr-5 pt-2">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel urna in arcu iaculis tempus.
-                        Morbi sed metus in arcu molestie congue non a ligula. Nam egestas metus at felis pellentesque
-                        dignissim. Sed nec massa dapibus, pulvinar augue sed, posuere ligula. Interdum et malesuada
-                        fames ac ante ipsum primis in faucibus. Proin fermentum cursus neque, in commodo lectus feugiat
-                        ullamcorper. Nulla ut imperdiet neque. Integer pharetra, magna non convallis vestibulum, odio
-                        diam aliquet orci, id mattis magna ligula vitae ante.
-                    </div>
-                </div>
-
-                <div class="col-2">
-                    <div class="row">
-                        <b>About</b>
-                    </div>
-                    <div class="row">
-                        <a href="#">Link</a>
-                    </div>
-                    <div class="row">
-                        <a href="#">Link</a>
-                    </div>
-                </div>
-
-                <div class="col-2">
-                    <div class="row">
-                        <b>Apps</b>
-                    </div>
-                    <div class="row">
-                        <a href="#">Link</a>
-                    </div>
-                    <div class="row">
-                        <a href="#">Link</a>
-                    </div>
-                </div>
-
-                <div class="col-2">
-                    <div class="row">
-                        <b>Platform</b>
-                    </div>
-                    <div class="row">
-                        <a href=" {{ route('api') }}">API</a>
-                    </div>
-                    <div class="row">
-                        <a href="#">Link</a>
+                        Admin panel.
                     </div>
                 </div>
             </div>

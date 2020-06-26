@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <div class="container">
@@ -9,7 +9,7 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1">Name</label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                               aria-describedby="emailHelp">
+                               aria-describedby="emailHelp" value="{{ old('name') }}">
                     </div>
                     @error('name')
                     <p class="text-danger">{{ $message }}</p>
@@ -17,7 +17,7 @@
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Description</label>
                         <textarea class="form-control @error('description') is-invalid @enderror" name="description"
-                                  rows="2"></textarea>
+                                  rows="2">{{ old('description') }}</textarea>
                     </div>
                     @error('description')
                     <p class="text-danger">{{ $message }}</p>

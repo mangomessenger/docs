@@ -24,8 +24,8 @@ class TypeRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:5',
-            'description' => 'required|min:5|max:30',
+            'name' => 'required|min:2',
+            'description' => 'required|min:5|max:100',
         ];
     }
 }

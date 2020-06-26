@@ -39,7 +39,7 @@ class TypeController extends Controller
      */
     public function store(TypeRequest $request)
     {
-        Type::create($request->except('_token'));
+        Type::create($request->validated());
 
         return redirect()->route('admin.types');
     }

@@ -22,7 +22,7 @@
                     @error('description')
                     <p class="text-danger">{{ $message }}</p>
                     @enderror
-                    <button type="submit" class="btn btn-primary w-100">Create</button>
+                    <button type="submit" class="btn btn-primary w-100">Create Type</button>
                 </form>
             </div>
         </div>

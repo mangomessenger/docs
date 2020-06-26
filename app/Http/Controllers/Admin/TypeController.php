@@ -52,7 +52,9 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        return View('admin.types.edit', [
+            'type' => $type,
+        ]);
     }
 
     /**
@@ -62,9 +64,11 @@ class TypeController extends Controller
      * @param  \App\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Type $type)
+    public function update(TypeRequest $request, Type $type)
     {
-        //
+        $type->update($request->validated());
+
+        return redirect()->route('admin.types');
     }
 
     /**

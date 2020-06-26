@@ -24,7 +24,7 @@
                         <td><a href="{{ route('type', $type->name) }}">{{ $type->name }}</a></td>
                         <td>{{ $type->description }}</td>
                         <td>
-                            <a class="btn btn-primary" href="#">Edit</a>
+                            <a class="btn btn-primary" href="{{ route('type.edit', $type) }}">Edit</a>
                             <form method="post" action="{{ route("type.destroy", $type) }}">
                                 @csrf
                                 @method('DELETE')

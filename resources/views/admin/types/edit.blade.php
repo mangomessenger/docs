@@ -39,6 +39,7 @@
                     <th scope="col">Name</th>
                     <th scope="col">Type</th>
                     <th scope="col">Description</th>
+                    <th scope="col">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -47,6 +48,14 @@
                         <td>{{ $param->name }}</td>
                         <td><a href="{{ route('type', $param->type_id) }}">{{ \App\Type::find($param->type_id)->name }}</a></td>
                         <td>{{ $param->description }}</td>
+                        <td>
+                            <a class="btn btn-primary w-100 mt-1" href="{{ route('type-param.edit', $param) }}">Edit</a>
+                            <form method="post" action="{{ route("type-param.destroy", $param) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger w-100 mt-1">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

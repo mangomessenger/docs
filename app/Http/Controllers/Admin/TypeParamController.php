@@ -62,19 +62,23 @@ class TypeParamController extends Controller
      */
     public function edit(TypeParam $typeParam)
     {
-        //
+        return View('admin.type-params.edit', [
+            'typeParam' => $typeParam,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param TypeParam $typeParam
+     * @param TypeParamRequest $typeParam
      * @return Response
      */
-    public function update(Request $request, TypeParam $typeParam)
+    public function update(TypeParamRequest $request, TypeParam $typeParam)
     {
-        //
+        $typeParam->update($request->validated());
+
+        return redirect()->route('type.edit', $typeParam->ref_type_id);
     }
 
     /**

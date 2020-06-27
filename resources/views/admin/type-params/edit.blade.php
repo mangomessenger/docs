@@ -26,7 +26,7 @@
                         <label for="name">Type</label>
                         <select name="type_id" class="custom-select custom-select @error("type_id") is-invalid @enderror">
                             @foreach(\App\Type::all() as $typeOption)
-                                <option @if($typeOption->id === (old("type_id") ?? $typeParam->type_id)) selected @endif value="{{ $typeOption->id }}">{{ $typeOption->name }}</option>
+                                <option @if($typeOption->id == (old("type_id") ?? $typeParam->type_id)) selected @endif value="{{ $typeOption->id }}">{{ $typeOption->name }}</option>
                             @endforeach
                         </select>
                         @error("type_id")

@@ -89,6 +89,7 @@ class TypeParamController extends Controller
      */
     public function destroy(TypeParam $typeParam)
     {
-        //
+        $typeParam->delete();
+        return redirect()->back();
     }
 }

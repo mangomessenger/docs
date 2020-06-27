@@ -5,14 +5,18 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TypeRequest;
 use App\Type;
+use Exception;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function index()
     {
@@ -24,7 +28,7 @@ class TypeController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function create()
     {
@@ -34,8 +38,8 @@ class TypeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param TypeRequest $request
+     * @return RedirectResponse
      */
     public function store(TypeRequest $request)
     {
@@ -47,8 +51,8 @@ class TypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Type  $type
-     * @return \Illuminate\Http\Response
+     * @param Type $type
+     * @return View
      */
     public function edit(Type $type)
     {
@@ -60,9 +64,9 @@ class TypeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Type  $type
-     * @return \Illuminate\Http\Response
+     * @param TypeRequest $request
+     * @param Type $type
+     * @return RedirectResponse
      */
     public function update(TypeRequest $request, Type $type)
     {
@@ -74,8 +78,9 @@ class TypeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Type  $type
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Type $type
+     * @return RedirectResponse
+     * @throws Exception
      */
     public function destroy(Type $type)
     {

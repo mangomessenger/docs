@@ -6,14 +6,18 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TypeParamRequest;
 use App\Type;
 use App\TypeParam;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class TypeParamController extends Controller
 {
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Type $type
+     * @return View
      */
     public function create(Type $type)
     {
@@ -25,8 +29,9 @@ class TypeParamController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param TypeParamRequest $request
+     * @param Type $type
+     * @return RedirectResponse
      */
     public function store(TypeParamRequest $request, Type $type)
     {
@@ -41,8 +46,8 @@ class TypeParamController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\TypeParam $typeParam
-     * @return \Illuminate\Http\Response
+     * @param TypeParam $typeParam
+     * @return void
      */
     public function show(TypeParam $typeParam)
     {
@@ -52,8 +57,8 @@ class TypeParamController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\TypeParam $typeParam
-     * @return \Illuminate\Http\Response
+     * @param TypeParam $typeParam
+     * @return Response
      */
     public function edit(TypeParam $typeParam)
     {
@@ -63,9 +68,9 @@ class TypeParamController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\TypeParam $typeParam
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param TypeParam $typeParam
+     * @return Response
      */
     public function update(Request $request, TypeParam $typeParam)
     {
@@ -75,8 +80,8 @@ class TypeParamController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\TypeParam $typeParam
-     * @return \Illuminate\Http\Response
+     * @param TypeParam $typeParam
+     * @return Response
      */
     public function destroy(TypeParam $typeParam)
     {

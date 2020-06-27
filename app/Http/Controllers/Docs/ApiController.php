@@ -7,6 +7,7 @@ use App\Method;
 use App\MethodTag;
 use App\Type;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\View\View;
 
 class ApiController extends Controller

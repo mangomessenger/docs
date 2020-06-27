@@ -17,6 +17,9 @@ class Type extends Model
     protected $fillable = [
         'name', 'description'
     ];
+    /**
+     * @var mixed
+     */
 
     /**
      * Get the params for the type.

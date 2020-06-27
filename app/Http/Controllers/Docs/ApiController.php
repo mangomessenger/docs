@@ -43,7 +43,7 @@ class ApiController extends Controller
     {
         return view('api.method', [
             'title' => "$method - API Method",
-            'method' => Method::where('name', $method)->firstOrFail(),
+            'method' => Method::where('name', $method)->orWhere('id', $method)->firstOrFail(),
         ]);
     }
 
@@ -69,7 +69,7 @@ class ApiController extends Controller
     {
         return view('api.type', [
             'title' => "$type - API Type",
-            'type' => Type::where('name', $type)->firstOrFail(),
+            'type' => Type::where('name', $type)->orWhere('id', $type)->firstOrFail(),
         ]);
     }
 }

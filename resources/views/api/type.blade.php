@@ -1,10 +1,35 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-content center-block">
-        <div class="container">
-            <h5><b>{{ $type->name }}</b></h5>
-            <p>{{ $type->description }}</p>
-        </div>
+    <div class="row">
+        <h5><b>{{ $type->name }}</b></h5>
+    </div>
+    <div class="row">
+        <p>{{ $type->description }}</p>
+    </div>
+
+    <div class="row pt-5 pb-2">
+        <h4 class="font-weight-bold">Parameters</h4>
+    </div>
+
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($type->params as $param)
+                <tr>
+                    <td>{{ $param->name }}</td>
+                    <td><a href="{{ route('type', $param->type_id) }}">{{ \App\Type::find($param->type_id)->name }}</a></td>
+                    <td>{{ $param->description }}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
     </div>
 @endsection

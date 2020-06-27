@@ -26,8 +26,8 @@
                 </form>
             </div>
         </div>
-        <div class="row pt-5">
-            <h2>Parameters</h2>
+        <div class="row pt-5 pb-2">
+            <h4 class="font-weight-bold">Parameters</h4>
         </div>
         <div class="row">
             <a class="btn btn-primary" href="{{ route('type-param.create', $type) }}">Create new</a>
@@ -37,16 +37,16 @@
                 <thead>
                 <tr>
                     <th scope="col">Name</th>
-                    <th scope="col">Description</th>
                     <th scope="col">Type</th>
+                    <th scope="col">Description</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($type->params as $param)
                     <tr>
                         <td>{{ $param->name }}</td>
-                        <td>{{ $param->description }}</td>
                         <td><a href="{{ route('type', $param->type_id) }}">{{ \App\Type::find($param->type_id)->name }}</a></td>
+                        <td>{{ $param->description }}</td>
                     </tr>
                 @endforeach
                 </tbody>

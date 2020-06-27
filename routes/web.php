@@ -25,12 +25,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/params/{type}', 'Admin\TypeParamController@index')->name('type.params');
 
         /* Type-Params */
-        Route::get('/type-params/not-working/create', 'Admin\TypeParamController@create')->name('type-param.create');//Does not working at this stage
-        Route::post('/type-params/not-working/{type}', 'Admin\TypeParamController@store')->name('type-param.store');//Does not working at this stage
+        Route::get('/types/{type}/params/create', 'Admin\TypeParamController@create')->name('type-param.create');
+        Route::post('/types/{type}/params', 'Admin\TypeParamController@store')->name('type-param.store');
 
-        Route::get('/type-params/{type_param}/edit', 'Admin\TypeParamController@edit')->name('type-param.edit');
-        Route::post('/type-params/{type_param}', 'Admin\TypeParamController@update')->name('type-param.update');
-        Route::delete('/type-params/{type_param}', 'Admin\TypeParamController@destroy')->name('type-param.destroy');
+        Route::get('/types/params/{type_param}/edit', 'Admin\TypeParamController@edit')->name('type-param.edit');
+        Route::post('/types/params/{type_param}', 'Admin\TypeParamController@update')->name('type-param.update');
+        Route::delete('/types/params/{type_param}', 'Admin\TypeParamController@destroy')->name('type-param.destroy');
     });
 });
 

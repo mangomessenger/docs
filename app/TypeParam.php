@@ -7,4 +7,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TypeParam extends Model
 {
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'description', 'type_id'
+    ];
 }

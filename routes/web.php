@@ -31,6 +31,10 @@ Route::middleware('auth')->group(function () {
         Route::post('/types/', 'Admin\TypeController@store')->name('type.store');
         Route::get('/types/{type}/edit', 'Admin\TypeController@edit')->name('type.edit');
         Route::post('/types/{type}', 'Admin\TypeController@update')->name('type.update');
+        Route::get('/params/{type}', 'Admin\TypeParamController@index')->name('type.params');
+
+        Route::get('/type-params/{type}/create', 'Admin\TypeParamController@create')->name('type-param.create');
+        Route::post('/type-params/{type}', 'Admin\TypeParamController@store')->name('type-param.store');
     });
 });
 

@@ -19,7 +19,7 @@ class ApiController extends Controller
      */
     public function index()
     {
-        return view('api.api');
+        return View('api.api');
     }
 
     /**
@@ -42,7 +42,7 @@ class ApiController extends Controller
      */
     public function method(string $method)
     {
-        return view('api.method', [
+        return View('api.method', [
             'title' => "$method - API Method",
             'method' => Method::where('name', $method)->orWhere('id', $method)->firstOrFail(),
         ]);
@@ -68,9 +68,10 @@ class ApiController extends Controller
      */
     public function type(string $type)
     {
-        return view('api.type', [
+        return View('api.type', [
             'title' => "$type - API Type",
-            'type' => Type::where('name', $type)->orWhere('id', $type)->firstOrFail(),
+            'type' => $t = Type::where('name', $type)->orWhere('id', $type)->firstOrFail(),
+            'params' => $t->params,
         ]);
     }
 }

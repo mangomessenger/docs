@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TypeParamRequest;
 use App\Type;
 use App\TypeParam;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -58,7 +59,7 @@ class TypeParamController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param TypeParam $typeParam
-     * @return Response
+     * @return View
      */
     public function edit(TypeParam $typeParam)
     {
@@ -70,9 +71,9 @@ class TypeParamController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param TypeParamRequest $typeParam
-     * @return Response
+     * @param TypeParamRequest $request
+     * @param TypeParam $typeParam
+     * @return RedirectResponse
      */
     public function update(TypeParamRequest $request, TypeParam $typeParam)
     {
@@ -85,7 +86,7 @@ class TypeParamController extends Controller
      * Remove the specified resource from storage.
      *
      * @param TypeParam $typeParam
-     * @return Response
+     * @return RedirectResponse
      */
     public function destroy(TypeParam $typeParam)
     {

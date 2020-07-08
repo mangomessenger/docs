@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/api', 'Docs\ApiController@index')->name('api');
 Route::get('/methods', 'Docs\ApiController@methods')->name('methods');
-Route::get('/method/{method}', 'Docs\ApiController@method')->name('method');
+Route::get('/methods/{method}', 'Docs\ApiController@method')->name('method');
 Route::get('/types', 'Docs\ApiController@types')->name('types');
-Route::get('/type/{type}', 'Docs\ApiController@type')->name('type');
+Route::get('/types/{type}', 'Docs\ApiController@type')->name('type');
 
 /* Admin Panel */
 Route::middleware('auth')->group(function () {

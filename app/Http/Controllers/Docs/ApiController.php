@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Docs;
 use App\Http\Controllers\Controller;
 use App\Method;
 use App\MethodTag;
+use App\Services\TypeService;
 use App\Type;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -51,12 +52,13 @@ class ApiController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param TypeService $typeService
      * @return View
      */
-    public function types()
+    public function types(TypeService $typeService)
     {
         return View('api.types', [
-            'types' => Type::all(),
+            'types' => $typeService->all(),
         ]);
     }
 
@@ -64,13 +66,14 @@ class ApiController extends Controller
      * Display the specified resource.
      *
      * @param string $type
+     * @param TypeService $typeService
      * @return View
      */
-    public function type(string $type)
+    public function type(string $type, TypeService $typeService)
     {
         return View('api.type', [
             'title' => "$type - API Type",
-            'type' => $t = Type::where('name', $type)->orWhere('id', $type)->firstOrFail(),
+            'type' => $t = $typeService->find($type),
             'params' => $t->params,
         ]);
     }

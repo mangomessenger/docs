@@ -19,7 +19,7 @@ class ApiController extends Controller
      */
     public function index()
     {
-        return View('api.api');
+        return View('api.index');
     }
 
     /**

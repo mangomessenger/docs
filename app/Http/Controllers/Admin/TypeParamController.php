@@ -36,10 +36,9 @@ class TypeParamController extends Controller
      */
     public function store(TypeParamRequest $request, Type $type)
     {
-        $typeParam = new TypeParam;
-        $typeParam->fill($request->validated());
-        $typeParam->ref_type_id = $type->id;
-        $typeParam->save();
+        $data = $request->validated();
+        $data['ref_type_id'] = $type->id;
+        TypeParam::create($data);
 
         return redirect()->route('type.edit', $type);
     }

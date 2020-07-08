@@ -13,6 +13,6 @@ class TypeParam extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'description', 'type_id'
+        'name', 'description', 'type_id', 'ref_type_id'
     ];
 }

@@ -23,9 +23,9 @@ class TypeTest extends TestCase
     public function test_admin_can_edit_type()
     {
         $user = factory(User::class)->create();
-        $type = factory(Type::class)->make();
+        $type = factory(Type::class)->create();
 
-        $response = $this->actingAs($user)->post(route('type.store'), $type->toArray());
+        $response = $this->actingAs($user)->post(route('type.update', 1), $type->toArray());
         $response->assertRedirect(route('admin.types'));
     }
 

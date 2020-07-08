@@ -22,7 +22,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/types/{type}/edit', 'Admin\TypeController@edit')->name('type.edit');
         Route::post('/types/{type}', 'Admin\TypeController@update')->name('type.update');
         Route::delete('/types/{type}', 'Admin\TypeController@destroy')->name('type.destroy');
-        Route::get('/params/{type}', 'Admin\TypeParamController@index')->name('type.params');
 
         /* Type-Params */
         Route::get('/types/{type}/params/create', 'Admin\TypeParamController@create')->name('type-param.create');

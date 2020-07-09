@@ -25,7 +25,7 @@ class TypeParamRequest extends FormRequest
     {
         return [
             'name' => 'required|min:2',
-            'description' => 'required|min:5|max:200',
+            'description' => 'required|min:5|max:300',
             'type_id' => 'required|exists:types,id'
         ];
     }

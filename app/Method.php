@@ -35,4 +35,12 @@ class Method extends Model
     {
         return $this->hasOne('App\Type', 'id', 'return_type_id');
     }
+
+    /**
+     * Get the params for the type.
+     */
+    public function params()
+    {
+        return $this->hasMany('App\MethodParam', 'method_id');
+    }
 }

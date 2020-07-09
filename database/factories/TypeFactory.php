@@ -5,9 +5,12 @@
 use App\Model;
 use Faker\Generator as Faker;
 
-$factory->define(\App\Type::class, function (Faker $faker) {
+
+$types = [ 'string', 'object', 'bool', 'Message', 'User', 'Chat', 'Image', 'AuthResponse'];
+
+$factory->define(\App\Type::class, function (Faker $faker) use ($types) {
     return [
-        'name' => $faker->name,
+        'name' => collect($types)->random(),
         'description' => $faker->text(200),
     ];
 });

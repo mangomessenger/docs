@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             'tag_id' => 1,
             'name' => 'reportSpam',
             'description' => 'Report a new incoming chat for spam, if the peer settings of the chat allow us to do that',
-            'return_type_id' => null,
+            'return_type_id' => 1,
         ]);
 
         DB::table('method_tags')->insert([
@@ -37,28 +37,14 @@ class DatabaseSeeder extends Seeder
             'tag_id' => 2,
             'name' => 'signIn',
             'description' => 'Signs in a user with a validated phone number.',
-            'return_type_id' => null,
+            'return_type_id' => 1,
         ]);
 
-        DB::table('users')->insert([
-            'name' => 'Donald',
-            'email' => 'dnldcode@gmail.com',
-            'password' => \Illuminate\Support\Facades\Hash::make("test"),
-        ]);
 
-        DB::table('types')->insert([
-            'name' => 'Bool',
-            'description' => 'Boolean type.',
-        ]);
-
-        DB::table('types')->insert([
-            'name' => 'TermsOfServiceUpdate',
-            'description' => 'Update of Telegram\'s terms of service',
-        ]);
-
-        DB::table('types')->insert([
-            'name' => 'string',
-            'description' => 'String type.',
+        $this->call([
+            UserSeeder::class,
+            TypeSeeder::class,
+            MethodSeeder::class,
         ]);
     }
 }

@@ -26,7 +26,7 @@ class Type extends Model
      */
     public function params()
     {
-        return $this->hasMany('App\TypeParam', 'ref_type_id');
+        return $this->hasMany('App\TypeParam', 'type_id');
     }
 
     /**

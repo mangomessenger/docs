@@ -17,9 +17,9 @@ class AddRefTypeIdToMethodParamsTable extends Migration
 
         Schema::table('method_params', function (Blueprint $table) use ($driver) {
             if ('sqlite' === $driver) {
-                $table->foreignId('ref_type_id')->nullable()->constrained('types');
+                $table->foreignId('return_type_id')->nullable()->constrained('types');
             } else {
-                $table->foreignId('ref_type_id')->after('method_id')->constrained('types');
+                $table->foreignId('return_type_id')->after('method_id')->constrained('types');
             }
         });
     }
@@ -32,7 +32,7 @@ class AddRefTypeIdToMethodParamsTable extends Migration
     public function down()
     {
         Schema::table('method_params', function (Blueprint $table) {
-            $table->dropColumn('ref_type_id');
+            $table->dropColumn('return_type_id');
         });
     }
 }

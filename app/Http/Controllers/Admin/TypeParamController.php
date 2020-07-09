@@ -7,10 +7,7 @@ use App\Http\Requests\TypeParamRequest;
 use App\Services\TypeParamService;
 use App\Type;
 use App\TypeParam;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\View\View;
 
 class TypeParamController extends Controller
@@ -68,13 +65,14 @@ class TypeParamController extends Controller
     {
         $typeParamService->update($typeParam->id, $request->validated());
 
-        return redirect()->route('type.edit', $typeParam->ref_type_id);
+        return redirect()->route('type.edit', $typeParam->type_id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param TypeParam $typeParam
+     * @param TypeParamService $typeParamService
+     * @param int $id
      * @return RedirectResponse
      */
     public function destroy(TypeParamService $typeParamService, int $id)

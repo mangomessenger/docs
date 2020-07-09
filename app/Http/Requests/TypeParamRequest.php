@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 
 class TypeParamRequest extends FormRequest
 {
@@ -26,8 +27,8 @@ class TypeParamRequest extends FormRequest
         return [
             'name' => 'required|min:2',
             'description' => 'required|min:5|max:300',
-            'type_id' => 'required|exists:types,id',
-            'ref_type_id' => 'required|exists:types,id'
+            'type_id' => Request::isMethod('post') ? '' : 'required|exists:types,id',
+            'return_type_id' => 'required|exists:types,id'
         ];
     }
 }

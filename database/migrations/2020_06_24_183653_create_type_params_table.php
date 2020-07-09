@@ -15,7 +15,7 @@ class CreateTypeParamsTable extends Migration
     {
         Schema::create('type_params', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('ref_type_id')->constrained('types');
+            $table->foreignId('return_type_id')->constrained('types');
             $table->string("name");
             $table->foreignId('type_id')->constrained('types');
             $table->string("description");

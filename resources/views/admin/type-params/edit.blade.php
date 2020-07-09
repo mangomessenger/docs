@@ -24,12 +24,12 @@
                     @enderror
                     <div class="form-group">
                         <label for="name">Type</label>
-                        <select name="type_id" class="custom-select custom-select @error("type_id") is-invalid @enderror">
+                        <select name="return_type_id" class="custom-select custom-select @error("return_type_id") is-invalid @enderror">
                             @foreach(\App\Type::all() as $typeOption)
-                                <option @if($typeOption->id == (old("type_id") ?? $typeParam->type_id)) selected @endif value="{{ $typeOption->id }}">{{ $typeOption->name }}</option>
+                                <option @if($typeOption->id == (old("return_type_id") ?? $typeParam->return_type_id)) selected @endif value="{{ $typeOption->id }}">{{ $typeOption->name }}</option>
                             @endforeach
                         </select>
-                        @error("type_id")
+                        @error("return_type_id")
                         <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>

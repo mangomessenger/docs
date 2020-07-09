@@ -27,7 +27,7 @@
                         <td>{{ $method->type }}</td>
                         <td>{{ $method->description }}</td>
                         <td>
-{{--                            <a class="btn btn-primary w-100 mt-1" href="{{ route('type.edit', $method) }}">Edit</a>--}}
+                            <a class="btn btn-primary w-100 mt-1" href="{{ route('method.edit', $method) }}">Edit</a>
 {{--                            <form method="post" action="{{ route("type.destroy", $method) }}">--}}
                                 @csrf
                                 @method('DELETE')

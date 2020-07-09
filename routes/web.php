@@ -34,8 +34,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/methods', 'Admin\MethodController@index')->name('admin.methods');
         Route::get('/methods/create', 'Admin\MethodController@create')->name('method.create');
         Route::post('/methods/', 'Admin\MethodController@store')->name('method.store');
-//        Route::get('/methods/{type}/edit', 'Admin\TypeController@edit')->name('type.edit');
-//        Route::post('/methods/{type}', 'Admin\TypeController@update')->name('type.update');
+        Route::get('/methods/{method}/edit', 'Admin\MethodController@edit')->name('method.edit');
+        Route::post('/methods/{id}', 'Admin\MethodController@update')->name('method.update');
 //        Route::delete('/methods/{type}', 'Admin\TypeController@destroy')->name('type.destroy');
     });
 });

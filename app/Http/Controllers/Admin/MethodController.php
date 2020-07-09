@@ -56,19 +56,24 @@ class MethodController extends Controller
      */
     public function edit(Method $method)
     {
-        //
+        return View('admin.methods.edit', [
+            'method' => $method,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Method $method
+     * @param MethodService $methodService
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Method $method)
+    public function update(MethodRequest $request, MethodService $methodService, int $id)
     {
-        //
+        $methodService->update($id, $request->validated());
+
+        return redirect()->route('admin.methods');
     }
 
     /**

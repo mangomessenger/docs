@@ -14,7 +14,7 @@ class AddMethodTypeForMethodsTable extends Migration
     public function up()
     {
         Schema::table('methods', function (Blueprint $table) {
-            $table->enum('method_type', ['GET', 'POST', 'PUT', 'DELETE'])->default('GET')->after('name');
+            $table->enum('type', ['GET', 'POST', 'PUT', 'DELETE'])->default('GET')->after('name');
         });
     }
 
@@ -26,7 +26,7 @@ class AddMethodTypeForMethodsTable extends Migration
     public function down()
     {
         Schema::table('methods', function (Blueprint $table) {
-            $table->dropColumn('method_type');
+            $table->dropColumn('type');
         });
     }
 }

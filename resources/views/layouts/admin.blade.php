@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $title ?? config('app.name', 'Laravel') . ' API' }}</title>
+    <title>{{ $title ?? config('app.name', 'Laravel') . ' Panel' }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -42,7 +42,7 @@
                         <a class="nav-link" href="{{ route('admin.types') }}">Types</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Methods</a>
+                        <a class="nav-link" href="{{ route('admin.methods') }}">Methods</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn-link text-primary underline" href="{{ route('home') }}"><u>Go on main page</u></a>

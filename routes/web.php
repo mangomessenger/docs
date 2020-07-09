@@ -15,6 +15,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('panel')->group(function (){
         /* Admin Panel */
         Route::get('/', 'Admin\PanelController@index')->name('panel');
+
         /* Types */
         Route::get('/types', 'Admin\TypeController@index')->name('admin.types');
         Route::get('/types/create', 'Admin\TypeController@create')->name('type.create');
@@ -22,14 +23,20 @@ Route::middleware('auth')->group(function () {
         Route::get('/types/{type}/edit', 'Admin\TypeController@edit')->name('type.edit');
         Route::post('/types/{type}', 'Admin\TypeController@update')->name('type.update');
         Route::delete('/types/{type}', 'Admin\TypeController@destroy')->name('type.destroy');
-
         /* Type-Params */
         Route::get('/types/{type}/params/create', 'Admin\TypeParamController@create')->name('type-param.create');
         Route::post('/types/{type}/params', 'Admin\TypeParamController@store')->name('type-param.store');
-
         Route::get('/types/params/{type_param}/edit', 'Admin\TypeParamController@edit')->name('type-param.edit');
         Route::post('/types/params/{type_param}', 'Admin\TypeParamController@update')->name('type-param.update');
         Route::delete('/types/params/{type_param}', 'Admin\TypeParamController@destroy')->name('type-param.destroy');
+
+        /* Methods */
+        Route::get('/methods', 'Admin\MethodController@index')->name('admin.methods');
+        Route::get('/methods/create', 'Admin\MethodController@create')->name('method.create');
+//        Route::post('/methods/', 'Admin\TypeController@store')->name('type.store');
+//        Route::get('/methods/{type}/edit', 'Admin\TypeController@edit')->name('type.edit');
+//        Route::post('/methods/{type}', 'Admin\TypeController@update')->name('type.update');
+//        Route::delete('/methods/{type}', 'Admin\TypeController@destroy')->name('type.destroy');
     });
 });
 

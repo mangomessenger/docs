@@ -19,7 +19,7 @@ abstract class BaseService
         return $this->model->find($id);
     }
 
-    public function destroy($id)
+    public function delete($id)
     {
         return $this->find($id)->delete();
     }

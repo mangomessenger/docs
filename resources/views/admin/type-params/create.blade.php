@@ -18,6 +18,9 @@
                     @error('name')
                     <p class="text-danger">{{ $message }}</p>
                     @enderror
+
+                    <input type="hidden" name="ref_type_id" value="{{ $type->id }}">
+
                     <div class="form-group">
                         <label>Description</label>
                         <textarea class="form-control @error('description') is-invalid @enderror" name="description"

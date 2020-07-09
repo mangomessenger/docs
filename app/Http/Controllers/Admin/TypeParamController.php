@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TypeParamRequest;
+use App\Services\TypeParamService;
 use App\Type;
 use App\TypeParam;
 use Illuminate\Contracts\View\Factory;
@@ -31,27 +32,15 @@ class TypeParamController extends Controller
      * Store a newly created resource in storage.
      *
      * @param TypeParamRequest $request
+     * @param TypeParamService $typeParamService
      * @param Type $type
      * @return RedirectResponse
      */
-    public function store(TypeParamRequest $request, Type $type)
+    public function store(TypeParamRequest $request, TypeParamService $typeParamService, Type $type)
     {
-        $data = $request->validated();
-        $data['ref_type_id'] = $type->id;
-        TypeParam::create($data);
+        $typeParamService->create($request->validated());
 
         return redirect()->route('type.edit', $type);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param TypeParam $typeParam
-     * @return void
-     */
-    public function show(TypeParam $typeParam)
-    {
-        //
     }
 
     /**
@@ -71,12 +60,13 @@ class TypeParamController extends Controller
      * Update the specified resource in storage.
      *
      * @param TypeParamRequest $request
+     * @param TypeParamService $typeParamService
      * @param TypeParam $typeParam
      * @return RedirectResponse
      */
-    public function update(TypeParamRequest $request, TypeParam $typeParam)
+    public function update(TypeParamRequest $request, TypeParamService $typeParamService, TypeParam $typeParam)
     {
-        $typeParam->update($request->validated());
+        $typeParamService->update($typeParam->id, $request->validated());
 
         return redirect()->route('type.edit', $typeParam->ref_type_id);
     }
@@ -87,9 +77,9 @@ class TypeParamController extends Controller
      * @param TypeParam $typeParam
      * @return RedirectResponse
      */
-    public function destroy(TypeParam $typeParam)
+    public function destroy(TypeParamService $typeParamService, int $id)
     {
-        $typeParam->delete();
+        $typeParamService->delete($id);
         return redirect()->back();
     }
 }

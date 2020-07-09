@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/types/{type}/params', 'Admin\TypeParamController@store')->name('type-param.store');
         Route::get('/types/params/{type_param}/edit', 'Admin\TypeParamController@edit')->name('type-param.edit');
         Route::post('/types/params/{type_param}', 'Admin\TypeParamController@update')->name('type-param.update');
-        Route::delete('/types/params/{type_param}', 'Admin\TypeParamController@destroy')->name('type-param.destroy');
+        Route::delete('/types/params/{id}', 'Admin\TypeParamController@destroy')->name('type-param.destroy');
 
         /* Methods */
         Route::get('/methods', 'Admin\MethodController@index')->name('admin.methods');

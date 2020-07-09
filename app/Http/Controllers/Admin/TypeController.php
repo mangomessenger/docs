@@ -88,7 +88,7 @@ class TypeController extends Controller
      */
     public function destroy(TypeService $typeService, int $id)
     {
-        $typeService->destroy($id);
+        $typeService->delete($id);
 
         return redirect()->back();
     }

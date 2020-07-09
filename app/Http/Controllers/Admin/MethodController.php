@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MethodRequest;
 use App\Method;
 use App\Services\MethodService;
-use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class MethodController extends Controller
@@ -39,7 +39,7 @@ class MethodController extends Controller
      *
      * @param MethodRequest $request
      * @param MethodService $methodService
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function store(MethodRequest $request, MethodService $methodService)
     {
@@ -51,8 +51,8 @@ class MethodController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Method $method
-     * @return \Illuminate\Http\Response
+     * @param Method $method
+     * @return View
      */
     public function edit(Method $method)
     {
@@ -64,10 +64,10 @@ class MethodController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param MethodRequest $request
      * @param MethodService $methodService
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
     public function update(MethodRequest $request, MethodService $methodService, int $id)
     {
@@ -79,11 +79,14 @@ class MethodController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Method $method
-     * @return \Illuminate\Http\Response
+     * @param MethodService $methodService
+     * @param int $id
+     * @return RedirectResponse
      */
-    public function destroy(Method $method)
+    public function destroy(MethodService $methodService, int $id)
     {
-        //
+        $methodService->delete($id);
+
+        return redirect()->back();
     }
 }

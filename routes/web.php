@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/methods/', 'Admin\MethodController@store')->name('method.store');
         Route::get('/methods/{method}/edit', 'Admin\MethodController@edit')->name('method.edit');
         Route::post('/methods/{id}', 'Admin\MethodController@update')->name('method.update');
-//        Route::delete('/methods/{type}', 'Admin\TypeController@destroy')->name('type.destroy');
+        Route::delete('/methods/{id}', 'Admin\MethodController@destroy')->name('method.destroy');
     });
 });
 

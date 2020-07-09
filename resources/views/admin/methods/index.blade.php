@@ -32,11 +32,11 @@
                         <td><a href="{{ route('type', $method->returnType) }}">{{ $method->returnType->name }}</a></td>
                         <td>
                             <a class="btn btn-primary w-100 mt-1" href="{{ route('method.edit', $method) }}">Edit</a>
-{{--                            <form method="post" action="{{ route("type.destroy", $method) }}">--}}
+                            <form method="post" action="{{ route("method.destroy", $method) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger w-100 mt-1">Delete</button>
-{{--                            </form>--}}
+                            </form>
                         </td>
                     </tr>
                 @endforeach

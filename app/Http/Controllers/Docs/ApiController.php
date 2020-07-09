@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Method;
 use App\MethodTag;
 use App\Services\TypeService;
-use App\Type;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\View\View;

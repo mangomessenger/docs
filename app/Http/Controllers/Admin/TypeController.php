@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TypeRequest;
+use App\Services\TypeService;
 use App\Type;
 use Exception;
 use Illuminate\Http\RedirectResponse;
@@ -16,12 +17,13 @@ class TypeController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param TypeService $typeService
      * @return View
      */
-    public function index()
+    public function index(TypeService $typeService)
     {
         return View('admin.types.index', [
-            'types' => Type::all(),
+            'types' => $typeService->all(),
         ]);
     }
 
@@ -39,11 +41,12 @@ class TypeController extends Controller
      * Store a newly created resource in storage.
      *
      * @param TypeRequest $request
+     * @param TypeService $typeService
      * @return RedirectResponse
      */
-    public function store(TypeRequest $request)
+    public function store(TypeRequest $request, TypeService $typeService)
     {
-        Type::create($request->validated());
+        $typeService->create($request->validated());
 
         return redirect()->route('admin.types');
     }
@@ -65,12 +68,13 @@ class TypeController extends Controller
      * Update the specified resource in storage.
      *
      * @param TypeRequest $request
-     * @param Type $type
+     * @param TypeService $typeService
+     * @param int $id
      * @return RedirectResponse
      */
-    public function update(TypeRequest $request, Type $type)
+    public function update(TypeRequest $request, TypeService $typeService, int $id)
     {
-        $type->update($request->validated());
+        $typeService->update($id, $request->validated());
 
         return redirect()->route('admin.types');
     }
@@ -78,13 +82,14 @@ class TypeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Type $type
+     * @param TypeService $typeService
+     * @param int $id
      * @return RedirectResponse
-     * @throws Exception
      */
-    public function destroy(Type $type)
+    public function destroy(TypeService $typeService, int $id)
     {
-        $type->delete();
+        $typeService->destroy($id);
+
         return redirect()->back();
     }
 }

@@ -20,4 +20,19 @@ class Method extends Model
         'tag_id', 'name', 'type', 'description', 'return_type_id',
     ];
 
+    /**
+     * Get the tag record associated with the method.
+     */
+    public function tag()
+    {
+        return $this->belongsTo('App\MethodTag');
+    }
+
+    /**
+     * Get the returnType record associated with the method.
+     */
+    public function returnType()
+    {
+        return $this->hasOne('App\Type', 'id', 'return_type_id');
+    }
 }

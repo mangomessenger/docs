@@ -14,18 +14,22 @@
             <table class="table">
                 <thead>
                 <tr>
+                    <th scope="col">Tag</th>
                     <th scope="col">Name</th>
                     <th scope="col">Method</th>
                     <th scope="col">Description</th>
+                    <th scope="col">Return Type</th>
                     <th scope="col">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($methods as $method)
                     <tr>
+                        <td>{{ $method->tag->tag }}</td>
                         <td><a href="{{ route('method', $method->name) }}">{{ $method->name }}</a></td>
                         <td>{{ $method->type }}</td>
                         <td>{{ $method->description }}</td>
+                        <td><a href="{{ route('type', $method->returnType) }}">{{ $method->returnType->name }}</a></td>
                         <td>
                             <a class="btn btn-primary w-100 mt-1" href="{{ route('method.edit', $method) }}">Edit</a>
 {{--                            <form method="post" action="{{ route("type.destroy", $method) }}">--}}

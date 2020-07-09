@@ -17,7 +17,6 @@ class CreateMethodParamsTable extends Migration
             $table->id();
             $table->foreignId('method_id')->constrained('methods');
             $table->string("name");
-            $table->string("type");
             $table->string("description");
             $table->timestamps();
         });

@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-6">
-                <form method="post" action="{{ route('type.store') }}">
+                <form method="post" action="{{ route('method.store') }}">
                     @csrf
 
                     <div class="form-group">

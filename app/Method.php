@@ -8,12 +8,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Method extends Model
 {
     use SoftDeletes;
-//    /**
-//     * Get the tags for the method.
-//     */
-//    public function tags()
-//    {
-//        return $this->hasMany('App\MethodTag');
-//    }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'tag_id', 'name', 'type', 'description', 'return_type_id',
+    ];
 
 }

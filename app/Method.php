@@ -9,6 +9,8 @@ class Method extends Model
 {
     use SoftDeletes;
 
+    static public $types = [ 'GET', 'POST', 'PUT', 'DELETE'];
+
     /**
      * The attributes that are mass assignable.
      *

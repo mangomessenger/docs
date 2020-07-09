@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Method;
 use Illuminate\Foundation\Http\FormRequest;
 
 class MethodRequest extends FormRequest
@@ -26,7 +27,7 @@ class MethodRequest extends FormRequest
         return [
             'tag_id' => 'required|exists:method_tags,id',
             'name' => 'required|min:2',
-            'type' => 'required|exists:methods,type',
+            'type' => 'required|required|in:' . implode(',', Method::$types),
             'description' => 'required|min:5|max:300',
             'return_type_id' => 'required|exists:types,id',
         ];

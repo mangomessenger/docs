@@ -11,7 +11,7 @@
                         <label for="name">Tag</label>
                         <select name="tag_id" class="custom-select custom-select @error("tag_id") is-invalid @enderror">
                             @foreach(\App\MethodTag::all() as $tag)
-                                <option @if($tag->id == old("return_type_id")) selected @endif value="{{ $tag->id }}">{{ $tag->tag }}</option>
+                                <option @if($tag->id == old("tag_id")) selected @endif value="{{ $tag->id }}">{{ $tag->tag }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -31,10 +31,9 @@
                     <div class="form-group">
                         <label for="type">Type</label>
                         <select name="type" class="custom-select custom-select @error("type") is-invalid @enderror">
-                            <option>GET</option>
-                            <option>POST</option>
-                            <option>PUT</option>
-                            <option>DELETE</option>
+                            @foreach(\App\Method::$types as $methodType)
+                                <option @if($methodType == old("type")) selected @endif>{{ $methodType }}</option>
+                            @endforeach
                         </select>
                     </div>
                     @error("type")

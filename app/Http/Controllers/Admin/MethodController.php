@@ -28,7 +28,7 @@ class MethodController extends Controller
      */
     public function create()
     {
-        //
+        return View('admin.methods.create');
     }
 
     /**

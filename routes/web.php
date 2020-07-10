@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/method-tags/create', 'Admin\MethodTagController@create')->name('method-tag.create');
         Route::post('/method-tags/', 'Admin\MethodTagController@store')->name('method-tag.store');
         Route::get('/method-tags/{tag}/edit', 'Admin\MethodTagController@edit')->name('method-tag.edit');
-        Route::post('/method-tags/{id}', 'Admin\MethodTagController@update')->name('method-tag.update');
+        Route::put('/method-tags/{id}', 'Admin\MethodTagController@update')->name('method-tag.update');
 
     });
 });

@@ -22,7 +22,7 @@ class MethodTagService extends BaseService
 
     public function update($id, array $input)
     {
-        $input['tag'] = strtolower($input['tag']);
+        unset($input['tag']);
 
         return $this->find($id)->update($input);
     }

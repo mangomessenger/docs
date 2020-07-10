@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 
 class MethodTagRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class MethodTagRequest extends FormRequest
     public function rules()
     {
         return [
-            'tag' => 'required|min:2',
+            'tag' => (Request::isMethod('put') ? '' : 'required|min:2|unique:method_tags'),
             'description' => 'required|min:5|max:300',
         ];
     }

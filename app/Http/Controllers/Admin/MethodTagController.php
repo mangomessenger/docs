@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MethodTagRequest;
+use App\MethodTag;
 use App\Services\MethodTagService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class MethodTagController extends Controller
      */
     public function index(MethodTagService $methodTagService)
     {
-        return View('admin.tags.index', [
+        return View('admin.method-tags.index', [
             'tags' => $methodTagService->all(),
         ]);
     }
@@ -31,7 +32,7 @@ class MethodTagController extends Controller
      */
     public function create()
     {
-        return View('admin.tags.create');
+        return View('admin.method-tags.create');
     }
 
     /**
@@ -49,37 +50,31 @@ class MethodTagController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param MethodTag $tag
+     * @return View
      */
-    public function edit($id)
+    public function edit(MethodTag $tag)
     {
-        //
+        return View('admin.method-tags.edit', [
+            'tag' => $tag,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param MethodTagRequest $request
+     * @param MethodTagService $methodTagService
+     * @param int $id
+     * @return RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(MethodTagRequest $request, MethodTagService $methodTagService, int $id)
     {
-        //
+        $methodTagService->update($id, $request->validated());
+
+        return redirect()->route('admin.method-tags');
     }
 
     /**

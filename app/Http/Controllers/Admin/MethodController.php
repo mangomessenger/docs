@@ -11,6 +11,11 @@ use Illuminate\View\View;
 
 class MethodController extends Controller
 {
+    /**
+     * Service of Method model
+     *
+     * @var MethodService
+     */
     protected $methodService;
 
     /**

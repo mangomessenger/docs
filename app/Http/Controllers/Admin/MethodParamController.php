@@ -8,11 +8,15 @@ use App\Method;
 use App\MethodParam;
 use App\Services\MethodParamService;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
 use Illuminate\View\View;
 
 class MethodParamController extends Controller
 {
+    /**
+     * Service of MethodParam model
+     *
+     * @var MethodParamService
+     */
     protected $methodParamService;
 
     /**

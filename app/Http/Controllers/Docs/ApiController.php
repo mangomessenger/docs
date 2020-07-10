@@ -3,21 +3,41 @@
 namespace App\Http\Controllers\Docs;
 
 use App\Http\Controllers\Controller;
-use App\Method;
-use App\MethodTag;
 use App\Services\MethodService;
 use App\Services\MethodTagService;
 use App\Services\TypeService;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\View\View;
 
 class ApiController extends Controller
 {
+    /**
+     * Service of Type model
+     *
+     * @var TypeService
+     */
     protected $typeService;
+
+    /**
+     * Service of Method model
+     *
+     * @var MethodService
+     */
     protected $methodService;
+
+    /**
+     * Service of MethodTag model
+     *
+     * @var MethodTagService
+     */
     protected $methodTagService;
 
+    /**
+     * ApiController constructor.
+     *
+     * @param TypeService $typeService
+     * @param MethodService $methodService
+     * @param MethodTagService $methodTagService
+     */
     public function __construct(TypeService $typeService,
                                 MethodService $methodService,
                                 MethodTagService $methodTagService)

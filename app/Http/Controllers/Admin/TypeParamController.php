@@ -12,6 +12,11 @@ use Illuminate\View\View;
 
 class TypeParamController extends Controller
 {
+    /**
+     * Service of TypeParam model
+     *
+     * @var TypeParamService
+     */
     protected $typeParamService;
 
     /**

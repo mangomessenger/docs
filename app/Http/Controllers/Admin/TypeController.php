@@ -6,14 +6,16 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TypeRequest;
 use App\Services\TypeService;
 use App\Type;
-use Exception;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\View\View;
 
 class TypeController extends Controller
 {
+    /**
+     * Service of Type model
+     *
+     * @var TypeService
+     */
     protected $typeService;
 
     /**

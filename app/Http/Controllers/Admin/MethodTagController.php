@@ -11,6 +11,11 @@ use Illuminate\View\View;
 
 class MethodTagController extends Controller
 {
+    /**
+     * Service of MethodTag model
+     *
+     * @var MethodTagService
+     */
     protected $methodTagService;
 
     /**

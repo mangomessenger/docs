@@ -79,7 +79,8 @@ class ApiController extends Controller
     {
         return View('api.method', [
             'title' => "$method - API Method",
-            'method' => $this->methodService->find($method),
+            'method' => $m = $this->methodService->find($method),
+            'params' => $m->params,
         ]);
     }
 

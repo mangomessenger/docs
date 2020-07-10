@@ -7,4 +7,5 @@
             <p>{{ $method->description }}</p>
         </div>
     </div>
+    @include('api.partials.parameters_table')
 @endsection

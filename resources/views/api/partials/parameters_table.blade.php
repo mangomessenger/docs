@@ -17,7 +17,7 @@
                 <tr>
                     <td>{{ $param->name }}</td>
                     <td>
-                        <a href="{{ route('type', $param->type_id) }}">{{ \App\Type::find($param->type_id)->name }}</a>
+                        <a href="{{ route('type', $param->return_type_id) }}">{{ \App\Type::find($param->return_type_id)->name }}</a>
                     </td>
                     <td>{{ $param->description }}</td>
                 </tr>

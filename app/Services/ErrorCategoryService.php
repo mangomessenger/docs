@@ -12,4 +12,18 @@ class ErrorCategoryService extends BaseService
     {
         $this->model = $errorCategory;
     }
+
+    public function create(array $input)
+    {
+        $input['name'] = strtoupper($input['name']);
+
+        return $this->model->create($input);
+    }
+
+    public function update($id, array $input)
+    {
+        $input['name'] = strtoupper($input['name']);
+
+        return $this->find($id)->update($input);
+    }
 }

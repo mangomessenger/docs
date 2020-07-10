@@ -67,7 +67,7 @@
                            aria-haspopup="true" aria-expanded="false">Errors</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">Erros</a>
-                            <a class="dropdown-item" href="#">Categories</a>
+                            <a class="dropdown-item" href="{{ route('admin.error-categories') }}">Categories</a>
                         </div>
                     </li>
 

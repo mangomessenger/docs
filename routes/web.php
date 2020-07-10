@@ -50,6 +50,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/method-tags/{tag}/edit', 'Admin\MethodTagController@edit')->name('method-tag.edit');
         Route::put('/method-tags/{id}', 'Admin\MethodTagController@update')->name('method-tag.update');
         Route::delete('/method-tags/{id}', 'Admin\MethodTagController@destroy')->name('method-tag.destroy');
+
+        /* Errors */
+        Route::get('/errors', 'Admin\ErrorController@index')->name('admin.errors');
+        Route::get('/errors/categories', 'Admin\ErrorCategoryController@index')->name('admin.error-categories');
+        Route::get('/errors/categories/create', 'Admin\ErrorCategoryController@create')->name('error-category.create');
+        Route::post('/errors/categories', 'Admin\ErrorCategoryController@store')->name('error-category.store');
+
+
     });
 });
 

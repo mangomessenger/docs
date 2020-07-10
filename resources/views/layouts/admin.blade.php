@@ -44,6 +44,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.methods') }}">Methods</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.method-tags') }}">Method Tags</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link btn-link text-primary underline" href="{{ route('home') }}"><u>Go on main page</u></a>
                     </li>

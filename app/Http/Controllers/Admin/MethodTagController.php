@@ -2,49 +2,59 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\MethodTag;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\MethodTagRequest;
+use App\Services\MethodTagService;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class MethodTagController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param MethodTagService $methodTagService
+     * @return View
      */
-    public function index()
+    public function index(MethodTagService $methodTagService)
     {
-        //
+        return View('admin.tags.index', [
+            'tags' => $methodTagService->all(),
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function create()
     {
-        //
+        return View('admin.tags.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param MethodTagRequest $request
+     * @param MethodTagService $methodTagService
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(MethodTagRequest $request, MethodTagService $methodTagService)
     {
-        //
+        $methodTagService->create($request->validated());
+
+        return redirect()->route('admin.method-tags');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\MethodTag  $methodTag
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(MethodTag $methodTag)
+    public function show($id)
     {
         //
     }
@@ -52,10 +62,10 @@ class MethodTagController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\MethodTag  $methodTag
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(MethodTag $methodTag)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +74,10 @@ class MethodTagController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\MethodTag  $methodTag
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MethodTag $methodTag)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +85,10 @@ class MethodTagController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\MethodTag  $methodTag
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MethodTag $methodTag)
+    public function destroy($id)
     {
         //
     }

@@ -39,9 +39,11 @@ Route::middleware('auth')->group(function () {
         Route::delete('/methods/{id}', 'Admin\MethodController@destroy')->name('method.destroy');
 
         /* Method-Tags */
-        Route::get('/method-tags', 'Admin\TagController@index')->name('admin.method-tags');
-        Route::get('/method-tags/create', 'Admin\TagController@create')->name('method-tag.create');
-        Route::post('/method-tags/', 'Admin\TagController@store')->name('method-tag.store');
+        Route::get('/method-tags', 'Admin\MethodTagController@index')->name('admin.method-tags');
+        Route::get('/method-tags/create', 'Admin\MethodTagController@create')->name('method-tag.create');
+        Route::post('/method-tags/', 'Admin\MethodTagController@store')->name('method-tag.store');
+        Route::get('/method-tags/{tag}/edit', 'Admin\MethodTagController@edit')->name('method-tag.edit');
+        Route::post('/method-tags/{id}', 'Admin\MethodTagController@update')->name('method-tag.update');
 
     });
 });

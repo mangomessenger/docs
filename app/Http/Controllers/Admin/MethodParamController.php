@@ -3,47 +3,62 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MethodParamRequest;
+use App\Http\Requests\TypeRequest;
+use App\Method;
 use App\MethodParam;
+use App\Services\MethodParamService;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class MethodParamController extends Controller
 {
+    protected $methodParamService;
+
     /**
-     * Display a listing of the resource.
+     * Create a new controller instance.
      *
-     * @return \Illuminate\Http\Response
+     * @param MethodParamService $methodParamService
      */
-    public function index()
+    public function __construct(MethodParamService $methodParamService)
     {
-        //
+        $this->methodParamService = $methodParamService;
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Method $method
+     * @return View
      */
-    public function create()
+    public function create(Method $method)
     {
-        //
+        return View('admin.method-params.create', [
+            'method' => $method,
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param MethodParamRequest $request
+     * @param Method $method
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(MethodParamRequest $request, Method $method)
     {
-        //
+        $this->methodParamService->create($request->validated());
+
+        return redirect()->route('method.edit', $method);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\MethodParam  $methodParam
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show(MethodParam $methodParam)
     {
@@ -54,7 +69,7 @@ class MethodParamController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\MethodParam  $methodParam
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit(MethodParam $methodParam)
     {
@@ -66,7 +81,7 @@ class MethodParamController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\MethodParam  $methodParam
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, MethodParam $methodParam)
     {
@@ -77,7 +92,7 @@ class MethodParamController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\MethodParam  $methodParam
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy(MethodParam $methodParam)
     {

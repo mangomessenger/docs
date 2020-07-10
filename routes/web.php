@@ -37,6 +37,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/methods/{method}/edit', 'Admin\MethodController@edit')->name('method.edit');
         Route::put('/methods/{id}', 'Admin\MethodController@update')->name('method.update');
         Route::delete('/methods/{id}', 'Admin\MethodController@destroy')->name('method.destroy');
+        /* Type-Params */
+        Route::get('/methods/{method}/params/create', 'Admin\MethodParamController@create')->name('method-param.create');
+        Route::post('/methods/{method}/params', 'Admin\MethodParamController@store')->name('method-param.store');
+        Route::get('/methods/params/{method_param}/edit', 'Admin\MethodParamController@edit')->name('method-param.edit');
+        Route::put('/methods/params/{method_param}', 'Admin\MethodParamController@update')->name('method-param.update');
+        Route::delete('/methods/params/{id}', 'Admin\MethodParamController@destroy')->name('method-param.destroy');
         /* Method-Tags */
         Route::get('/method-tags', 'Admin\MethodTagController@index')->name('admin.method-tags');
         Route::get('/method-tags/create', 'Admin\MethodTagController@create')->name('method-tag.create');

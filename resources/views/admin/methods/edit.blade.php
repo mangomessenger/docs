@@ -69,5 +69,41 @@
                 </form>
             </div>
         </div>
+
+        <div class="row pt-5 pb-2">
+            <h4 class="font-weight-bold">Parameters</h4>
+        </div>
+        <div class="row">
+            <a class="btn btn-primary" href="{{ route('method-param.create', $method) }}">Create new</a>
+        </div>
+        <div class="row pt-3">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($method->params as $param)
+                    <tr>
+                        <td>{{ $param->name }}</td>
+                        <td><a href="#">{{ \App\Type::find($param->return_type_id)->name }}</a></td>
+                        <td>{{ $param->description }}</td>
+                        <td>
+                            <a class="btn btn-primary w-100 mt-1" href="#">Edit</a>
+                            <form method="post" action="#">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger w-100 mt-1">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 @endsection

@@ -11,6 +11,19 @@ use Illuminate\View\View;
 
 class MethodTagController extends Controller
 {
+    protected $methodTagService;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @param MethodTagService $methodTagService
+     */
+    public function __construct(MethodTagService $methodTagService)
+    {
+        $this->methodTagService = $methodTagService;
+    }
+
+
     /**
      * Display a listing of the resource.
      *

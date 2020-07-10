@@ -11,16 +11,27 @@ use Illuminate\View\View;
 
 class MethodController extends Controller
 {
+    protected $methodService;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @param MethodService $methodService
+     */
+    public function __construct(MethodService $methodService)
+    {
+        $this->methodService = $methodService;
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @param MethodService $methodService
      * @return View
      */
-    public function index(MethodService $methodService)
+    public function index()
     {
         return View('admin.methods.index', [
-            'methods' => $methodService->all(),
+            'methods' => $this->methodService->all(),
         ]);
     }
 
@@ -38,12 +49,11 @@ class MethodController extends Controller
      * Store a newly created resource in storage.
      *
      * @param MethodRequest $request
-     * @param MethodService $methodService
      * @return RedirectResponse
      */
-    public function store(MethodRequest $request, MethodService $methodService)
+    public function store(MethodRequest $request)
     {
-        $methodService->create($request->validated());
+        $this->methodService->create($request->validated());
 
         return redirect()->route('admin.methods');
     }
@@ -65,13 +75,12 @@ class MethodController extends Controller
      * Update the specified resource in storage.
      *
      * @param MethodRequest $request
-     * @param MethodService $methodService
      * @param int $id
      * @return RedirectResponse
      */
-    public function update(MethodRequest $request, MethodService $methodService, int $id)
+    public function update(MethodRequest $request, int $id)
     {
-        $methodService->update($id, $request->validated());
+        $this->methodService->update($id, $request->validated());
 
         return redirect()->route('admin.methods');
     }
@@ -79,13 +88,12 @@ class MethodController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param MethodService $methodService
      * @param int $id
      * @return RedirectResponse
      */
-    public function destroy(MethodService $methodService, int $id)
+    public function destroy(int $id)
     {
-        $methodService->delete($id);
+        $this->methodService->delete($id);
 
         return redirect()->back();
     }

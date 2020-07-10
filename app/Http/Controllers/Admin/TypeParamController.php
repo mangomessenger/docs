@@ -12,6 +12,18 @@ use Illuminate\View\View;
 
 class TypeParamController extends Controller
 {
+    protected $typeParamService;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @param TypeParamService $typeParamService
+     */
+    public function __construct(TypeParamService $typeParamService)
+    {
+        $this->typeParamService = $typeParamService;
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -29,13 +41,12 @@ class TypeParamController extends Controller
      * Store a newly created resource in storage.
      *
      * @param TypeParamRequest $request
-     * @param TypeParamService $typeParamService
      * @param Type $type
      * @return RedirectResponse
      */
-    public function store(TypeParamRequest $request, TypeParamService $typeParamService, Type $type)
+    public function store(TypeParamRequest $request, Type $type)
     {
-        $typeParamService->create($request->validated());
+        $this->typeParamService->create($request->validated());
 
         return redirect()->route('type.edit', $type);
     }
@@ -57,13 +68,12 @@ class TypeParamController extends Controller
      * Update the specified resource in storage.
      *
      * @param TypeParamRequest $request
-     * @param TypeParamService $typeParamService
      * @param TypeParam $typeParam
      * @return RedirectResponse
      */
-    public function update(TypeParamRequest $request, TypeParamService $typeParamService, TypeParam $typeParam)
+    public function update(TypeParamRequest $request, TypeParam $typeParam)
     {
-        $typeParamService->update($typeParam->id, $request->validated());
+        $this->typeParamService->update($typeParam->id, $request->validated());
 
         return redirect()->route('type.edit', $typeParam->type_id);
     }
@@ -71,13 +81,12 @@ class TypeParamController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param TypeParamService $typeParamService
      * @param int $id
      * @return RedirectResponse
      */
-    public function destroy(TypeParamService $typeParamService, int $id)
+    public function destroy(int $id)
     {
-        $typeParamService->delete($id);
+        $this->typeParamService->delete($id);
         return redirect()->back();
     }
 }

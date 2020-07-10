@@ -53,13 +53,13 @@ Route::middleware('auth')->group(function () {
 
         /* Errors */
         Route::get('/errors', 'Admin\ErrorController@index')->name('admin.errors');
+        Route::get('/errors/create', 'Admin\ErrorController@create')->name('error.create');
+        Route::post('/errors', 'Admin\ErrorController@store')->name('error.store');
+        /* Error Categories */
         Route::get('/errors/categories', 'Admin\ErrorCategoryController@index')->name('admin.error-categories');
         Route::get('/errors/categories/create', 'Admin\ErrorCategoryController@create')->name('error-category.create');
         Route::post('/errors/categories', 'Admin\ErrorCategoryController@store')->name('error-category.store');
         Route::delete('/errors/categories/{id}', 'Admin\ErrorCategoryController@destroy')->name('error-category.destroy');
-
-
-
     });
 });
 

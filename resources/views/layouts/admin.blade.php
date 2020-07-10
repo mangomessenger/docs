@@ -66,7 +66,7 @@
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                            aria-haspopup="true" aria-expanded="false">Errors</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Erros</a>
+                            <a class="dropdown-item" href="{{ route('admin.errors') }}">Errors</a>
                             <a class="dropdown-item" href="{{ route('admin.error-categories') }}">Categories</a>
                         </div>
                     </li>

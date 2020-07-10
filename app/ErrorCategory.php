@@ -14,4 +14,12 @@ class ErrorCategory extends Model
     protected $fillable = [
         'code', 'name', 'description',
     ];
+
+    /**
+     * Get the full name of category '$CODE $NAME'
+     */
+    public function fullName()
+    {
+        return "{$this->code} {$this->name}";
+    }
 }

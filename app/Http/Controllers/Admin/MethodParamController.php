@@ -82,11 +82,13 @@ class MethodParamController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param MethodParam $methodParam
-     * @return Response
+     * @param int $id
+     * @return RedirectResponse
      */
-    public function destroy(MethodParam $methodParam)
+    public function destroy(int $id)
     {
-        //
+        $this->methodParamService->delete($id);
+
+        return redirect()->back();
     }
 }

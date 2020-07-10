@@ -87,6 +87,7 @@ class TypeParamController extends Controller
     public function destroy(int $id)
     {
         $this->typeParamService->delete($id);
+
         return redirect()->back();
     }
 }

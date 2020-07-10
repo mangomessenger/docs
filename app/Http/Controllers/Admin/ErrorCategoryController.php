@@ -6,6 +6,7 @@ use App\ErrorCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ErrorCategoryRequest;
 use App\Services\ErrorCategoryService;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -53,8 +54,8 @@ class ErrorCategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return RedirectResponse
      */
     public function store(ErrorCategoryRequest $request)
     {
@@ -64,47 +65,15 @@ class ErrorCategoryController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param \App\ErrorCategory $errorCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function show(ErrorCategory $errorCategory)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\ErrorCategory $errorCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ErrorCategory $errorCategory)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\ErrorCategory $errorCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, ErrorCategory $errorCategory)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
-     * @param \App\ErrorCategory $errorCategory
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return RedirectResponse
      */
-    public function destroy(ErrorCategory $errorCategory)
+    public function destroy(int $id)
     {
-        //
+        $this->errorCategoryService->delete($id);
+
+        return redirect()->back();
     }
 }

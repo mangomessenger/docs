@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\Error;
 use App\Method;
-use Illuminate\Support\Facades\DB;
 
 class MethodService extends BaseService
 {

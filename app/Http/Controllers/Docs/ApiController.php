@@ -81,6 +81,7 @@ class ApiController extends Controller
             'title' => "$method - API Method",
             'method' => $m = $this->methodService->find($method),
             'params' => $m->params,
+            'errors' => $m->errors,
         ]);
     }
 
@@ -108,6 +109,7 @@ class ApiController extends Controller
             'title' => "$type - API Type",
             'type' => $t = $this->typeService->find($type),
             'params' => $t->params,
+            'methods' => $t->methods
         ]);
     }
 }

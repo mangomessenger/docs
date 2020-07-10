@@ -1,6 +1,6 @@
 @if ($params->isNotEmpty())
     <div class="row pt-5 pb-2">
-        <h4 class="font-weight-bold">Parameters</h4>
+        <h5 class="font-weight-bold">Parameters</h5>
     </div>
 
     <div class="row">

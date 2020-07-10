@@ -10,7 +10,8 @@
             <div class="row">
                 <h4>{{ $tag->name }}</h4>
             </div>
-            @include('api.partials.methods_table')
+
+            @include('api.partials.methods_table', ['methods' => $tag->methods])
         @endforeach
     </div>
 @endsection

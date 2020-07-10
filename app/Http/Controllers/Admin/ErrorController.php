@@ -8,6 +8,7 @@ use App\Http\Requests\ErrorRequest;
 use App\Services\ErrorService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\View\View;
 
 class ErrorController extends Controller
@@ -55,7 +56,7 @@ class ErrorController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param ErrorRequest $request
      * @return RedirectResponse
      */
     public function store(ErrorRequest $request)
@@ -65,48 +66,17 @@ class ErrorController extends Controller
         return redirect()->route('admin.errors');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Error $error
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Error $error)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Error $error
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Error $error)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @param \App\Error $error
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Error $error)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Error $error
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return RedirectResponse
      */
-    public function destroy(Error $error)
+    public function destroy(int $id)
     {
-        //
+        $this->errorService->delete($id);
+
+        return redirect()->back();
     }
 }

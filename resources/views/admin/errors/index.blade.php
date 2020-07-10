@@ -27,11 +27,11 @@
                         <td>{{ $error->category->fullName()  }}</td>
                         <td>{{ $error->description }}</td>
                         <td>
-{{--                            <form method="post" action="{{ route("error-category.destroy", $error) }}">--}}
-{{--                                @csrf--}}
-{{--                                @method('DELETE')--}}
-{{--                                <button type="submit" class="btn btn-danger w-100 mt-1">Delete</button>--}}
-{{--                            </form>--}}
+                            <form method="post" action="{{ route("error.destroy", $error) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger w-100 mt-1">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

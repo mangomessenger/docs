@@ -55,6 +55,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/errors', 'Admin\ErrorController@index')->name('admin.errors');
         Route::get('/errors/create', 'Admin\ErrorController@create')->name('error.create');
         Route::post('/errors', 'Admin\ErrorController@store')->name('error.store');
+        Route::delete('/errors/{id}', 'Admin\ErrorController@destroy')->name('error.destroy');
+
         /* Error Categories */
         Route::get('/errors/categories', 'Admin\ErrorCategoryController@index')->name('admin.error-categories');
         Route::get('/errors/categories/create', 'Admin\ErrorCategoryController@create')->name('error-category.create');

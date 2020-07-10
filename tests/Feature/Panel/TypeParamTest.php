@@ -35,7 +35,7 @@ class TypeParamTest extends TestCase
         $user = factory(User::class)->create();
         $typeParam = factory(TypeParam::class)->create();
 
-        $response = $this->actingAs($user)->post(route('type-param.update', 1), $typeParam->toArray());
+        $response = $this->actingAs($user)->put(route('type-param.update', 1), $typeParam->toArray());
         $response->assertRedirect(route('type.edit', 1));
     }
 

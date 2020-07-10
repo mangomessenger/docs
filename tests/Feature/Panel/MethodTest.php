@@ -33,7 +33,7 @@ class MethodTest extends TestCase
         $user = factory(User::class)->create();
         $method = factory(Method::class)->create();
 
-        $response = $this->actingAs($user)->post(route('method.update', 1), $method->toArray());
+        $response = $this->actingAs($user)->put(route('method.update', 1), $method->toArray());
         $response->assertRedirect(route('admin.methods'));
     }
 

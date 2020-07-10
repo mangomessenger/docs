@@ -33,7 +33,7 @@ class TypeTest extends TestCase
         $user = factory(User::class)->create();
         $type = factory(Type::class)->create();
 
-        $response = $this->actingAs($user)->post(route('type.update', 1), $type->toArray());
+        $response = $this->actingAs($user)->put(route('type.update', 1), $type->toArray());
         $response->assertRedirect(route('admin.types'));
     }
 

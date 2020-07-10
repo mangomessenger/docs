@@ -5,13 +5,14 @@
         <div class="row justify-content-center">
             <div class="col-6">
                 <form method="post" action="{{ route('method.update', $method->id) }}">
+                    @method('PUT')
                     @csrf
-
                     <div class="form-group">
                         <label for="name">Tag</label>
                         <select name="tag_id" class="custom-select custom-select @error("tag_id") is-invalid @enderror">
                             @foreach(\App\MethodTag::all() as $tag)
-                                <option @if($tag->id == (old("tag_id") ?? $method->tag_id)) selected @endif value="{{ $tag->id }}">{{ $tag->tag }}</option>
+                                <option @if($tag->id == (old("tag_id") ?? $method->tag_id)) selected
+                                        @endif value="{{ $tag->id }}">{{ $tag->tag }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -32,7 +33,8 @@
                         <label for="type">Type</label>
                         <select name="type" class="custom-select custom-select @error("type") is-invalid @enderror">
                             @foreach(\App\Method::$types as $methodType)
-                                <option @if($methodType == (old("type") ?? $method->type)) selected @endif>{{ $methodType }}</option>
+                                <option
+                                    @if($methodType == (old("type") ?? $method->type)) selected @endif>{{ $methodType }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -42,9 +44,12 @@
 
                     <div class="form-group">
                         <label for="name">Returns</label>
-                        <select name="return_type_id" class="custom-select custom-select @error("return_type_id") is-invalid @enderror">
+                        <select name="return_type_id"
+                                class="custom-select custom-select @error("return_type_id") is-invalid @enderror">
                             @foreach(\App\Type::all() as $typeOption)
-                                <option @if($typeOption->id == (old("return_type_id") ?? $method->return_type_id)) selected @endif value="{{ $typeOption->id }}">{{ $typeOption->name }}</option>
+                                <option
+                                    @if($typeOption->id == (old("return_type_id") ?? $method->return_type_id)) selected
+                                    @endif value="{{ $typeOption->id }}">{{ $typeOption->name }}</option>
                             @endforeach
                         </select>
                     </div>

@@ -26,7 +26,7 @@ class ErrorRequest extends FormRequest
         return [
             'category_id' => 'required|exists:error_categories,id',
             'type' => 'required|min:2',
-            'message' => 'required|min:5|max:300',
+            'message' => 'required|min:5|max:1500',
         ];
     }
 }

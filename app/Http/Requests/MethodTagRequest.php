@@ -26,7 +26,7 @@ class MethodTagRequest extends FormRequest
     {
         return [
             'tag' => (Request::isMethod('put') ? '' : 'required|min:2|unique:method_tags'),
-            'description' => 'required|min:5|max:300',
+            'description' => 'required|min:5|max:1500',
         ];
     }
 }

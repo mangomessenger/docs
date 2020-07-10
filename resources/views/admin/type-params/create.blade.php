@@ -24,7 +24,7 @@
                     <div class="form-group">
                         <label>Description</label>
                         <textarea class="form-control @error('description') is-invalid @enderror" name="description"
-                                  rows="2">{{ old('description') }}</textarea>
+                                  rows="4">{{ old('description') }}</textarea>
                     </div>
                     @error('description')
                     <p class="text-danger">{{ $message }}</p>

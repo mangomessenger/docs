@@ -17,7 +17,7 @@ class CreateErrorsTable extends Migration
             $table->id();
             $table->foreignId('category_id')->constrained('error_categories');
             $table->string('type');
-            $table->string('message');
+            $table->longText('message');
             $table->timestamps();
         });
     }

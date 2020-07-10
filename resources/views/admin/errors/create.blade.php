@@ -31,7 +31,7 @@
                     <div class="form-group">
                         <label>Message</label>
                         <textarea class="form-control @error('message') is-invalid @enderror" name="message"
-                                  rows="2">{{ old('message') }}</textarea>
+                                  rows="4">{{ old('message') }}</textarea>
                     </div>
                     @error('message')
                     <p class="text-danger">{{ $message }}</p>

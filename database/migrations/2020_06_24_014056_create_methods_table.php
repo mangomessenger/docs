@@ -17,7 +17,7 @@ class CreateMethodsTable extends Migration
             $table->id();
             $table->foreignId('tag_id')->constrained('method_tags');
             $table->string("name");
-            $table->string("description");
+            $table->longText("description");
             $table->integer("return_type_id")->nullable();
             $table->softDeletes();
             $table->timestamps();

@@ -28,7 +28,7 @@ class MethodRequest extends FormRequest
             'tag_id' => 'required|exists:method_tags,id',
             'name' => 'required|min:2',
             'type' => 'required|required|in:' . implode(',', Method::$types),
-            'description' => 'required|min:5|max:300',
+            'description' => 'required|min:5|max:1500',
             'return_type_id' => 'required|exists:types,id',
         ];
     }

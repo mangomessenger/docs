@@ -16,7 +16,7 @@ class CreateMethodTagsTable extends Migration
         Schema::create('method_tags', function (Blueprint $table) {
             $table->id();
             $table->string("tag");
-            $table->string("description");
+            $table->longText("description");
             $table->timestamps();
         });
     }

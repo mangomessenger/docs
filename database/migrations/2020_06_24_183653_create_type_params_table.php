@@ -18,7 +18,7 @@ class CreateTypeParamsTable extends Migration
             $table->foreignId('return_type_id')->constrained('types');
             $table->string("name");
             $table->foreignId('type_id')->constrained('types');
-            $table->string("description");
+            $table->longText("description");
             $table->timestamps();
         });
     }

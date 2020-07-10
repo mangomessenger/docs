@@ -26,7 +26,7 @@ class ErrorCategoryRequest extends FormRequest
         return [
             'code' => 'required|integer|max:1000',
             'name' => 'required|min:2',
-            'description' => 'required|min:5|max:300',
+            'description' => 'required|min:5|max:1500',
         ];
     }
 }

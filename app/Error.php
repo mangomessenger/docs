@@ -12,7 +12,7 @@ class Error extends Model
      * @var array
      */
     protected $fillable = [
-        'category_id', 'type', 'description',
+        'category_id', 'type', 'message',
     ];
 
     /**

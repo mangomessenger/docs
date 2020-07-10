@@ -43,4 +43,12 @@ class Method extends Model
     {
         return $this->hasMany('App\MethodParam', 'method_id');
     }
+
+    /**
+     * The roles that belong to the user.
+     */
+    public function errors()
+    {
+        return $this->belongsToMany('App\Error');
+    }
 }

@@ -16,7 +16,7 @@
                 <tr>
                     <th scope="col">Type</th>
                     <th scope="col">Category</th>
-                    <th scope="col">Description</th>
+                    <th scope="col">Message</th>
                     <th scope="col">Actions</th>
                 </tr>
                 </thead>
@@ -25,7 +25,7 @@
                     <tr>
                         <td>{{ $error->type }}</td>
                         <td>{{ $error->category->fullName()  }}</td>
-                        <td>{{ $error->description }}</td>
+                        <td>{{ $error->message }}</td>
                         <td>
                             <form method="post" action="{{ route("error.destroy", $error) }}">
                                 @csrf

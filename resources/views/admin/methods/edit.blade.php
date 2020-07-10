@@ -74,7 +74,7 @@
             <h4 class="font-weight-bold">Parameters</h4>
         </div>
         <div class="row">
-            <a class="btn btn-primary" href="{{ route('method-param.create', $method) }}">Create new</a>
+            <a class="btn btn-primary" href="{{ route('method-param.create', $method) }}">Add</a>
         </div>
         <div class="row pt-3">
             <table class="table">
@@ -93,11 +93,63 @@
                         <td><a href="#">{{ \App\Type::find($param->return_type_id)->name }}</a></td>
                         <td>{{ $param->description }}</td>
                         <td>
-                            <a class="btn btn-primary w-100 mt-1" href="{{ route('method-param.edit', $param) }}">Edit</a>
+                            <a class="btn btn-primary w-100 mt-1"
+                               href="{{ route('method-param.edit', $param) }}">Edit</a>
                             <form method="post" action="{{ route('method-param.destroy', $param) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger w-100 mt-1">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row pt-5 pb-2">
+            <h4 class="font-weight-bold">Errors</h4>
+        </div>
+        <form method="post" action="{{ route('method.add-error', $method) }}">
+            @csrf
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <select name="error_id"
+                                class="custom-select custom-select">
+                            @foreach(\App\Error::all() as $error)
+                                <option
+                                    value="{{ $error->id }}">{{ "{$error->type} - {$error->category->fullName()}" }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+        </form>
+        <div class="row pt-3">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Message</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($method->errors as $error)
+                    <tr>
+                        <td>{{ $error->type }}</td>
+                        <td>{{ $error->category->fullName()  }}</td>
+                        <td>{{ $error->message }}</td>
+                        <td>
+                            <form method="post" action="{{ route("method.remove-error", [$method, $error]) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger w-100 mt-1">Remove</button>
                             </form>
                         </td>
                     </tr>

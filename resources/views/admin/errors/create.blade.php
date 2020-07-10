@@ -29,11 +29,11 @@
                     @enderror
 
                     <div class="form-group">
-                        <label>Description</label>
-                        <textarea class="form-control @error('description') is-invalid @enderror" name="description"
-                                  rows="2">{{ old('description') }}</textarea>
+                        <label>Message</label>
+                        <textarea class="form-control @error('message') is-invalid @enderror" name="message"
+                                  rows="2">{{ old('message') }}</textarea>
                     </div>
-                    @error('description')
+                    @error('message')
                     <p class="text-danger">{{ $message }}</p>
                     @enderror
                     <button type="submit" class="btn btn-primary w-100">Create Error</button>

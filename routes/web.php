@@ -37,6 +37,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/methods/{method}/edit', 'Admin\MethodController@edit')->name('method.edit');
         Route::put('/methods/{id}', 'Admin\MethodController@update')->name('method.update');
         Route::delete('/methods/{id}', 'Admin\MethodController@destroy')->name('method.destroy');
+        Route::post('/methods/{method}/errors/add', 'Admin\MethodController@addError')->name('method.add-error');
+        Route::delete('/methods/{method}/errors/{error}', 'Admin\MethodController@removeError')->name('method.remove-error');
         /* Method-Params */
         Route::get('/methods/{method}/params/create', 'Admin\MethodParamController@create')->name('method-param.create');
         Route::post('/methods/{method}/params', 'Admin\MethodParamController@store')->name('method-param.store');

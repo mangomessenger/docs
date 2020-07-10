@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Error;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MethodRequest;
 use App\Method;
+use App\Services\ErrorService;
 use App\Services\MethodService;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class MethodController extends Controller
@@ -19,13 +22,23 @@ class MethodController extends Controller
     protected $methodService;
 
     /**
+     * Service of Error model
+     *
+     * @var ErrorService
+     */
+    protected $errorService;
+
+    /**
      * Create a new controller instance.
      *
      * @param MethodService $methodService
+     * @param ErrorService $errorService
      */
-    public function __construct(MethodService $methodService)
+    public function __construct(MethodService $methodService,
+                                ErrorService $errorService)
     {
         $this->methodService = $methodService;
+        $this->errorService = $errorService;
     }
 
     /**
@@ -101,5 +114,33 @@ class MethodController extends Controller
         $this->methodService->delete($id);
 
         return redirect()->back();
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Request $request
+     * @param Method $method
+     * @return RedirectResponse
+     */
+    public function addError(Request $request, Method $method)
+    {
+        $this->methodService->addError($method, $this->errorService->find($request->post('error_id')));
+
+        return redirect()->route('method.edit', $method);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Method $method
+     * @param Error $error
+     * @return RedirectResponse
+     */
+    public function removeError(Method $method, Error $error)
+    {
+        $this->methodService->removeError($method, $error);
+
+        return redirect()->route('method.edit', $method);
     }
 }

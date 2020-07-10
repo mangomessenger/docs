@@ -4,12 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MethodParamRequest;
-use App\Http\Requests\TypeRequest;
 use App\Method;
 use App\MethodParam;
 use App\Services\MethodParamService;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 
@@ -55,43 +53,36 @@ class MethodParamController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\MethodParam  $methodParam
-     * @return Response
-     */
-    public function show(MethodParam $methodParam)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\MethodParam  $methodParam
-     * @return Response
+     * @param MethodParam $methodParam
+     * @return View
      */
     public function edit(MethodParam $methodParam)
     {
-        //
+        return View('admin.method-params.edit',[
+            'methodParam' => $methodParam,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\MethodParam  $methodParam
-     * @return Response
+     * @param MethodParamRequest $request
+     * @param MethodParam $methodParam
+     * @return RedirectResponse
      */
-    public function update(Request $request, MethodParam $methodParam)
+    public function update(MethodParamRequest $request, MethodParam $methodParam)
     {
-        //
+        $this->methodParamService->update($methodParam->id, $request->validated());
+
+        return redirect()->route('method.edit', $methodParam->method_id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\MethodParam  $methodParam
+     * @param MethodParam $methodParam
      * @return Response
      */
     public function destroy(MethodParam $methodParam)

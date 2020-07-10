@@ -93,7 +93,7 @@
                         <td><a href="#">{{ \App\Type::find($param->return_type_id)->name }}</a></td>
                         <td>{{ $param->description }}</td>
                         <td>
-                            <a class="btn btn-primary w-100 mt-1" href="#">Edit</a>
+                            <a class="btn btn-primary w-100 mt-1" href="{{ route('method-param.edit', $param->id) }}">Edit</a>
                             <form method="post" action="#">
                                 @csrf
                                 @method('DELETE')

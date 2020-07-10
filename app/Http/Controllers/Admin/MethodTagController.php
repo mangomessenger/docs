@@ -7,7 +7,6 @@ use App\Http\Requests\MethodTagRequest;
 use App\MethodTag;
 use App\Services\MethodTagService;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class MethodTagController extends Controller
@@ -80,11 +79,14 @@ class MethodTagController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param MethodTagService $methodTagService
+     * @param int $id
+     * @return RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(MethodTagService $methodTagService, int $id)
     {
-        //
+        $methodTagService->delete($id);
+
+        return redirect()->back();
     }
 }

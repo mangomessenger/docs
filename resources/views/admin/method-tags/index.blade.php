@@ -26,11 +26,11 @@
                         <td>{{ $tag->description }}</td>
                         <td>
                             <a class="btn btn-primary w-100 mt-1" href="{{ route('method-tag.edit', $tag) }}">Edit</a>
-{{--                            <form method="post" action="{{ route("type.destroy", $tag) }}">--}}
-{{--                                @csrf--}}
-{{--                                @method('DELETE')--}}
-{{--                                <button type="submit" class="btn btn-danger w-100 mt-1">Delete</button>--}}
-{{--                            </form>--}}
+                            <form method="post" action="{{ route("method-tag.destroy", $tag) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger w-100 mt-1">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

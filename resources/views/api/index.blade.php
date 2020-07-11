@@ -2,22 +2,33 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <h2>{{ config('app.name', 'Laravel') }} API</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel urna in arcu iaculis tempus.
-                Morbi sed metus in arcu molestie congue non a ligula. Nam egestas metus at felis pellentesque
-                dignissim.</p>
-        </div>
-        <div class="row my-1">
-            <h2>
-                API Documentation
-            </h2>
-        </div>
-        <div class="row">
-            <a href="{{ route('types') }}">&#9679; API Types</a>
-        </div>
-        <div class="row">
-            <a href="{{ route('methods') }}">&#9679; API Methods</a>
-        </div>
+        <!-- ======= Services Section ======= -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-title" data-aos="fade-up">
+                    <h2>API DOCS</h2>
+                    <p>This API allows you to build your own customized Mango Messenger clients. It is 100% open for all
+                        developers who wish to create Mango applications on our platform.</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 d-flex align-items-stretch mb-5 mb-lg-0" id="apiTypesBox">
+                        <div class="icon-box w-100" data-aos="fade-up" data-aos-delay="100">
+                            <div class="icon"><i class="bx bx-book"></i></div>
+                            <h4 class="title"><a href="{{ route('types') }}">API Types</a></h4>
+                            <p class="description">A list of available API types.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-6 d-flex align-items-stretch mb-5 mb-lg-0" id="apiMethodsBox">
+                        <div class="icon-box w-100" data-aos="fade-up" data-aos-delay="200">
+                            <div class="icon"><i class="bx bx-layer"></i></div>
+                            <h4 class="title"><a href="{{ route('methods') }}">API Methods</a></h4>
+                            <p class="description">A list of available API methods.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Services Section -->
     </div>
 @endsection

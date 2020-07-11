@@ -54,7 +54,9 @@ class ApiController extends Controller
      */
     public function index()
     {
-        return View('api.index');
+        return View('api.index', [
+            'title' => 'Mango APIs'
+        ]);
     }
 
     /**

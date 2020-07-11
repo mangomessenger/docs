@@ -208,4 +208,12 @@
     aos_init();
   });
 
+  $("#apiMethodsBox").click(function() {
+    window.location.href='/methods';
+  })
+
+  $("#apiTypesBox").click(function() {
+    window.location.href='/types';
+  })
+
 })(jQuery);

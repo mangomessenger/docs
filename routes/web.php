@@ -14,7 +14,7 @@ Route::get('/types/{type}', 'Docs\ApiController@type')->name('type');
 Route::middleware('auth')->group(function () {
     Route::prefix('panel')->group(function (){
         /* Admin Panel */
-        Route::get('/', 'Admin\PanelController@index')->name('panel');
+        Route::get('/', 'Admin\PanelController@index')->name('admin.panel');
 
         /* Types */
         Route::get('/types', 'Admin\TypeController@index')->name('admin.types');

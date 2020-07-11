@@ -466,7 +466,7 @@ section {
 }
 
 .section-bg {
-  background-color: #f7fbfe;
+  background-color: #fffbf8;
 }
 
 .section-title {
@@ -503,21 +503,21 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Clients
+# contribution
 --------------------------------------------------------------*/
-.clients {
+.contribution {
   background: #f3f9fd;
   padding: 10px 0;
   text-align: center;
 }
 
-.clients .col-lg-2 {
+.contribution .col-lg-2 {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.clients img {
+.contribution img {
   width: 50%;
   -webkit-filter: grayscale(100);
   filter: grayscale(100);
@@ -526,20 +526,20 @@ section {
   padding: 10px 0;
 }
 
-.clients img:hover {
+.contribution img:hover {
   -webkit-filter: none;
   filter: none;
   transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
-  .clients img {
+  .contribution img {
     width: 40%;
   }
 }
 
 @media (max-width: 575px) {
-  .clients img {
+  .contribution img {
     width: 30%;
   }
 }
@@ -859,7 +859,7 @@ section {
 }
 
 .features .icon-box:hover {
-  background: #eef7fc;
+  background: #fff5f1;
 }
 
 /*--------------------------------------------------------------
@@ -1108,7 +1108,7 @@ section {
 
 .team .member .social a {
   transition: color 0.3s;
-  color: #222222;
+  color: #222222;.
   margin: 0 10px;
   padding-top: 8px;
   display: inline-block;

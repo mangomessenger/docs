@@ -15,7 +15,7 @@
                 <li><a href="#">Apps</a></li>
                 <li><a href="{{ route('api') }}">API</a></li>
 
-                <li class="get-started"><a href="{{ route('api') }}">Get Started</a></li>
+                <li class="get-started"><a href="#">Get Started</a></li>
             </ul>
         </nav><!-- .nav-menu -->
 

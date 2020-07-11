@@ -22,4 +22,16 @@ class HomeController extends Controller
     {
         return View('home');
     }
+
+    /**
+     * Show the FAQ page
+     *
+     * @return View
+     */
+    public function faq()
+    {
+        return View('faq', [
+            'title' => 'Mango FAQ'
+        ]);
+    }
 }

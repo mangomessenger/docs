@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 /* Main Page */
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/faq', 'HomeController@faq')->name('faq');
 Route::get('/api', 'Docs\ApiController@index')->name('api');
 Route::get('/methods', 'Docs\ApiController@methods')->name('methods');
 Route::get('/methods/{method}', 'Docs\ApiController@method')->name('method');

@@ -11,7 +11,7 @@
         <nav class="nav-menu d-none d-lg-block">
             <ul>
                 <li class="active"><a href="{{ route('home') }}">Home</a></li>
-                <li><a href="#">FAQ</a></li>
+                <li><a href="{{ route('faq') }}">FAQ</a></li>
                 <li><a href="#">Apps</a></li>
                 <li><a href="{{ route('api') }}">API</a></li>
 

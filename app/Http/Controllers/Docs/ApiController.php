@@ -68,6 +68,7 @@ class ApiController extends Controller
     {
         return View('api.methods', [
             'tags' => $this->methodTagService->all(),
+            'title' => 'Mango Methods',
         ]);
     }
 
@@ -96,6 +97,7 @@ class ApiController extends Controller
     {
         return View('api.types', [
             'types' => $this->typeService->all(),
+            'title' => 'Mango Types',
         ]);
     }
 

@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\ErrorCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ErrorCategoryRequest;
+use App\Http\Requests\TypeRequest;
 use App\Services\ErrorCategoryService;
+use App\Type;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -54,12 +56,39 @@ class ErrorCategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param ErrorCategoryRequest $request
      * @return RedirectResponse
      */
     public function store(ErrorCategoryRequest $request)
     {
         $this->errorCategoryService->create($request->validated());
+
+        return redirect()->route('admin.errors.categories');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param ErrorCategory $category
+     * @return View
+     */
+    public function edit(ErrorCategory $category)
+    {
+        return View('admin.errors.categories.edit', [
+            'category' => $category,
+        ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param ErrorCategoryRequest $request
+     * @param ErrorCategory $category
+     * @return RedirectResponse
+     */
+    public function update(ErrorCategoryRequest $request, ErrorCategory $category)
+    {
+        $this->errorCategoryService->update($category->id, $request->validated());
 
         return redirect()->route('admin.errors.categories');
     }

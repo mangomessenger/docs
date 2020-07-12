@@ -27,6 +27,7 @@
                         <td>{{ $category->name }}</td>
                         <td>{{ $category->description }}</td>
                         <td>
+                            <a class="btn btn-primary w-100" href="{{ route('admin.errors.categories.edit', $category) }}">Edit</a>
                             <form method="post" action="{{ route("admin.errors.categories.destroy", $category) }}">
                                 @csrf
                                 @method('DELETE')

@@ -63,6 +63,8 @@ Route::group([
         Route::get('/categories', 'ErrorCategoryController@index')->name('admin.errors.categories');
         Route::get('/categories/create', 'ErrorCategoryController@create')->name('admin.errors.categories.create');
         Route::post('/categories', 'ErrorCategoryController@store')->name('admin.errors.categories.store');
+        Route::get('/categories/{category}/edit', 'ErrorCategoryController@edit')->name('admin.errors.categories.edit');
+        Route::put('/categories/{category}', 'ErrorCategoryController@update')->name('admin.errors.categories.update');
         Route::delete('/categories/{id}', 'ErrorCategoryController@destroy')->name('admin.errors.categories.destroy');
     });
 });

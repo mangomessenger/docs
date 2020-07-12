@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-6">
-                <form method="post" action="{{ route('type-params.store', $type->id) }}">
+                <form method="post" action="{{ route('types.params.store', $type->id) }}">
                     @csrf
                     <div class="py-3">
                         <h5><b>{{ $type->name }}</b></h5>

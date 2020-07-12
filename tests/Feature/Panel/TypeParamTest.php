@@ -26,7 +26,7 @@ class TypeParamTest extends TestCase
         $user = factory(User::class)->create();
         $typeParam = factory(TypeParam::class)->make();
 
-        $response = $this->actingAs($user)->post(route('type-params.store', 1), $typeParam->toArray());
+        $response = $this->actingAs($user)->post(route('types.params.store', 1), $typeParam->toArray());
         $response->assertRedirect(route('types.edit', 1));
     }
 
@@ -35,7 +35,7 @@ class TypeParamTest extends TestCase
         $user = factory(User::class)->create();
         $typeParam = factory(TypeParam::class)->create();
 
-        $response = $this->actingAs($user)->put(route('type-params.update', 1), $typeParam->toArray());
+        $response = $this->actingAs($user)->put(route('types.params.update', 1), $typeParam->toArray());
         $response->assertRedirect(route('types.edit', 1));
     }
 
@@ -46,7 +46,7 @@ class TypeParamTest extends TestCase
 
         $response = $this->actingAs($user)
             ->from(route('types.edit', 1))
-            ->delete(route('type-params.destroy', $typeParam->id));
+            ->delete(route('types.params.destroy', $typeParam->id));
 
         $response->assertStatus(302);
         $response->assertRedirect(route('types.edit', 1));

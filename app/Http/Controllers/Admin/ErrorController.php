@@ -76,7 +76,7 @@ class ErrorController extends Controller
     {
         $this->errorService->create($request->validated());
 
-        return redirect()->route('admin.errors');
+        return redirect()->route('admin.errors.index');
     }
 
 

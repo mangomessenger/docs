@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-6">
-                <form method="post" action="{{ route('type-params.update', $typeParam) }}">
+                <form method="post" action="{{ route('types.params.update', $typeParam) }}">
                     @method('PUT')
                     @csrf
                     <div class="form-group">

@@ -25,7 +25,7 @@ class TypeTest extends TestCase
         $type = factory(Type::class)->make();
 
         $response = $this->actingAs($user)->post(route('types.store'), $type->toArray());
-        $response->assertRedirect(route('admin.types'));
+        $response->assertRedirect(route('admin.types.index'));
     }
 
     public function test_admin_can_edit_type()
@@ -34,7 +34,7 @@ class TypeTest extends TestCase
         $type = factory(Type::class)->create();
 
         $response = $this->actingAs($user)->put(route('types.update', 1), $type->toArray());
-        $response->assertRedirect(route('admin.types'));
+        $response->assertRedirect(route('admin.types.index'));
     }
 
     public function test_admin_can_delete_type()
@@ -43,10 +43,10 @@ class TypeTest extends TestCase
         $type = factory(Type::class)->create();
 
         $response = $this->actingAs($user)
-            ->from(route('admin.types'))
+            ->from(route('admin.types.index'))
             ->delete(route('types.destroy', $type->id));
 
         $response->assertStatus(302);
-        $response->assertRedirect(route('admin.types'));
+        $response->assertRedirect(route('admin.types.index'));
     }
 }

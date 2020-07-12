@@ -24,48 +24,48 @@ Route::group([
 
     /* Types */
     Route::resource('types', 'TypeController', [
-        'names' => ['index' => 'admin.types']
+        'names' => ['index' => 'admin.types.index'],
     ])->except(['show']);
     /* Type-Params */
-    Route::get('/types/{type}/params/create', 'TypeParamController@create')->name('type-params.create');
-    Route::post('/types/{type}/params', 'TypeParamController@store')->name('type-params.store');
-    Route::get('/types/params/{type_param}/edit', 'TypeParamController@edit')->name('type-params.edit');
-    Route::put('/types/params/{type_param}', 'TypeParamController@update')->name('type-params.update');
-    Route::delete('/types/params/{id}', 'TypeParamController@destroy')->name('type-params.destroy');
+    Route::prefix('types')->name('types.params.')->group(function() {
+        Route::get('/{type}/params/create', 'TypeParamController@create')->name('create');
+        Route::post('/{type}/params', 'TypeParamController@store')->name('store');
+        Route::get('/params/{type_param}/edit', 'TypeParamController@edit')->name('edit');
+        Route::put('/params/{type_param}', 'TypeParamController@update')->name('update');
+        Route::delete('/params/{id}', 'TypeParamController@destroy')->name('destroy');
+    });
 
     /* Methods */
     Route::resource('methods', 'MethodController', [
-        'names' => ['index' => 'admin.methods'],
+        'names' => ['index' => 'admin.methods.index'],
     ])->except('show');
 
-    Route::post('/methods/{method}/errors/add', 'MethodController@addError')->name('method.errors.add');
-    Route::delete('/methods/{method}/errors/{error}', 'MethodController@removeError')->name('method.errors.remove');
-    /* Method-Params */
-    Route::get('/methods/{method}/params/create', 'MethodParamController@create')->name('methods.params.create');
-    Route::post('/methods/{method}/params', 'MethodParamController@store')->name('methods.params.store');
-    Route::get('/methods/params/{method_param}/edit', 'MethodParamController@edit')->name('methods.params.edit');
-    Route::put('/methods/params/{method_param}', 'MethodParamController@update')->name('methods.params.update');
-    Route::delete('/methods/params/{id}', 'MethodParamController@destroy')->name('methods.params.destroy');
-    /* Method-Tags */
-    Route::get('/methods/tags', 'MethodTagController@index')->name('admin.methods.tags');
-    Route::get('/methods/tags/create', 'MethodTagController@create')->name('methods.tags.create');
-    Route::post('/methods/tags/', 'MethodTagController@store')->name('methods.tags.store');
-    Route::get('/methods/tags/{tag}/edit', 'MethodTagController@edit')->name('methods.tags.edit');
-    Route::put('/methods/tags/{id}', 'MethodTagController@update')->name('methods.tags.update');
-    Route::delete('/methods/tags/{id}', 'MethodTagController@destroy')->name('methods.tags.destroy');
+    Route::prefix('methods')->group(function () {
+        /* Method Errors */
+        Route::post('/{method}/errors/add', 'MethodController@addError')->name('method.errors.add');
+        Route::delete('/{method}/errors/{error}', 'MethodController@removeError')->name('method.errors.remove');
+        /* Method-Params */
+        Route::name('methods.params.')->group(function () {
+            Route::get('/{method}/params/create', 'MethodParamController@create')->name('create'); // methods.params.create
+            Route::post('/{method}/params', 'MethodParamController@store')->name('store'); // methods.params.store
+            Route::get('/params/{method_param}/edit', 'MethodParamController@edit')->name('edit'); // methods.params.edit
+            Route::put('/params/{method_param}', 'MethodParamController@update')->name('update'); // methods.params.update
+            Route::delete('/params/{id}', 'MethodParamController@destroy')->name('destroy'); // methods.params.destroy
+        });
+        /* Method-Tags */
+        Route::get('/tags', 'MethodTagController@index')->name('admin.methods.tags.index');
+        Route::resource('tags', 'MethodTagController', [
+            'as' => 'methods'
+        ])->except(['show', 'index']);
+    });
 
     /* Errors */
     Route::resource('errors', 'ErrorController', [
-        'names' => ['index' => 'admin.errors'],
+        'names' => ['index' => 'admin.errors.index'],
     ])->except(['edit', 'show']);
     /* Error Categories */
-    Route::prefix('errors')->group(function(){
-        Route::get('/categories', 'ErrorCategoryController@index')->name('admin.errors.categories');
-        Route::get('/categories/create', 'ErrorCategoryController@create')->name('admin.errors.categories.create');
-        Route::post('/categories', 'ErrorCategoryController@store')->name('admin.errors.categories.store');
-        Route::get('/categories/{category}/edit', 'ErrorCategoryController@edit')->name('admin.errors.categories.edit');
-        Route::put('/categories/{category}', 'ErrorCategoryController@update')->name('admin.errors.categories.update');
-        Route::delete('/categories/{id}', 'ErrorCategoryController@destroy')->name('admin.errors.categories.destroy');
+    Route::prefix('errors')->name('admin.errors.')->group(function () {
+        Route::resource('categories', 'ErrorCategoryController')->except(['show']);
     });
 });
 

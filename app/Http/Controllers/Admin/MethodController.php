@@ -99,7 +99,7 @@ class MethodController extends Controller
     {
         $this->methodService->create($request->validated());
 
-        return redirect()->route('admin.methods');
+        return redirect()->route('admin.methods.index');
     }
 
     /**
@@ -130,7 +130,7 @@ class MethodController extends Controller
     {
         $this->methodService->update($id, $request->validated());
 
-        return redirect()->route('admin.methods');
+        return redirect()->route('admin.methods.index');
     }
 
     /**

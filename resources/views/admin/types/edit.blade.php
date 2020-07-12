@@ -31,7 +31,7 @@
             <h4 class="font-weight-bold">Parameters</h4>
         </div>
         <div class="row">
-            <a class="btn btn-primary" href="{{ route('type-params.create', $type) }}">Create new</a>
+            <a class="btn btn-primary" href="{{ route('types.params.create', $type) }}">Create new</a>
         </div>
         <div class="row pt-3">
             <table class="table">
@@ -50,8 +50,8 @@
                         <td><a href="{{ route('type', $param->return_type_id) }}">{{ $param->returnType->name }}</a></td>
                         <td>{{ $param->description }}</td>
                         <td>
-                            <a class="btn btn-primary w-100 mt-1" href="{{ route('type-params.edit', $param) }}">Edit</a>
-                            <form method="post" action="{{ route('type-params.destroy', $param) }}">
+                            <a class="btn btn-primary w-100 mt-1" href="{{ route('types.params.edit', $param) }}">Edit</a>
+                            <form method="post" action="{{ route('types.params.destroy', $param) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger w-100 mt-1">Delete</button>

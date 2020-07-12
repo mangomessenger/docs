@@ -63,7 +63,7 @@ class MethodTagController extends Controller
     {
         $methodTagService->create($request->validated());
 
-        return redirect()->route('admin.methods.tags');
+        return redirect()->route('admin.methods.tags.index');
     }
 
     /**
@@ -91,7 +91,7 @@ class MethodTagController extends Controller
     {
         $methodTagService->update($id, $request->validated());
 
-        return redirect()->route('admin.methods.tags');
+        return redirect()->route('admin.methods.tags.index');
     }
 
     /**

@@ -11,17 +11,17 @@
         <nav class="nav-menu d-none d-lg-block">
             <ul>
                 <li class="active"><a href="{{ route('admin.panel') }}">Home</a></li>
-                <li><a href="{{ route('admin.types') }}">Types</a></li>
+                <li><a href="{{ route('admin.types.index') }}">Types</a></li>
                 <li class="drop-down"><a href="">Methods</a>
                     <ul>
-                        <li><a href="{{ route('admin.methods') }}">Methods</a></li>
-                        <li><a href="{{ route('admin.methods.tags') }}">Tags</a></li>
+                        <li><a href="{{ route('admin.methods.index') }}">Methods</a></li>
+                        <li><a href="{{ route('admin.methods.tags.index') }}">Tags</a></li>
                     </ul>
                 </li>
                 <li class="drop-down"><a href="">Errors</a>
                     <ul>
-                        <li><a href="{{ route('admin.errors') }}">Errors</a></li>
-                        <li><a href="{{ route('admin.errors.categories') }}">Categories</a></li>
+                        <li><a href="{{ route('admin.errors.index') }}">Errors</a></li>
+                        <li><a href="{{ route('admin.errors.categories.index') }}">Categories</a></li>
                     </ul>
                 </li>
                 <li><a href="#">Users</a></li>

@@ -60,7 +60,7 @@ class TypeController extends Controller
     {
         $this->typeService->create($request->validated());
 
-        return redirect()->route('admin.types');
+        return redirect()->route('admin.types.index');
     }
 
     /**
@@ -87,7 +87,7 @@ class TypeController extends Controller
     {
         $this->typeService->update($id, $request->validated());
 
-        return redirect()->route('admin.types');
+        return redirect()->route('admin.types.index');
     }
 
     /**

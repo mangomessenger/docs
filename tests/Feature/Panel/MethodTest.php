@@ -25,7 +25,7 @@ class MethodTest extends TestCase
         $method = factory(Method::class)->make();
 
         $response = $this->actingAs($user)->post(route('methods.store'), $method->toArray());
-        $response->assertRedirect(route('admin.methods'));
+        $response->assertRedirect(route('admin.methods.index'));
     }
 
     public function test_admin_can_edit_method()
@@ -34,7 +34,7 @@ class MethodTest extends TestCase
         $method = factory(Method::class)->create();
 
         $response = $this->actingAs($user)->put(route('methods.update', 1), $method->toArray());
-        $response->assertRedirect(route('admin.methods'));
+        $response->assertRedirect(route('admin.methods.index'));
     }
 
     public function test_admin_can_delete_method()
@@ -43,11 +43,11 @@ class MethodTest extends TestCase
         $method = factory(Method::class)->create();
 
         $response = $this->actingAs($user)
-            ->from(route('admin.methods'))
+            ->from(route('admin.methods.index'))
             ->delete(route('methods.destroy', $method->id));
 
         $this->assertNull(Method::find($method->id));
         $response->assertStatus(302);
-        $response->assertRedirect(route('admin.methods'));
+        $response->assertRedirect(route('admin.methods.index'));
     }
 }

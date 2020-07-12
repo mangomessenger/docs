@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Method extends Model
 {
-    use SoftDeletes;
-
     static public $types = [ 'GET', 'POST', 'PUT', 'DELETE'];
 
     /**

@@ -27,6 +27,7 @@
                         <td>{{ $error->category->fullName()  }}</td>
                         <td>{{ $error->message }}</td>
                         <td>
+                            <a class="btn btn-primary w-100" href="{{ route('errors.edit', $error) }}">Edit</a>
                             <form method="post" action="{{ route("errors.destroy", $error) }}">
                                 @csrf
                                 @method('DELETE')

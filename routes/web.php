@@ -62,7 +62,7 @@ Route::group([
     /* Errors */
     Route::resource('errors', 'ErrorController', [
         'names' => ['index' => 'admin.errors.index'],
-    ])->except(['edit', 'show']);
+    ])->except(['show']);
     /* Error Categories */
     Route::prefix('errors')->name('admin.errors.')->group(function () {
         Route::resource('categories', 'ErrorCategoryController')->except(['show']);

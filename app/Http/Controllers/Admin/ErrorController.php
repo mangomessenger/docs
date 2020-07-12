@@ -79,6 +79,27 @@ class ErrorController extends Controller
         return redirect()->route('admin.errors.index');
     }
 
+    public function edit(Error $error)
+    {
+        return View('admin.errors.edit', [
+            'error' => $error,
+            'errorCategories' => $this->errorCategoryService->all(),
+        ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param ErrorRequest $request
+     * @param Error $error
+     * @return RedirectResponse
+     */
+    public function update(ErrorRequest $request, Error $error)
+    {
+        $this->errorService->update($error->id, $request->validated());
+
+        return redirect()->route('admin.errors.index');
+    }
 
     /**
      * Remove the specified resource from storage.

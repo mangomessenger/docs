@@ -11,6 +11,10 @@
                 <h5 class="font-weight-bold">{{ $tag->tag }}</h5>
             </div>
 
+            <div class="row">
+                <p>{{ $tag->description }}</p>
+            </div>
+
             @include('api.partials.methods_table', ['methods' => $tag->methods])
         @endforeach
     </div>

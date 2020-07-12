@@ -5,7 +5,14 @@
             <div></div>
             <ol>
                 <li><a href="{{ route('home') }}">Home</a></li>
-                @if(isset($title)) <li>{{ $title }}</li> @endif
+                @if(isset($intermediate))
+                    @foreach($intermediate as $i)
+                        <li><a href="{{ $i['url'] }}">{{ $i['name'] }}</a></li>
+                    @endforeach
+                @endif
+
+                @if(isset($title))
+                    <li>{{ $title }}</li> @endif
             </ol>
         </div>
 

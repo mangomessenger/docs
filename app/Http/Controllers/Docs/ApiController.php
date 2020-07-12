@@ -85,6 +85,12 @@ class ApiController extends Controller
             'method' => $m = $this->methodService->find($method),
             'params' => $m->params,
             'errors' => $m->errors,
+            'intermediate' => [
+                [
+                    'name' => 'Methods',
+                    'url' => route('methods'),
+                ],
+            ]
         ]);
     }
 
@@ -113,7 +119,13 @@ class ApiController extends Controller
             'title' => "$type - API Type",
             'type' => $t = $this->typeService->find($type),
             'params' => $t->params,
-            'methods' => $t->methods
+            'methods' => $t->methods,
+            'intermediate' => [
+                [
+                    'name' => 'Types',
+                    'url' => route('types'),
+                ],
+            ]
         ]);
     }
 }

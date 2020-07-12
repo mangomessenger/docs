@@ -36,7 +36,7 @@
 @include('includes.header')
 
 <main id="main">
-    @yield('top-section', \View::make('includes.breadcrumbs.main', ['title' => $title ?? null]))
+    @yield('top-section', \View::make('includes.breadcrumbs.main', ['title' => $title ?? null,'intermediate' => $intermediate ?? null]))
 
     <section>
         <div class="container">

@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-6">
-                <form method="post" action="{{ route('method-tag.update', $tag) }}">
+                <form method="post" action="{{ route('methods.tags.update', $tag) }}">
                     @method('PUT')
                     @csrf
                     <div class="form-group">

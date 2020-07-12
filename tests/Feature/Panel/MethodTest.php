@@ -24,7 +24,7 @@ class MethodTest extends TestCase
         $user = factory(User::class)->create();
         $method = factory(Method::class)->make();
 
-        $response = $this->actingAs($user)->post(route('method.store'), $method->toArray());
+        $response = $this->actingAs($user)->post(route('methods.store'), $method->toArray());
         $response->assertRedirect(route('admin.methods'));
     }
 
@@ -33,7 +33,7 @@ class MethodTest extends TestCase
         $user = factory(User::class)->create();
         $method = factory(Method::class)->create();
 
-        $response = $this->actingAs($user)->put(route('method.update', 1), $method->toArray());
+        $response = $this->actingAs($user)->put(route('methods.update', 1), $method->toArray());
         $response->assertRedirect(route('admin.methods'));
     }
 
@@ -44,7 +44,7 @@ class MethodTest extends TestCase
 
         $response = $this->actingAs($user)
             ->from(route('admin.methods'))
-            ->delete(route('method.destroy', $method->id));
+            ->delete(route('methods.destroy', $method->id));
 
         $this->assertNull(Method::find($method->id));
         $response->assertStatus(302);

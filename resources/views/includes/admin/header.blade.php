@@ -15,13 +15,13 @@
                 <li class="drop-down"><a href="">Methods</a>
                     <ul>
                         <li><a href="{{ route('admin.methods') }}">Methods</a></li>
-                        <li><a href="{{ route('admin.method-tags') }}">Tags</a></li>
+                        <li><a href="{{ route('admin.methods.tags') }}">Tags</a></li>
                     </ul>
                 </li>
                 <li class="drop-down"><a href="">Errors</a>
                     <ul>
                         <li><a href="{{ route('admin.errors') }}">Errors</a></li>
-                        <li><a href="{{ route('admin.error-categories') }}">Categories</a></li>
+                        <li><a href="{{ route('admin.errors.categories') }}">Categories</a></li>
                     </ul>
                 </li>
                 <li><a href="#">Users</a></li>

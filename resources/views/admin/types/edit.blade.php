@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-6">
-                <form method="post" action="{{ route('type.update', $type) }}">
+                <form method="post" action="{{ route('types.update', $type) }}">
                     @method('PUT')
                     @csrf
                     <div class="form-group">
@@ -31,7 +31,7 @@
             <h4 class="font-weight-bold">Parameters</h4>
         </div>
         <div class="row">
-            <a class="btn btn-primary" href="{{ route('type-param.create', $type) }}">Create new</a>
+            <a class="btn btn-primary" href="{{ route('type-params.create', $type) }}">Create new</a>
         </div>
         <div class="row pt-3">
             <table class="table">
@@ -50,8 +50,8 @@
                         <td><a href="{{ route('type', $param->return_type_id) }}">{{ \App\Type::find($param->return_type_id)->name }}</a></td>
                         <td>{{ $param->description }}</td>
                         <td>
-                            <a class="btn btn-primary w-100 mt-1" href="{{ route('type-param.edit', $param) }}">Edit</a>
-                            <form method="post" action="{{ route("type-param.destroy", $param) }}">
+                            <a class="btn btn-primary w-100 mt-1" href="{{ route('type-params.edit', $param) }}">Edit</a>
+                            <form method="post" action="{{ route('type-params.destroy', $param) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger w-100 mt-1">Delete</button>

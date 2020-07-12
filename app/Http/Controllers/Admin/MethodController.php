@@ -127,7 +127,7 @@ class MethodController extends Controller
     {
         $this->methodService->addError($method, $this->errorService->find($request->post('error_id')));
 
-        return redirect()->route('method.edit', $method);
+        return redirect()->route('methods.edit', $method);
     }
 
     /**
@@ -141,6 +141,6 @@ class MethodController extends Controller
     {
         $this->methodService->removeError($method, $error);
 
-        return redirect()->route('method.edit', $method);
+        return redirect()->route('methods.edit', $method);
     }
 }

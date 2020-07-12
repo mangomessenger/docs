@@ -26,8 +26,8 @@ class TypeParamTest extends TestCase
         $user = factory(User::class)->create();
         $typeParam = factory(TypeParam::class)->make();
 
-        $response = $this->actingAs($user)->post(route('type-param.store', 1), $typeParam->toArray());
-        $response->assertRedirect(route('type.edit', 1));
+        $response = $this->actingAs($user)->post(route('type-params.store', 1), $typeParam->toArray());
+        $response->assertRedirect(route('types.edit', 1));
     }
 
     public function test_admin_can_edit_type_param()
@@ -35,8 +35,8 @@ class TypeParamTest extends TestCase
         $user = factory(User::class)->create();
         $typeParam = factory(TypeParam::class)->create();
 
-        $response = $this->actingAs($user)->put(route('type-param.update', 1), $typeParam->toArray());
-        $response->assertRedirect(route('type.edit', 1));
+        $response = $this->actingAs($user)->put(route('type-params.update', 1), $typeParam->toArray());
+        $response->assertRedirect(route('types.edit', 1));
     }
 
     public function test_admin_can_delete_type_param()
@@ -45,10 +45,10 @@ class TypeParamTest extends TestCase
         $typeParam = factory(TypeParam::class)->create();
 
         $response = $this->actingAs($user)
-            ->from(route('type.edit', 1))
-            ->delete(route('type-param.destroy', $typeParam->id));
+            ->from(route('types.edit', 1))
+            ->delete(route('type-params.destroy', $typeParam->id));
 
         $response->assertStatus(302);
-        $response->assertRedirect(route('type.edit', 1));
+        $response->assertRedirect(route('types.edit', 1));
     }
 }

@@ -37,7 +37,7 @@ class TypeParamController extends Controller
      */
     public function create(Type $type)
     {
-        return View('admin.type-params.create', [
+        return View('admin.types.params.create', [
             'type' => $type,
         ]);
     }
@@ -53,7 +53,7 @@ class TypeParamController extends Controller
     {
         $this->typeParamService->create($request->validated());
 
-        return redirect()->route('type.edit', $type);
+        return redirect()->route('types.edit', $type);
     }
 
     /**
@@ -64,7 +64,7 @@ class TypeParamController extends Controller
      */
     public function edit(TypeParam $typeParam)
     {
-        return View('admin.type-params.edit', [
+        return View('admin.types.params.edit', [
             'typeParam' => $typeParam,
         ]);
     }
@@ -80,7 +80,7 @@ class TypeParamController extends Controller
     {
         $this->typeParamService->update($typeParam->id, $request->validated());
 
-        return redirect()->route('type.edit', $typeParam->type_id);
+        return redirect()->route('types.edit', $typeParam->type_id);
     }
 
     /**

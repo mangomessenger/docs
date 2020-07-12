@@ -4,11 +4,11 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-6">
-                <form method="post" action="{{ route('type-param.store', $type->id) }}">
+                <form method="post" action="{{ route('methods.params.store', $method->id) }}">
                     @csrf
                     <div class="py-3">
-                        <h5><b>{{ $type->name }}</b></h5>
-                        <h5>{{ $type->description }}</h5>
+                        <h5><b>{{ $method->name }}</b></h5>
+                        <h5>{{ $method->description }}</h5>
                     </div>
                     <div class="form-group">
                         <label>Name</label>
@@ -19,7 +19,7 @@
                     <p class="text-danger">{{ $message }}</p>
                     @enderror
 
-                    <input type="hidden" name="type_id" value="{{ $type->id }}">
+                    <input type="hidden" name="method_id" value="{{ $method->id }}">
 
                     <div class="form-group">
                         <label>Description</label>
@@ -32,15 +32,15 @@
                     <div class="form-group">
                         <label for="name">Type</label>
                         <select name="return_type_id" class="custom-select custom-select @error("return_type_id") is-invalid @enderror">
-                            @foreach(\App\Type::all() as $typeOption)
-                                <option @if($typeOption->id == old("return_type_id")) selected @endif value="{{ $typeOption->id }}">{{ $typeOption->name }}</option>
+                            @foreach(\App\Type::all() as $methodOption)
+                                <option @if($methodOption->id == old("return_type_id")) selected @endif value="{{ $methodOption->id }}">{{ $methodOption->name }}</option>
                             @endforeach
                         </select>
                         @error("return_type_id")
                         <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary w-100">Create Type Parameter</button>
+                    <button type="submit" class="btn btn-primary w-100">Create Method Parameter</button>
                 </form>
             </div>
         </div>

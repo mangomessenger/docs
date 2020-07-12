@@ -7,7 +7,7 @@
         </div>
 
         <div class="row">
-            <a class="btn btn-primary" href="{{ route('error.create') }}">Create new</a>
+            <a class="btn btn-primary" href="{{ route('errors.create') }}">Create new</a>
         </div>
 
         <div class="row py-3">
@@ -27,7 +27,7 @@
                         <td>{{ $error->category->fullName()  }}</td>
                         <td>{{ $error->message }}</td>
                         <td>
-                            <form method="post" action="{{ route("error.destroy", $error) }}">
+                            <form method="post" action="{{ route("errors.destroy", $error) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger w-100 mt-1">Delete</button>

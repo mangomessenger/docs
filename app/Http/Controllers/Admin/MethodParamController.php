@@ -37,7 +37,7 @@ class MethodParamController extends Controller
      */
     public function create(Method $method)
     {
-        return View('admin.method-params.create', [
+        return View('admin.methods.params.create', [
             'method' => $method,
         ]);
     }
@@ -53,7 +53,7 @@ class MethodParamController extends Controller
     {
         $this->methodParamService->create($request->validated());
 
-        return redirect()->route('method.edit', $method);
+        return redirect()->route('methods.edit', $method);
     }
 
     /**
@@ -64,7 +64,7 @@ class MethodParamController extends Controller
      */
     public function edit(MethodParam $methodParam)
     {
-        return View('admin.method-params.edit',[
+        return View('admin.methods.params.edit',[
             'methodParam' => $methodParam,
         ]);
     }
@@ -80,7 +80,7 @@ class MethodParamController extends Controller
     {
         $this->methodParamService->update($methodParam->id, $request->validated());
 
-        return redirect()->route('method.edit', $methodParam->method_id);
+        return redirect()->route('methods.edit', $methodParam->method_id);
     }
 
     /**

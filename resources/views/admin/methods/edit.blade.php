@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-6">
-                <form method="post" action="{{ route('method.update', $method->id) }}">
+                <form method="post" action="{{ route('methods.update', $method->id) }}">
                     @method('PUT')
                     @csrf
                     <div class="form-group">
@@ -74,7 +74,7 @@
             <h4 class="font-weight-bold">Parameters</h4>
         </div>
         <div class="row">
-            <a class="btn btn-primary" href="{{ route('method-param.create', $method) }}">Add</a>
+            <a class="btn btn-primary" href="{{ route('methods.params.create', $method) }}">Add</a>
         </div>
         <div class="row pt-3">
             <table class="table">
@@ -94,8 +94,8 @@
                         <td>{{ $param->description }}</td>
                         <td>
                             <a class="btn btn-primary w-100 mt-1"
-                               href="{{ route('method-param.edit', $param) }}">Edit</a>
-                            <form method="post" action="{{ route('method-param.destroy', $param) }}">
+                               href="{{ route('methods.params.edit', $param) }}">Edit</a>
+                            <form method="post" action="{{ route('methods.params.destroy', $param) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger w-100 mt-1">Delete</button>
@@ -110,7 +110,7 @@
         <div class="row pt-5 pb-2">
             <h4 class="font-weight-bold">Errors</h4>
         </div>
-        <form method="post" action="{{ route('method.add-error', $method) }}">
+        <form method="post" action="{{ route('method.errors.add', $method) }}">
             @csrf
             <div class="row">
                 <div class="col-4">
@@ -146,7 +146,7 @@
                         <td>{{ $error->category->fullName()  }}</td>
                         <td>{{ $error->message }}</td>
                         <td>
-                            <form method="post" action="{{ route("method.remove-error", [$method, $error]) }}">
+                            <form method="post" action="{{ route("method.errors.remove", [$method, $error]) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger w-100 mt-1">Remove</button>

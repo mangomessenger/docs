@@ -29,10 +29,10 @@ class PanelTest extends TestCase
     {
         $user = factory(User::class)->create();
 
-        $response = $this->get(route('type.create'));
+        $response = $this->get(route('types.create'));
         $response->assertStatus(404);
 
-        $response = $this->actingAs($user)->get(route('type.create'));
+        $response = $this->actingAs($user)->get(route('types.create'));
         $response->assertStatus(200);
     }
 
@@ -42,10 +42,10 @@ class PanelTest extends TestCase
 
         $user = factory(User::class)->create();
 
-        $response = $this->get(route('type.edit', 1));
+        $response = $this->get(route('types.edit', 1));
         $response->assertStatus(404);
 
-        $response = $this->actingAs($user)->get(route('type.edit', 1));
+        $response = $this->actingAs($user)->get(route('types.edit', 1));
         $response->assertStatus(200);
     }
 
@@ -55,10 +55,10 @@ class PanelTest extends TestCase
 
         $user = factory(User::class)->create();
 
-        $response = $this->get(route('type-param.create', 1));
+        $response = $this->get(route('type-params.create', 1));
         $response->assertStatus(404);
 
-        $response = $this->actingAs($user)->get(route('type-param.create', 1));
+        $response = $this->actingAs($user)->get(route('type-params.create', 1));
         $response->assertStatus(200);
     }
 }

@@ -37,7 +37,7 @@ class MethodTagController extends Controller
      */
     public function index(MethodTagService $methodTagService)
     {
-        return View('admin.method-tags.index', [
+        return View('admin.methods.tags.index', [
             'tags' => $methodTagService->all(),
         ]);
     }
@@ -49,7 +49,7 @@ class MethodTagController extends Controller
      */
     public function create()
     {
-        return View('admin.method-tags.create');
+        return View('admin.methods.tags.create');
     }
 
     /**
@@ -63,7 +63,7 @@ class MethodTagController extends Controller
     {
         $methodTagService->create($request->validated());
 
-        return redirect()->route('admin.method-tags');
+        return redirect()->route('admin.methods.tags');
     }
 
     /**
@@ -74,7 +74,7 @@ class MethodTagController extends Controller
      */
     public function edit(MethodTag $tag)
     {
-        return View('admin.method-tags.edit', [
+        return View('admin.methods.tags.edit', [
             'tag' => $tag,
         ]);
     }
@@ -91,7 +91,7 @@ class MethodTagController extends Controller
     {
         $methodTagService->update($id, $request->validated());
 
-        return redirect()->route('admin.method-tags');
+        return redirect()->route('admin.methods.tags');
     }
 
     /**

@@ -24,7 +24,7 @@ class TypeTest extends TestCase
         $user = factory(User::class)->create();
         $type = factory(Type::class)->make();
 
-        $response = $this->actingAs($user)->post(route('type.store'), $type->toArray());
+        $response = $this->actingAs($user)->post(route('types.store'), $type->toArray());
         $response->assertRedirect(route('admin.types'));
     }
 
@@ -33,7 +33,7 @@ class TypeTest extends TestCase
         $user = factory(User::class)->create();
         $type = factory(Type::class)->create();
 
-        $response = $this->actingAs($user)->put(route('type.update', 1), $type->toArray());
+        $response = $this->actingAs($user)->put(route('types.update', 1), $type->toArray());
         $response->assertRedirect(route('admin.types'));
     }
 
@@ -44,7 +44,7 @@ class TypeTest extends TestCase
 
         $response = $this->actingAs($user)
             ->from(route('admin.types'))
-            ->delete(route('type.destroy', $type->id));
+            ->delete(route('types.destroy', $type->id));
 
         $response->assertStatus(302);
         $response->assertRedirect(route('admin.types'));

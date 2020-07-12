@@ -36,7 +36,7 @@ class ErrorCategoryController extends Controller
      */
     public function index()
     {
-        return View('admin.error-categories.index', [
+        return View('admin.errors.categories.index', [
             'categories' => $this->errorCategoryService->all(),
         ]);
     }
@@ -48,7 +48,7 @@ class ErrorCategoryController extends Controller
      */
     public function create()
     {
-        return View('admin.error-categories.create');
+        return View('admin.errors.categories.create');
     }
 
     /**
@@ -61,7 +61,7 @@ class ErrorCategoryController extends Controller
     {
         $this->errorCategoryService->create($request->validated());
 
-        return redirect()->route('admin.error-categories');
+        return redirect()->route('admin.errors.categories');
     }
 
     /**

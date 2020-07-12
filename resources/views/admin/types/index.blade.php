@@ -7,7 +7,7 @@
         </div>
 
         <div class="row">
-            <a class="btn btn-primary" href="{{ route('type.create') }}">Create new</a>
+            <a class="btn btn-primary" href="{{ route('types.create') }}">Create new</a>
         </div>
 
         <div class="row py-3">
@@ -25,8 +25,8 @@
                         <td><a href="{{ route('type', $type->name) }}">{{ $type->name }}</a></td>
                         <td>{{ $type->description }}</td>
                         <td>
-                            <a class="btn btn-primary w-100 mt-1" href="{{ route('type.edit', $type) }}">Edit</a>
-                            <form method="post" action="{{ route("type.destroy", $type) }}">
+                            <a class="btn btn-primary w-100 mt-1" href="{{ route('types.edit', $type) }}">Edit</a>
+                            <form method="post" action="{{ route('types.destroy', $type) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger w-100 mt-1">Delete</button>

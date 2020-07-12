@@ -3,30 +3,31 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <h2>Method Tags</h2>
+            <h2>Error Categories</h2>
         </div>
 
         <div class="row">
-            <a class="btn btn-primary" href="{{ route('method-tag.create') }}">Create new</a>
+            <a class="btn btn-primary" href="{{ route('admin.errors.categories.create') }}">Create new</a>
         </div>
 
         <div class="row py-3">
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col">Tag</th>
-                    <th scope="col">Descripton</th>
+                    <th scope="col">Code</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
                     <th scope="col">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($tags as $tag)
+                @foreach($categories as $category)
                     <tr>
-                        <td>{{ $tag->tag }}</td>
-                        <td>{{ $tag->description }}</td>
+                        <td>{{ $category->code }}</td>
+                        <td>{{ $category->name }}</td>
+                        <td>{{ $category->description }}</td>
                         <td>
-                            <a class="btn btn-primary w-100 mt-1" href="{{ route('method-tag.edit', $tag) }}">Edit</a>
-                            <form method="post" action="{{ route("method-tag.destroy", $tag) }}">
+                            <form method="post" action="{{ route("admin.errors.categories.destroy", $category) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger w-100 mt-1">Delete</button>

@@ -7,7 +7,7 @@
         </div>
 
         <div class="row">
-            <a class="btn btn-primary" href="{{ route('method.create') }}">Create new</a>
+            <a class="btn btn-primary" href="{{ route('methods.create') }}">Create new</a>
         </div>
 
         <div class="row py-3">
@@ -31,8 +31,8 @@
                         <td>{{ $method->description }}</td>
                         <td><a href="{{ route('type', $method->returnType) }}">{{ $method->returnType->name }}</a></td>
                         <td>
-                            <a class="btn btn-primary w-100 mt-1" href="{{ route('method.edit', $method) }}">Edit</a>
-                            <form method="post" action="{{ route("method.destroy", $method) }}">
+                            <a class="btn btn-primary w-100 mt-1" href="{{ route('methods.edit', $method) }}">Edit</a>
+                            <form method="post" action="{{ route("methods.destroy", $method) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger w-100 mt-1">Delete</button>

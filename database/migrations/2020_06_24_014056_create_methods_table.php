@@ -19,7 +19,6 @@ class CreateMethodsTable extends Migration
             $table->string("name");
             $table->longText("description");
             $table->integer("return_type_id")->nullable();
-            $table->softDeletes();
             $table->timestamps();
         });
     }

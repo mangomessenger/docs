@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TypeParamRequest;
 use App\Services\TypeParamService;
+use App\Services\TypeService;
 use App\Type;
 use App\TypeParam;
 use Illuminate\Http\RedirectResponse;
@@ -18,15 +19,24 @@ class TypeParamController extends Controller
      * @var TypeParamService
      */
     protected $typeParamService;
+    /**
+     * Service of Type model
+     *
+     * @var TypeService
+     */
+    protected $typeService;
 
     /**
      * Create a new controller instance.
      *
      * @param TypeParamService $typeParamService
+     * @param TypeService $typeService
      */
-    public function __construct(TypeParamService $typeParamService)
+    public function __construct(TypeParamService $typeParamService,
+                                TypeService $typeService)
     {
         $this->typeParamService = $typeParamService;
+        $this->typeService = $typeService;
     }
 
     /**
@@ -39,6 +49,7 @@ class TypeParamController extends Controller
     {
         return View('admin.types.params.create', [
             'type' => $type,
+            'types' => $this->typeService->all(),
         ]);
     }
 
@@ -66,6 +77,7 @@ class TypeParamController extends Controller
     {
         return View('admin.types.params.edit', [
             'typeParam' => $typeParam,
+            'types' => $this->typeService->all(),
         ]);
     }
 

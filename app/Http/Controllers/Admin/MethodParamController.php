@@ -7,6 +7,7 @@ use App\Http\Requests\MethodParamRequest;
 use App\Method;
 use App\MethodParam;
 use App\Services\MethodParamService;
+use App\Services\TypeService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -20,13 +21,21 @@ class MethodParamController extends Controller
     protected $methodParamService;
 
     /**
+     * Service of Type model
+     *
+     * @var TypeService
+     */
+    protected $typeService;
+
+    /**
      * Create a new controller instance.
      *
      * @param MethodParamService $methodParamService
      */
-    public function __construct(MethodParamService $methodParamService)
+    public function __construct(MethodParamService $methodParamService, TypeService $typeService)
     {
         $this->methodParamService = $methodParamService;
+        $this->typeService = $typeService;
     }
 
     /**
@@ -39,6 +48,7 @@ class MethodParamController extends Controller
     {
         return View('admin.methods.params.create', [
             'method' => $method,
+            'types' => $this->typeService->all(),
         ]);
     }
 
@@ -66,6 +76,7 @@ class MethodParamController extends Controller
     {
         return View('admin.methods.params.edit',[
             'methodParam' => $methodParam,
+            'types' => $this->typeService->all(),
         ]);
     }
 

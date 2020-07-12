@@ -32,8 +32,8 @@
                     <div class="form-group">
                         <label for="name">Type</label>
                         <select name="return_type_id" class="custom-select custom-select @error("return_type_id") is-invalid @enderror">
-                            @foreach(\App\Type::all() as $methodOption)
-                                <option @if($methodOption->id == old("return_type_id")) selected @endif value="{{ $methodOption->id }}">{{ $methodOption->name }}</option>
+                            @foreach($types as $type)
+                                <option @if($type->id == old("return_type_id")) selected @endif value="{{ $type->id }}">{{ $type->name }}</option>
                             @endforeach
                         </select>
                         @error("return_type_id")

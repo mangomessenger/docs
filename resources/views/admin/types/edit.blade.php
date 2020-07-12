@@ -47,7 +47,7 @@
                 @foreach($type->params as $param)
                     <tr>
                         <td>{{ $param->name }}</td>
-                        <td><a href="{{ route('type', $param->return_type_id) }}">{{ \App\Type::find($param->return_type_id)->name }}</a></td>
+                        <td><a href="{{ route('type', $param->return_type_id) }}">{{ $param->returnType->name }}</a></td>
                         <td>{{ $param->description }}</td>
                         <td>
                             <a class="btn btn-primary w-100 mt-1" href="{{ route('type-params.edit', $param) }}">Edit</a>

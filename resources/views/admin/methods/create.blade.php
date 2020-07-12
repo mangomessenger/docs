@@ -10,7 +10,7 @@
                     <div class="form-group">
                         <label for="name">Tag</label>
                         <select name="tag_id" class="custom-select custom-select @error("tag_id") is-invalid @enderror">
-                            @foreach(\App\MethodTag::all() as $tag)
+                            @foreach($tags as $tag)
                                 <option @if($tag->id == old("tag_id")) selected @endif value="{{ $tag->id }}">{{ $tag->tag }}</option>
                             @endforeach
                         </select>
@@ -31,7 +31,7 @@
                     <div class="form-group">
                         <label for="type">Type</label>
                         <select name="type" class="custom-select custom-select @error("type") is-invalid @enderror">
-                            @foreach(\App\Method::$types as $methodType)
+                            @foreach($methodTypes as $methodType)
                                 <option @if($methodType == old("type")) selected @endif>{{ $methodType }}</option>
                             @endforeach
                         </select>
@@ -43,7 +43,7 @@
                     <div class="form-group">
                         <label for="name">Returns</label>
                         <select name="return_type_id" class="custom-select custom-select @error("return_type_id") is-invalid @enderror">
-                            @foreach(\App\Type::all() as $typeOption)
+                            @foreach($types as $typeOption)
                                 <option @if($typeOption->id == old("return_type_id")) selected @endif value="{{ $typeOption->id }}">{{ $typeOption->name }}</option>
                             @endforeach
                         </select>

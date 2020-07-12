@@ -10,7 +10,7 @@
                     <div class="form-group">
                         <label for="name">Tag</label>
                         <select name="tag_id" class="custom-select custom-select @error("tag_id") is-invalid @enderror">
-                            @foreach(\App\MethodTag::all() as $tag)
+                            @foreach($tags as $tag)
                                 <option @if($tag->id == (old("tag_id") ?? $method->tag_id)) selected
                                         @endif value="{{ $tag->id }}">{{ $tag->tag }}</option>
                             @endforeach
@@ -32,7 +32,7 @@
                     <div class="form-group">
                         <label for="type">Type</label>
                         <select name="type" class="custom-select custom-select @error("type") is-invalid @enderror">
-                            @foreach(\App\Method::$types as $methodType)
+                            @foreach($methodTypes as $methodType)
                                 <option
                                     @if($methodType == (old("type") ?? $method->type)) selected @endif>{{ $methodType }}</option>
                             @endforeach
@@ -46,7 +46,7 @@
                         <label for="name">Returns</label>
                         <select name="return_type_id"
                                 class="custom-select custom-select @error("return_type_id") is-invalid @enderror">
-                            @foreach(\App\Type::all() as $typeOption)
+                            @foreach($types as $typeOption)
                                 <option
                                     @if($typeOption->id == (old("return_type_id") ?? $method->return_type_id)) selected
                                     @endif value="{{ $typeOption->id }}">{{ $typeOption->name }}</option>
@@ -90,7 +90,7 @@
                 @foreach($method->params as $param)
                     <tr>
                         <td>{{ $param->name }}</td>
-                        <td><a href="#">{{ \App\Type::find($param->return_type_id)->name }}</a></td>
+                        <td><a href="#">{{ $param->returnType->name }}</a></td>
                         <td>{{ $param->description }}</td>
                         <td>
                             <a class="btn btn-primary w-100 mt-1"
@@ -117,7 +117,7 @@
                     <div class="form-group">
                         <select name="error_id"
                                 class="custom-select custom-select">
-                            @foreach(\App\Error::all() as $error)
+                            @foreach($allErrors as $error)
                                 <option
                                     value="{{ $error->id }}">{{ "{$error->type} - {$error->category->fullName()}" }}</option>
                             @endforeach

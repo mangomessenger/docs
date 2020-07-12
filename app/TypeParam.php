@@ -15,4 +15,12 @@ class TypeParam extends Model
     protected $fillable = [
         'name', 'description', 'type_id', 'return_type_id'
     ];
+
+    /**
+     * Get the Type record associated with the TypeParam.
+     */
+    public function returnType()
+    {
+        return $this->hasOne('App\Type', 'id', 'return_type_id');
+    }
 }

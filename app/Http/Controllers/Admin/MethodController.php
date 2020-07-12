@@ -8,6 +8,8 @@ use App\Http\Requests\MethodRequest;
 use App\Method;
 use App\Services\ErrorService;
 use App\Services\MethodService;
+use App\Services\MethodTagService;
+use App\Services\TypeService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -29,16 +31,36 @@ class MethodController extends Controller
     protected $errorService;
 
     /**
+     * Service of MethodTag model
+     *
+     * @var MethodTagService
+     */
+    protected $methodTagService;
+
+    /**
+     * Service of Type model
+     *
+     * @var TypeService
+     */
+    protected $typeService;
+
+    /**
      * Create a new controller instance.
      *
      * @param MethodService $methodService
      * @param ErrorService $errorService
+     * @param MethodTagService $methodTagService
+     * @param TypeService $typeService
      */
     public function __construct(MethodService $methodService,
-                                ErrorService $errorService)
+                                ErrorService $errorService,
+                                MethodTagService $methodTagService,
+                                TypeService $typeService)
     {
         $this->methodService = $methodService;
         $this->errorService = $errorService;
+        $this->methodTagService = $methodTagService;
+        $this->typeService = $typeService;
     }
 
     /**
@@ -60,7 +82,11 @@ class MethodController extends Controller
      */
     public function create()
     {
-        return View('admin.methods.create');
+        return View('admin.methods.create', [
+            'types' => $this->typeService->all(),
+            'tags' => $this->methodTagService->all(),
+            'methodTypes' => Method::$types,
+        ]);
     }
 
     /**
@@ -86,6 +112,10 @@ class MethodController extends Controller
     {
         return View('admin.methods.edit', [
             'method' => $method,
+            'types' => $this->typeService->all(),
+            'allErrors' => $this->errorService->all(),
+            'tags' => $this->methodTagService->all(),
+            'methodTypes' => Method::$types,
         ]);
     }
 

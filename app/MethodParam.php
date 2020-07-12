@@ -14,4 +14,12 @@ class MethodParam extends Model
     protected $fillable = [
         'name', 'description', 'method_id', 'return_type_id'
     ];
+
+    /**
+     * Get the Type record associated with the MethodParam.
+     */
+    public function returnType()
+    {
+        return $this->hasOne('App\Type', 'id', 'return_type_id');
+    }
 }

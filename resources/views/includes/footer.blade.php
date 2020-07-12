@@ -2,7 +2,7 @@
 <footer id="footer">
     <div class="container">
         <div class="row d-flex align-items-center p-3">
-            <div class="col-lg-6 text-lg-left text-center pb-3">
+            <div class="col-lg-4 text-lg-left text-center pb-3">
                 <div class="row">
                     <b>{{ config('app.name', 'Laravel') }}</b>
                 </div>
@@ -10,7 +10,7 @@
                     Mango Messenger is a mobile and desktop messaging app with a focus on security and speed.
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 offset-lg-2">
                 <div class="row">
                     <div class="col-4">
                         <div class="row">

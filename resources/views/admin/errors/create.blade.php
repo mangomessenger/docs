@@ -10,7 +10,7 @@
                     <div class="form-group">
                         <label for="name">Category</label>
                         <select name="category_id" class="custom-select custom-select @error("category_id") is-invalid @enderror">
-                            @foreach(\App\ErrorCategory::all() as $category)
+                            @foreach($errorCategories as $category)
                                 <option @if($category->id == old("category_id")) selected @endif value="{{ $category->id }}">{{ $category->fullName()}}</option>
                             @endforeach
                         </select>

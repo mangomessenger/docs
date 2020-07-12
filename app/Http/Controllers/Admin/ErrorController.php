@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Error;
+use App\ErrorCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ErrorRequest;
+use App\Services\ErrorCategoryService;
 use App\Services\ErrorService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -13,7 +15,6 @@ use Illuminate\View\View;
 
 class ErrorController extends Controller
 {
-
     /**
      * Service of Error model
      *
@@ -22,13 +23,23 @@ class ErrorController extends Controller
     protected $errorService;
 
     /**
+     * Service of ErrorCategory model
+     *
+     * @var ErrorCategoryService
+     */
+    protected $errorCategoryService;
+
+    /**
      * Create a new controller instance.
      *
      * @param ErrorService $errorService
+     * @param ErrorCategoryService $errorCategoryService
      */
-    public function __construct(ErrorService $errorService)
+    public function __construct(ErrorService $errorService,
+                                ErrorCategoryService $errorCategoryService)
     {
         $this->errorService = $errorService;
+        $this->errorCategoryService = $errorCategoryService;
     }
 
     /**
@@ -50,7 +61,9 @@ class ErrorController extends Controller
      */
     public function create()
     {
-        return View('admin.errors.create');
+        return View('admin.errors.create', [
+            'errorCategories' => $this->errorCategoryService->all(),
+        ]);
     }
 
     /**

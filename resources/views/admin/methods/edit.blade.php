@@ -77,7 +77,7 @@
             <a class="btn btn-primary" href="{{ route('methods.params.create', $method) }}">Add</a>
         </div>
         <div class="row pt-3">
-            <table class="table">
+            <table class="table table-hover">
                 <thead>
                 <tr>
                     <th scope="col">Name</th>
@@ -130,7 +130,7 @@
             </div>
         </form>
         <div class="row pt-3">
-            <table class="table">
+            <table class="table table-hover">
                 <thead>
                 <tr>
                     <th scope="col">Type</th>

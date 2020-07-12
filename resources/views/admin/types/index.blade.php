@@ -11,7 +11,7 @@
         </div>
 
         <div class="row py-3">
-            <table class="table">
+            <table class="table table-hover">
                 <thead>
                 <tr>
                     <th scope="col">Name</th>

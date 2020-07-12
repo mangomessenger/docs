@@ -24,7 +24,6 @@
                         <li><a href="{{ route('errors.categories.index') }}">Categories</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Users</a></li>
                 <li><a class="nav-link btn-link text-primary underline" href="{{ route('home') }}"><u>Go on main
                             page</u></a></li>
 

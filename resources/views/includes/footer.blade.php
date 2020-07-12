@@ -1,12 +1,12 @@
 <!-- ======= Footer ======= -->
 <footer id="footer">
     <div class="container">
-        <div class="row d-flex align-items-center">
+        <div class="row d-flex align-items-center p-3">
             <div class="col-lg-6 text-lg-left text-center pb-3">
                 <div class="row">
                     <b>{{ config('app.name', 'Laravel') }}</b>
                 </div>
-                <div class="row pr-5 pt-2">
+                <div class="row pt-2">
                     Mango Messenger is a mobile and desktop messaging app with a focus on security and speed.
                 </div>
             </div>

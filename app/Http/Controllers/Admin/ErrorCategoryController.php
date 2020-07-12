@@ -63,7 +63,7 @@ class ErrorCategoryController extends Controller
     {
         $this->errorCategoryService->create($request->validated());
 
-        return redirect()->route('admin.errors.categories.index');
+        return redirect()->route('errors.categories.index');
     }
 
     /**
@@ -90,7 +90,7 @@ class ErrorCategoryController extends Controller
     {
         $this->errorCategoryService->update($category->id, $request->validated());
 
-        return redirect()->route('admin.errors.categories.index');
+        return redirect()->route('errors.categories.index');
     }
 
     /**

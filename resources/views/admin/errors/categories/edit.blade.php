@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-6">
-                <form method="post" action="{{ route('admin.errors.categories.update', $category) }}">
+                <form method="post" action="{{ route('errors.categories.update', $category) }}">
                     @method('PUT')
                     @csrf
                     <div class="form-group">

@@ -7,7 +7,7 @@
         </div>
 
         <div class="row">
-            <a class="btn btn-primary" href="{{ route('admin.errors.categories.create') }}">Create new</a>
+            <a class="btn btn-primary" href="{{ route('errors.categories.create') }}">Create new</a>
         </div>
 
         <div class="row py-3">
@@ -27,8 +27,8 @@
                         <td>{{ $category->name }}</td>
                         <td>{{ $category->description }}</td>
                         <td>
-                            <a class="btn btn-primary w-100" href="{{ route('admin.errors.categories.edit', $category) }}">Edit</a>
-                            <form method="post" action="{{ route("admin.errors.categories.destroy", $category) }}">
+                            <a class="btn btn-primary w-100" href="{{ route('errors.categories.edit', $category) }}">Edit</a>
+                            <form method="post" action="{{ route("errors.categories.destroy", $category) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger w-100 mt-1">Delete</button>

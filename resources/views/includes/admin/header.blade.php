@@ -21,7 +21,7 @@
                 <li class="drop-down"><a href="">Errors</a>
                     <ul>
                         <li><a href="{{ route('admin.errors.index') }}">Errors</a></li>
-                        <li><a href="{{ route('admin.errors.categories.index') }}">Categories</a></li>
+                        <li><a href="{{ route('errors.categories.index') }}">Categories</a></li>
                     </ul>
                 </li>
                 <li><a href="#">Users</a></li>

@@ -28,11 +28,11 @@ Route::group([
     ])->except(['show']);
     /* Type-Params */
     Route::prefix('types')->name('types.params.')->group(function() {
-        Route::get('/{type}/params/create', 'TypeParamController@create')->name('create');
-        Route::post('/{type}/params', 'TypeParamController@store')->name('store');
-        Route::get('/params/{type_param}/edit', 'TypeParamController@edit')->name('edit');
-        Route::put('/params/{type_param}', 'TypeParamController@update')->name('update');
-        Route::delete('/params/{id}', 'TypeParamController@destroy')->name('destroy');
+        Route::get('/{type}/params/create', 'TypeParamController@create')->name('create'); // type-params.create
+        Route::post('/{type}/params', 'TypeParamController@store')->name('store'); // type-params.store
+        Route::get('/params/{type_param}/edit', 'TypeParamController@edit')->name('edit'); // type-params.edit
+        Route::put('/params/{type_param}', 'TypeParamController@update')->name('update'); // type-params.update
+        Route::delete('/params/{id}', 'TypeParamController@destroy')->name('destroy'); // type-params.destroy
     });
 
     /* Methods */
@@ -64,7 +64,7 @@ Route::group([
         'names' => ['index' => 'admin.errors.index'],
     ])->except(['show']);
     /* Error Categories */
-    Route::prefix('errors')->name('admin.errors.')->group(function () {
+    Route::prefix('errors')->name('errors.')->group(function () {
         Route::resource('categories', 'ErrorCategoryController')->except(['show']);
     });
 });

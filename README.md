@@ -2,6 +2,8 @@
 
 Mango Messenger is a mobile and desktop messaging app with a focus on security and speed. 
 
+![Main Page](github-imgs/main.png "Main Page")
+
 ## Getting Started
 
 ### Installing

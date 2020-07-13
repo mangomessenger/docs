@@ -38,13 +38,19 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-5 - Generate app key
+5 - Run migrations
+
+```
+php artisan migrate
+```
+
+6 - Generate app key
 
 ```
 php artisan key:generate 
 ```
 
-6 - Run your local server
+7 - Run your local server
 
 ```
 php artisan serve

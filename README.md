@@ -66,6 +66,7 @@ php artisan test
 
 ## TODO List
 
+* Changeable order of params
 * Add users page in Panel
 * Add news page
 * Add apps page

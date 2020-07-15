@@ -21,11 +21,6 @@ class MethodService extends BaseService
             $this->model->where('name', Method::unformatName($method))->orWhere('id', $method)->firstOrFail();
     }
 
-//    public function findVisible($method)
-//    {
-//        return $this->model->visible()->where('name', Method::unformatName($method))->orWhere('id', $method)->firstOrFail();
-//    }
-
     public function addError(Method $method, Error $error)
     {
         if (!$method->errors->contains('id', $error->id)) {
@@ -36,5 +31,12 @@ class MethodService extends BaseService
     public function removeError(Method $method, Error $error)
     {
         $method->errors()->detach($error->id);
+    }
+
+    public function update($id, array $input)
+    {
+        $input['name'] = '/' . ltrim(rtrim($input['name'], '/'), '/');
+
+        return $this->find($id)->update($input);
     }
 }

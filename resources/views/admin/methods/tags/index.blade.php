@@ -16,7 +16,7 @@
                 <tr>
                     <th scope="col">Tag</th>
                     <th scope="col">Descripton</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col" style="width: 20%">Actions</th>
                 </tr>
                 </thead>
                 <tbody>

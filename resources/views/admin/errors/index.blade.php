@@ -17,7 +17,7 @@
                     <th scope="col">Type</th>
                     <th scope="col">Category</th>
                     <th scope="col">Message</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col" style="width: 20%">Actions</th>
                 </tr>
                 </thead>
                 <tbody>

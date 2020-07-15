@@ -25,7 +25,7 @@
                     <th scope="col">Method</th>
                     <th scope="col">Description</th>
                     <th scope="col">Return Type</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col" style="width: 20%">Actions</th>
                 </tr>
                 </thead>
                 <tbody>

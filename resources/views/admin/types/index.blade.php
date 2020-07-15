@@ -19,7 +19,7 @@
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Description</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col" style="width: 20%">Actions</th>
                 </tr>
                 </thead>
                 <tbody>

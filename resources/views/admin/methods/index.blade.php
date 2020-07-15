@@ -26,7 +26,12 @@
                 @foreach($methods as $method)
                     <tr>
                         <td>{{ $method->tag->tag }}</td>
-                        <td><a href="{{ route('method', $method->formatName()) }}">{{ $method->name }}</a></td>
+                        <td>
+                            <a @if($method->visible) href="{{ route('method', $method->formatName()) }}" @endif>
+                                {{ $method->name }}
+                            </a>
+                            @if(!$method->visible) <h4 class="pt-2"><span class="badge badge-pill badge-secondary">Invisible</span></h4> @endif
+                        </td>
                         <td>{{ $method->type }}</td>
                         <td>{{ $method->description }}</td>
                         <td><a href="{{ route('type', $method->returnType) }}">{{ $method->returnType->name }}</a></td>

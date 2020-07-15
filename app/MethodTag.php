@@ -20,6 +20,6 @@ class MethodTag extends Model
      */
     public function methods()
     {
-        return $this->hasMany('App\Method', 'tag_id');
+        return $this->hasMany('App\Method', 'tag_id')->where('visible', true);
     }
 }

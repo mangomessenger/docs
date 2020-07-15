@@ -32,6 +32,6 @@ class Type extends Model
      */
     public function methods()
     {
-        return $this->hasMany('App\Method', 'return_type_id');
+        return $this->hasMany('App\Method', 'return_type_id')->where('visible', true);
     }
 }

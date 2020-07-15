@@ -61,11 +61,12 @@ Route::group([
         Route::resource('tags', 'MethodTagController', [
             'as' => 'methods'
         ])->except(['show', 'index']);
-
         /* Payload editor */
         Route::put('/{method}/payload/', 'MethodController@updatePayload')->name('methods.payload.update');
         /* Response editor */
         Route::put('/{method}/response/', 'MethodController@updateResponse')->name('methods.response.update');
+        /* Method visibility */
+        Route::put('/{method}/visibility/', 'MethodController@changeVisibility')->name('methods.visibility.change');
     });
 
     /* Errors */

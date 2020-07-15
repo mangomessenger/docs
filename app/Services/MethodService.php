@@ -14,10 +14,17 @@ class MethodService extends BaseService
         $this->model = $method;
     }
 
-    public function find($method)
+    public function find($method, bool $visible = false)
     {
-        return $this->model->where('name', Method::unformatName($method))->orWhere('id', $method)->firstOrFail();
+        return $visible ?
+            $this->model->visible()->where('name', Method::unformatName($method))->orWhere('id', $method)->firstOrFail() :
+            $this->model->where('name', Method::unformatName($method))->orWhere('id', $method)->firstOrFail();
     }
+
+//    public function findVisible($method)
+//    {
+//        return $this->model->visible()->where('name', Method::unformatName($method))->orWhere('id', $method)->firstOrFail();
+//    }
 
     public function addError(Method $method, Error $error)
     {

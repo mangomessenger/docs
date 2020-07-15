@@ -201,4 +201,18 @@ class MethodController extends Controller
 
         return redirect()->route('methods.edit', $method);
     }
+
+    /**
+     * Updating payload
+     *
+     * @param Request $request
+     * @param Method $method
+     * @return View
+     */
+    public function changeVisibility(Request $request, Method $method)
+    {
+        $method->update(['visible' => !$method->visible]);
+
+        return redirect()->route('methods.edit', $method);
+    }
 }

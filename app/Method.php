@@ -15,7 +15,14 @@ class Method extends Model
      * @var array
      */
     protected $fillable = [
-        'tag_id', 'name', 'type', 'description', 'return_type_id', 'payload', 'response'
+        'tag_id',
+        'name',
+        'type',
+        'description',
+        'return_type_id',
+        'payload',
+        'response',
+        'visible',
     ];
 
     /**
@@ -64,5 +71,16 @@ class Method extends Model
     public static function unformatName($name)
     {
         return '/' . str_replace('.', '/', $name);
+    }
+
+    /**
+     * Scope a query to only include popular users.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeVisible($query)
+    {
+        return $query->where('visible', true);
     }
 }

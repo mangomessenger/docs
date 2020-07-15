@@ -215,9 +215,18 @@
             </table>
         </div>
 
-        {{--        <div class="row pt-5 pb-2">--}}
-        {{--            <h4 class="font-weight-bold">Other actions</h4>--}}
-        {{--        </div>--}}
+        <div class="row pt-5 pb-2">
+            <h4 class="font-weight-bold">Other actions</h4>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <form method="post" action="{{ route("methods.visibility.change", $method) }}">
+                    @csrf
+                    @method('PUT')
+                    <button type="submit" class="btn btn-secondary w-100">Make {{ $method->visible ? 'invisible' : 'visible' }}</button>
+                </form>
+            </div>
+        </div>
 
     </div>
 

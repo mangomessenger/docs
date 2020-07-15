@@ -1,7 +1,7 @@
 <form method="post" action="{{ $route }}">
     @method('PUT')
     @csrf
-    <div class="form-group">
+    <div class="form-group editor">
                 <textarea class="form-control w-100 @error('description') is-invalid @enderror" name="editor-text"
                           id="{{ $id }}" style="min-width: 100%"
                           rows="4">{{ $value }}</textarea>

@@ -1598,3 +1598,7 @@ section {
   padding-top: 150px;
   padding-bottom: 150px;
 }
+
+.editor{
+  min-height: 441px;
+}

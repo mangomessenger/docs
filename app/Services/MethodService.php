@@ -16,7 +16,7 @@ class MethodService extends BaseService
 
     public function find($method)
     {
-        return $this->model->where('name', $method)->orWhere('id', $method)->firstOrFail();
+        return $this->model->where('name', Method::unformatName($method))->orWhere('id', $method)->firstOrFail();
     }
 
     public function addError(Method $method, Error $error)

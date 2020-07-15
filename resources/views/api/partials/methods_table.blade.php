@@ -9,7 +9,7 @@
         <tbody>
         @foreach($methods as $method)
             <tr>
-                <td><a href="{{ route('method', $method->name) }}">{{ $method->name }}</a></td>
+                <td><a href="{{ route('method', $method->formatName()) }}">{{ $method->name }}</a></td>
                 <td>{{ $method->description }}</td>
             </tr>
         @endforeach

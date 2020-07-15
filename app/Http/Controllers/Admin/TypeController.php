@@ -58,9 +58,9 @@ class TypeController extends Controller
      */
     public function store(TypeRequest $request)
     {
-        $this->typeService->create($request->validated());
+        $type = $this->typeService->create($request->validated());
 
-        return redirect()->route('admin.types.index');
+        return redirect()->route('admin.types.index')->with('success', "Type {$type->name} was successfully created.");
     }
 
     /**
@@ -87,7 +87,7 @@ class TypeController extends Controller
     {
         $this->typeService->update($id, $request->validated());
 
-        return redirect()->route('admin.types.index');
+        return redirect()->route('admin.types.index')->with('success', "Type was successfully edited.");
     }
 
     /**
@@ -100,6 +100,6 @@ class TypeController extends Controller
     {
         $this->typeService->delete($id);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', "Type was successfully deleted.");
     }
 }

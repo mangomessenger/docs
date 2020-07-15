@@ -33,7 +33,7 @@
         <div class="row">
             <a class="btn btn-primary" href="{{ route('types.params.create', $type) }}">Create new</a>
         </div>
-        <div class="row pt-3">
+        <div class="row pt-3 table-responsive">
             <table class="table table-hover">
                 <thead>
                 <tr>

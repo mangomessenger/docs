@@ -10,7 +10,7 @@
             <a class="btn btn-primary" href="{{ route('errors.create') }}">Create new</a>
         </div>
 
-        <div class="row py-3">
+        <div class="row py-3 table-responsive">
             <table class="table table-hover">
                 <thead>
                 <tr>

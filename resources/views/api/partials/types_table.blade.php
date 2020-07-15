@@ -1,4 +1,4 @@
-<div class="row py-3">
+<div class="row py-3 table-responsive">
     <table class="table">
         <thead>
         <tr>

@@ -3,7 +3,7 @@
         <h5 class="font-weight-bold">Parameters</h5>
     </div>
 
-    <div class="row">
+    <div class="row table-responsive">
         <table class="table">
             <thead>
             <tr>

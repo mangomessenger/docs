@@ -10,9 +10,6 @@
         </div>
         @include('api.partials.parameters_table')
 
-        <div class="row pt-5 pb-2">
-            <h5 class="font-weight-bold">Methods</h5>
-        </div>
         @include('api.partials.methods_table')
     </div>
 @endsection

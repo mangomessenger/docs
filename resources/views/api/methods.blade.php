@@ -8,11 +8,7 @@
 
         @foreach($tags as $tag)
             <div class="row">
-                <h5 class="font-weight-bold">{{ $tag->tag }}</h5>
-            </div>
-
-            <div class="row">
-                <p>{{ $tag->description }}</p>
+                <h4 class="font-weight-bold">{{ $tag->description }}</h4>
             </div>
 
             @include('api.partials.methods_table', ['methods' => $tag->methods, 'showLabel' => false])

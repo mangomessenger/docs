@@ -7,7 +7,7 @@
                 <h5 class="font-weight-bold">Endpoint:</h5>
             </div>
             <div class="row">
-                <h5 id="test">{{ $method->name }}</h5>
+                <h3><code>{{ $method->name }}</code></h3>
             </div>
         </div>
 

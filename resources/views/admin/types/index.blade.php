@@ -4,17 +4,17 @@
     <div class="container">
 
         <div class="row pt-5">
-            <div class="col-lg-8 col-md-7 col-6">
+            <div class="col-lg-9 col-md-8 col-7">
                 <h4 class="font-weight-bold">Types</h4>
             </div>
 
-            <div class="col-lg-4 col-md-5 col-6">
+            <div class="col-lg-3 col-md-4 col-5">
                 <a class="btn btn-primary w-100" href="{{ route('types.create') }}">Create new</a>
             </div>
         </div>
 
-        <div class="row py-3 table-responsive">
-            <table class="table table-hover">
+        <div class="row py-3">
+            <table class="table table-hover table-responsive">
                 <thead>
                 <tr>
                     <th scope="col">Name</th>

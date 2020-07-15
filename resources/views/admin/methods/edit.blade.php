@@ -125,7 +125,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <button type="submit" class="btn btn-primary">Add</button>
+                    <button type="submit" class="btn btn-primary" @if($allErrors->isEmpty())) disabled @endif>Add</button>
                 </div>
             </div>
         </form>

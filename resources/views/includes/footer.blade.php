@@ -46,6 +46,9 @@
                         <div class="row">
                             <a href=" {{ route('methods') }}">Methods</a>
                         </div>
+                        <div class="row">
+                            <a href=" {{ route('errors') }}">Errors</a>
+                        </div>
                     </div>
                 </div>
             </div>

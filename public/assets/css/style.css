@@ -506,9 +506,13 @@ section {
 # contribution
 --------------------------------------------------------------*/
 .contribution {
-  background: #f3f9fd;
+  background: #f8f8f8;
   padding: 10px 0;
   text-align: center;
+}
+
+.bg-gray{
+  background: #f8f8f8;
 }
 
 .contribution .col-lg-2 {

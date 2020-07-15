@@ -22,4 +22,12 @@ class ErrorCategory extends Model
     {
         return "{$this->code} {$this->name}";
     }
+
+    /**
+     * Get the errors for the error category.
+     */
+    public function errors()
+    {
+        return $this->hasMany('App\Error', 'category_id');
+    }
 }

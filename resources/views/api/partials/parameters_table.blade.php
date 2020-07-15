@@ -17,7 +17,7 @@
                 <tr>
                     <td>{{ $param->name }}</td>
                     <td>
-                        <a href="{{ route('type', $param->return_type_id) }}">{{ $param->returnType->name }}</a>
+                        <a href="{{ route('type', $param->returnType->name) }}">{{ $param->returnType->name }}</a>
                     </td>
                     <td>{{ $param->description }}</td>
                 </tr>

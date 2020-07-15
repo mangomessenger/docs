@@ -63,10 +63,8 @@ Route::group([
         ])->except(['show', 'index']);
 
         /* Payload editor */
-        Route::get('/{method}/payload/edit', 'MethodController@editPayload')->name('methods.payload.edit');
         Route::put('/{method}/payload/', 'MethodController@updatePayload')->name('methods.payload.update');
         /* Response editor */
-        Route::get('/{method}/response/edit', 'MethodController@editResponse')->name('methods.response.edit');
         Route::put('/{method}/response/', 'MethodController@updateResponse')->name('methods.response.update');
     });
 

@@ -175,21 +175,6 @@ class MethodController extends Controller
     }
 
     /**
-     * Displaying edit page of payload
-     *
-     * @param Method $method
-     * @return View
-     */
-    public function editPayload(Method $method)
-    {
-        return View('admin.md-editor.editor', [
-            'route' => route('methods.payload.update', $method),
-            'edit' => 'Payload',
-            'value' => $method->payload,
-        ]);
-    }
-
-    /**
      * Updating payload
      *
      * @param Request $request
@@ -201,21 +186,6 @@ class MethodController extends Controller
         $method->update(['payload' => $request->get('editor-text')]);
 
         return redirect()->route('methods.edit', $method);
-    }
-
-    /**
-     * Displaying response edit page
-     *
-     * @param Method $method
-     * @return View
-     */
-    public function editResponse(Method $method)
-    {
-        return View('admin.md-editor.editor', [
-            'route' => route('methods.response.update', $method),
-            'edit' => 'Response',
-            'value' => $method->response,
-        ]);
     }
 
     /**

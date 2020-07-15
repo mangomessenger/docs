@@ -10,6 +10,10 @@ a {
   color: #ff8243;
 }
 
+.mango {
+  color: #ff8243;
+}
+
 a:hover {
   color: #5faee3;
   text-decoration: none;
@@ -1588,4 +1592,9 @@ section {
 
 #footer .footer-links a:hover {
   color: #ff8243;
+}
+
+#response-spinner {
+  padding-top: 150px;
+  padding-bottom: 150px;
 }

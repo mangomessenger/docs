@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-6">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
                 <form method="post" action="{{ route('methods.update', $method->id) }}">
                     @method('PUT')
                     @csrf
@@ -68,6 +68,50 @@
                     <button type="submit" class="btn btn-primary w-100">Update Method</button>
                 </form>
             </div>
+
+
+            <div class="col-12 col-md-6">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-payload-tab" data-toggle="tab" href="#nav-payload"
+                           role="tab" aria-controls="nav-payload" aria-selected="true">Payload</a>
+                        <a class="nav-item nav-link" id="nav-response-tab" data-toggle="tab" href="#nav-response"
+                           role="tab" aria-controls="nav-response" aria-selected="false">Response</a>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-payload" role="tabpanel"
+                         aria-labelledby="nav-payload-tab">
+                        @include('admin.md-editor.editor', [
+                                   'route' => route('methods.payload.update', $method),
+                                   'edit' => 'Payload',
+                                   'value' => $method->payload,
+                                   'id' => 'payload'
+                                 ])
+
+
+                    </div>
+                    <div class="tab-pane fade w-100" id="nav-response" role="tabpanel"
+                         aria-labelledby="nav-response-tab">
+                        <div id="nav-response-div" style="display: none">
+                            @include('admin.md-editor.editor', [
+                                    'route' => route('methods.response.update', $method),
+                                    'edit' => 'Response',
+                                    'value' => $method->response,
+                                    'id' => 'response'
+                                ])
+                        </div>
+
+                        <div class="text-center" id="response-spinner">
+                            <div class="spinner-border mango" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
         <div class="row pt-5 pb-2">
@@ -91,7 +135,8 @@
                 @foreach($method->params as $param)
                     <tr>
                         <td>{{ $param->name }}</td>
-                        <td><a href="{{ route('type', $param->returnType) }}">{{ $param->returnType->name }}</a></td>
+                        <td><a href="{{ route('type', $param->returnType) }}">{{ $param->returnType->name }}</a>
+                        </td>
                         <td>{{ $param->description }}</td>
                         <td>
                             <a class="btn btn-primary w-100 mt-1"
@@ -168,22 +213,63 @@
             </table>
         </div>
 
-        <div class="row pt-5 pb-2">
-            <h4 class="font-weight-bold">Other actions</h4>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                <div class="row">
-                    <div class="col">
-                        <a href="{{ route('methods.payload.edit', $method) }}" class="btn btn-primary w-100">Edit
-                            Payload</a>
-                    </div>
-                    <div class="col">
-                        <a href="{{ route('methods.response.edit', $method) }}" class="btn btn-primary w-100">Edit
-                            Response</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {{--        <div class="row pt-5 pb-2">--}}
+        {{--            <h4 class="font-weight-bold">Other actions</h4>--}}
+        {{--        </div>--}}
+
     </div>
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        var payload = new SimpleMDE({
+            element: document.getElementById("payload"),
+            hideIcons: [
+                "guide",
+                "bold",
+                'table',
+                'fullscreen',
+                'side-by-side',
+                'generic-list',
+                'unordered-list',
+                'ordered-list',
+                'image',
+                'italic',
+                'quote',
+                'link',
+                'heading',
+            ],
+            showIcons: ["code"],
+            tabSize: 4
+        });
+
+        $(document).ready(function () {
+            $('#nav-response-tab').one('click', function (e) {
+                setTimeout(function () {
+                    $('#nav-response-div').css('display', 'block');
+                    $('#response-spinner').css('display', 'none');
+
+                    var responseEditor = new SimpleMDE({
+                        element: document.getElementById("response"),
+                        hideIcons: [
+                            "guide",
+                            "bold",
+                            'table',
+                            'fullscreen',
+                            'side-by-side',
+                            'generic-list',
+                            'unordered-list',
+                            'ordered-list',
+                            'image',
+                            'italic',
+                            'quote',
+                            'link',
+                            'heading',
+                        ],
+                        showIcons: ["code"],
+                        tabSize: 4
+                    });
+                }, 1000);
+            });
+        });
+    </script>
 @endsection

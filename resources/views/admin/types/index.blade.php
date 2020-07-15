@@ -2,12 +2,15 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <h2>Types</h2>
-        </div>
 
-        <div class="row">
-            <a class="btn btn-primary" href="{{ route('types.create') }}">Create new</a>
+        <div class="row pt-5">
+            <div class="col-lg-8 col-md-7 col-6">
+                <h4 class="font-weight-bold">Types</h4>
+            </div>
+
+            <div class="col-lg-4 col-md-5 col-6">
+                <a class="btn btn-primary w-100" href="{{ route('types.create') }}">Create new</a>
+            </div>
         </div>
 
         <div class="row py-3 table-responsive">

@@ -61,9 +61,9 @@ class MethodParamController extends Controller
      */
     public function store(MethodParamRequest $request, Method $method)
     {
-        $this->methodParamService->create($request->validated());
+        $methodParam = $this->methodParamService->create($request->validated());
 
-        return redirect()->route('methods.edit', $method);
+        return redirect()->route('methods.edit', $method)->with('success', "Method parameter {$methodParam->name} was successfully created.");
     }
 
     /**
@@ -91,7 +91,7 @@ class MethodParamController extends Controller
     {
         $this->methodParamService->update($methodParam->id, $request->validated());
 
-        return redirect()->route('methods.edit', $methodParam->method_id);
+        return redirect()->route('methods.edit', $methodParam->method_id)->with('success', "Method parameter {$methodParam->name} was successfully edited.");
     }
 
     /**
@@ -104,6 +104,6 @@ class MethodParamController extends Controller
     {
         $this->methodParamService->delete($id);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', "Method parameter was successfully deleted.");
     }
 }

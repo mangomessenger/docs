@@ -2,7 +2,9 @@
 
 @section('content')
     <div class="container">
-        <div class="row pt-5">
+        @include('includes.admin.alert')
+
+        <div class="row pt-3">
             <div class="col-lg-9 col-md-8 col-7">
                 <h4 class="font-weight-bold">Methods</h4>
             </div>

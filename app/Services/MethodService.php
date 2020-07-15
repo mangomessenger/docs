@@ -21,11 +21,13 @@ class MethodService extends BaseService
             $this->model->where('name', Method::unformatName($method))->orWhere('id', $method)->firstOrFail();
     }
 
-    public function addError(Method $method, Error $error)
+    public function addError(Method $method, Error $error): bool
     {
         if (!$method->errors->contains('id', $error->id)) {
             $method->errors()->attach($error);
+            return true;
         }
+        return false;
     }
 
     public function removeError(Method $method, Error $error)
@@ -33,10 +35,10 @@ class MethodService extends BaseService
         $method->errors()->detach($error->id);
     }
 
-    public function update($id, array $input)
+    public function create(array $input)
     {
         $input['name'] = '/' . ltrim(rtrim($input['name'], '/'), '/');
 
-        return $this->find($id)->update($input);
+        return $this->model->create($input);
     }
 }

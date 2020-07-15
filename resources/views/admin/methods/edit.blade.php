@@ -2,6 +2,8 @@
 
 @section('content')
     <div class="container">
+        @include('includes.admin.alert')
+
         <div class="row">
             <div class="col-md-12 col-lg-6 pt-2">
                 <form method="post" action="{{ route('methods.update', $method->id) }}">

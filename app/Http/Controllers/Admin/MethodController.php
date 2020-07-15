@@ -99,7 +99,7 @@ class MethodController extends Controller
     {
         $this->methodService->create($request->validated());
 
-        return redirect()->route('admin.methods.index');
+        return redirect()->route('admin.methods.index')->with('success', 'Method was successfully created.');
     }
 
     /**
@@ -130,7 +130,7 @@ class MethodController extends Controller
     {
         $this->methodService->update($id, $request->validated());
 
-        return redirect()->route('admin.methods.index');
+        return redirect()->back()->with('success', 'Method details were successfully updated.');
     }
 
     /**
@@ -143,7 +143,7 @@ class MethodController extends Controller
     {
         $this->methodService->delete($id);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Method was successfully deleted.');;
     }
 
     /**
@@ -155,9 +155,12 @@ class MethodController extends Controller
      */
     public function addError(Request $request, Method $method)
     {
-        $this->methodService->addError($method, $this->errorService->find($request->post('error_id')));
+        $error = $this->errorService->find($request->post('error_id'));
+        $result = $this->methodService->addError($method, $error);
 
-        return redirect()->route('methods.edit', $method);
+        return $result ?
+            redirect()->route('methods.edit', $method)->with('success', "Error {$error->type} was successfully added to method.") :
+            redirect()->route('methods.edit', $method)->with('error', "Error occurred while adding an {$error->type} error to method.");
     }
 
     /**
@@ -171,7 +174,7 @@ class MethodController extends Controller
     {
         $this->methodService->removeError($method, $error);
 
-        return redirect()->route('methods.edit', $method);
+        return redirect()->route('methods.edit', $method)->with('success', "Error {$error->type} was successfully removed from method.");
     }
 
     /**
@@ -179,13 +182,13 @@ class MethodController extends Controller
      *
      * @param Request $request
      * @param Method $method
-     * @return View
+     * @return RedirectResponse
      */
     public function updatePayload(Request $request, Method $method)
     {
         $method->update(['payload' => $request->get('editor-text')]);
 
-        return redirect()->route('methods.edit', $method);
+        return redirect()->route('methods.edit', $method)->with('success', 'Method\'s payload was successfully updated.');
     }
 
     /**
@@ -193,13 +196,13 @@ class MethodController extends Controller
      *
      * @param Request $request
      * @param Method $method
-     * @return View
+     * @return RedirectResponse
      */
     public function updateResponse(Request $request, Method $method)
     {
         $method->update(['response' => $request->get('editor-text')]);
 
-        return redirect()->route('methods.edit', $method);
+        return redirect()->route('methods.edit', $method)->with('success', 'Method\'s response was successfully updated.');
     }
 
     /**
@@ -207,12 +210,12 @@ class MethodController extends Controller
      *
      * @param Request $request
      * @param Method $method
-     * @return View
+     * @return RedirectResponse
      */
     public function changeVisibility(Request $request, Method $method)
     {
         $method->update(['visible' => !$method->visible]);
 
-        return redirect()->route('methods.edit', $method);
+        return redirect()->route('methods.edit', $method)->with('success', "Method visibility was successfully changed.");
     }
 }

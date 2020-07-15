@@ -17,7 +17,7 @@
         </div>
 
         <div class="pb-1">
-            <table class="table table-bordered">
+            <table class="table table-bordered table-responsive">
                 <thead>
                 <tr>
                     <th scope="col">Parameter</th>
@@ -62,7 +62,7 @@
 {
     "type": "INVALID_PAYLOAD",
     "message": "The given data was invalid.",
-    "errors": { <code class="text-info">//This field is optional, will be returned if at least any field of payload will be invalid.</code>
+    "errors": { <code class="text-info">//This field is optional, will be returned if at least any field of payload is invalid.</code>
         "phone": [
             "The phone field is required."
         ]

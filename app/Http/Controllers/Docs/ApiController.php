@@ -91,13 +91,15 @@ class ApiController extends Controller
      * @param string $method
      * @return View
      */
-    public function method(string $method)
+    public function method(\Parsedown $parsedown, string $method)
     {
         return View('api.method', [
             'title' => "$method - API Method",
             'method' => $m = $this->methodService->find($method),
             'params' => $m->params,
             'errors' => $m->errors->sortBy('code'),
+            'payload' => $parsedown->text($m->payload),
+            'response' => $parsedown->text($m->response),
             'intermediate' => [
                 [
                     'name' => 'Methods',

@@ -15,7 +15,7 @@ class Method extends Model
      * @var array
      */
     protected $fillable = [
-        'tag_id', 'name', 'type', 'description', 'return_type_id',
+        'tag_id', 'name', 'type', 'description', 'return_type_id', 'payload', 'response'
     ];
 
     /**

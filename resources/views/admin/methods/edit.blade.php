@@ -72,10 +72,11 @@
 
         <div class="row pt-5 pb-2">
             <h4 class="font-weight-bold">Parameters</h4>
+            <div class="col-2 ml-2">
+                <a class="btn btn-primary w-100" href="{{ route('methods.params.create', $method) }}">Add</a>
+            </div>
         </div>
-        <div class="row">
-            <a class="btn btn-primary" href="{{ route('methods.params.create', $method) }}">Add</a>
-        </div>
+
         <div class="row pt-3">
             <table class="table table-hover">
                 <thead>
@@ -112,22 +113,31 @@
         </div>
         <form method="post" action="{{ route('method.errors.add', $method) }}">
             @csrf
+
             <div class="row">
-                <div class="col-4">
-                    <div class="form-group">
-                        <select name="error_id"
-                                class="custom-select custom-select">
-                            @foreach($allErrors as $error)
-                                <option
-                                    value="{{ $error->id }}">{{ "{$error->type} - {$error->category->fullName()}" }}</option>
-                            @endforeach
-                        </select>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="form-group">
+                                <select name="error_id"
+                                        class="custom-select custom-select w-100">
+                                    @foreach($allErrors as $error)
+                                        <option
+                                            value="{{ $error->id }}">{{ "{$error->type} - {$error->category->fullName()}" }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary w-100" @if($allErrors->isEmpty()))
+                                    disabled @endif>Add
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <button type="submit" class="btn btn-primary" @if($allErrors->isEmpty())) disabled @endif>Add</button>
-                </div>
             </div>
+
+
         </form>
         <div class="row pt-3">
             <table class="table table-hover">
@@ -156,6 +166,24 @@
                 @endforeach
                 </tbody>
             </table>
+        </div>
+
+        <div class="row pt-5 pb-2">
+            <h4 class="font-weight-bold">Other actions</h4>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col">
+                        <a href="{{ route('methods.payload.edit', $method) }}" class="btn btn-primary w-100">Edit
+                            Payload</a>
+                    </div>
+                    <div class="col">
+                        <a href="{{ route('methods.response.edit', $method) }}" class="btn btn-primary w-100">Edit
+                            Response</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

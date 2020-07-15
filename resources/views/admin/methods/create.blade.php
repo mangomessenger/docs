@@ -11,7 +11,8 @@
                         <label for="name">Tag</label>
                         <select name="tag_id" class="custom-select custom-select @error("tag_id") is-invalid @enderror">
                             @foreach($tags as $tag)
-                                <option @if($tag->id == old("tag_id")) selected @endif value="{{ $tag->id }}">{{ $tag->tag }}</option>
+                                <option @if($tag->id == old("tag_id")) selected
+                                        @endif value="{{ $tag->id }}">{{ $tag->tag }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -42,9 +43,11 @@
 
                     <div class="form-group">
                         <label for="name">Returns</label>
-                        <select name="return_type_id" class="custom-select custom-select @error("return_type_id") is-invalid @enderror">
+                        <select name="return_type_id"
+                                class="custom-select custom-select @error("return_type_id") is-invalid @enderror">
                             @foreach($types as $typeOption)
-                                <option @if($typeOption->id == old("return_type_id")) selected @endif value="{{ $typeOption->id }}">{{ $typeOption->name }}</option>
+                                <option @if($typeOption->id == old("return_type_id")) selected
+                                        @endif value="{{ $typeOption->id }}">{{ $typeOption->name }}</option>
                             @endforeach
                         </select>
                     </div>

@@ -26,6 +26,8 @@
             </div>
         </div>
 
+        @include('api.partials.json', ['json' => $payload, 'title'=> 'Payload:'])
+
         @include('api.partials.parameters_table')
 
         <div class="py-3">
@@ -37,6 +39,8 @@
                 <a href="{{ route('type', $method->returnType->name) }}">{{ $method->returnType->name }}</a>
             </div>
         </div>
+
+        @include('api.partials.json', ['json' => $response, 'title'=> 'Response:'])
 
         @include('api.partials.errors_table')
     </div>

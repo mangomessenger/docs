@@ -49,4 +49,20 @@ class Method extends Model
     {
         return $this->belongsToMany('App\Error');
     }
+
+    /**
+     * Formats the name and replaces '/' symbols to '.'
+     */
+    public function formatName()
+    {
+        return rtrim(ltrim(str_replace('/', '.', $this->name), '.'), '.');
+    }
+
+    /**
+     * Reverse format of the name and replaces '.' symbols to '/'
+     */
+    public static function unformatName($name)
+    {
+        return '/' . str_replace('.', '/', $name);
+    }
 }

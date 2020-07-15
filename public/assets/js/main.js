@@ -216,4 +216,8 @@
     window.location.href='/types';
   })
 
+  $("#apiErrorsBox").click(function() {
+    window.location.href='/errors';
+  })
+
 })(jQuery);

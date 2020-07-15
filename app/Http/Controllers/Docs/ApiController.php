@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Docs;
 
 use App\Http\Controllers\Controller;
+use App\Services\ErrorCategoryService;
+use App\Services\ErrorService;
 use App\Services\MethodService;
 use App\Services\MethodTagService;
 use App\Services\TypeService;
@@ -32,19 +34,30 @@ class ApiController extends Controller
     protected $methodTagService;
 
     /**
+     * Service of ErrorCategory model
+     *
+     * @var ErrorCategoryService
+     */
+    protected $errorCategoryService;
+
+    /**
      * ApiController constructor.
      *
      * @param TypeService $typeService
      * @param MethodService $methodService
      * @param MethodTagService $methodTagService
+     * @param ErrorCategoryService $errorCategoryService
      */
-    public function __construct(TypeService $typeService,
-                                MethodService $methodService,
-                                MethodTagService $methodTagService)
+    public function __construct(
+        TypeService $typeService,
+        MethodService $methodService,
+        MethodTagService $methodTagService,
+        ErrorCategoryService $errorCategoryService)
     {
         $this->typeService = $typeService;
         $this->methodService = $methodService;
         $this->methodTagService = $methodTagService;
+        $this->errorCategoryService = $errorCategoryService;
     }
 
     /**
@@ -84,7 +97,7 @@ class ApiController extends Controller
             'title' => "$method - API Method",
             'method' => $m = $this->methodService->find($method),
             'params' => $m->params,
-            'errors' => $m->errors,
+            'errors' => $m->errors->sortBy('code'),
             'intermediate' => [
                 [
                     'name' => 'Methods',
@@ -126,6 +139,19 @@ class ApiController extends Controller
                     'url' => route('types'),
                 ],
             ]
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return View
+     */
+    public function errors()
+    {
+        return View('api.errors', [
+            'errorCategories' => $this->errorCategoryService->all()->sortBy('code'),
+            'title' => 'Mango Errors',
         ]);
     }
 }

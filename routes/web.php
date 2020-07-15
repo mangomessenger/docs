@@ -5,11 +5,15 @@ use Illuminate\Support\Facades\Route;
 /* Main Page */
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/faq', 'HomeController@faq')->name('faq');
-Route::get('/api', 'Docs\ApiController@index')->name('api');
-Route::get('/methods', 'Docs\ApiController@methods')->name('methods');
-Route::get('/methods/{method}', 'Docs\ApiController@method')->name('method');
-Route::get('/types', 'Docs\ApiController@types')->name('types');
-Route::get('/types/{type}', 'Docs\ApiController@type')->name('type');
+Route::namespace('Docs')->group(function(){
+    Route::get('/api', 'ApiController@index')->name('api');
+    Route::get('/methods', 'ApiController@methods')->name('methods');
+    Route::get('/methods/{method}', 'ApiController@method')->name('method');
+    Route::get('/types', 'ApiController@types')->name('types');
+    Route::get('/types/{type}', 'ApiController@type')->name('type');
+    Route::get('/errors', 'ApiController@errors')->name('errors');
+});
+
 
 /* Admin Panel */
 

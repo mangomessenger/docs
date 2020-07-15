@@ -26,7 +26,7 @@
                 @foreach($methods as $method)
                     <tr>
                         <td>{{ $method->tag->tag }}</td>
-                        <td><a href="{{ route('method', $method->name) }}">{{ $method->name }}</a></td>
+                        <td><a href="{{ route('method', $method->formatName()) }}">{{ $method->name }}</a></td>
                         <td>{{ $method->type }}</td>
                         <td>{{ $method->description }}</td>
                         <td><a href="{{ route('type', $method->returnType) }}">{{ $method->returnType->name }}</a></td>

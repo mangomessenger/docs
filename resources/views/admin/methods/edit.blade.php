@@ -90,7 +90,7 @@
                 @foreach($method->params as $param)
                     <tr>
                         <td>{{ $param->name }}</td>
-                        <td><a href="#">{{ $param->returnType->name }}</a></td>
+                        <td><a href="{{ route('type', $param->returnType) }}">{{ $param->returnType->name }}</a></td>
                         <td>{{ $param->description }}</td>
                         <td>
                             <a class="btn btn-primary w-100 mt-1"
@@ -125,7 +125,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <button type="submit" class="btn btn-primary">Add</button>
+                    <button type="submit" class="btn btn-primary" @if($allErrors->isEmpty())) disabled @endif>Add</button>
                 </div>
             </div>
         </form>

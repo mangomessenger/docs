@@ -15,7 +15,7 @@
                 <p>{{ $tag->description }}</p>
             </div>
 
-            @include('api.partials.methods_table', ['methods' => $tag->methods])
+            @include('api.partials.methods_table', ['methods' => $tag->methods, 'showLabel' => false])
         @endforeach
     </div>
 @endsection

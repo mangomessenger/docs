@@ -34,7 +34,7 @@
             </div>
 
             <div class="row">
-                <a href="{{ route('type', $method->returnType) }}">{{ $method->returnType->name }}</a>
+                <a href="{{ route('type', $method->returnType->name) }}">{{ $method->returnType->name }}</a>
             </div>
         </div>
 

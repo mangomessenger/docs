@@ -97,7 +97,7 @@ class ApiController extends Controller
             'title' => "$method - API Method",
             'method' => $m = $this->methodService->find($method),
             'params' => $m->params,
-            'errors' => $m->errors,
+            'errors' => $m->errors->sortBy('code'),
             'intermediate' => [
                 [
                     'name' => 'Methods',

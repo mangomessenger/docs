@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-lg-6">
+            <div class="col-md-12 col-lg-6 pt-2">
                 <form method="post" action="{{ route('methods.update', $method->id) }}">
                     @method('PUT')
                     @csrf
@@ -70,7 +70,7 @@
             </div>
 
 
-            <div class="col-md-12 col-lg-6">
+            <div class="col-md-12 col-lg-6 pt-2">
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link active" id="nav-payload-tab" data-toggle="tab" href="#nav-payload"
@@ -125,8 +125,8 @@
         </div>
 
 
-        <div class="row pt-3">
-            <table class="table table-hover">
+        <div class="row pt-3 table-responsive">
+            <table class="table">
                 <thead>
                 <tr>
                     <th scope="col">Name</th>
@@ -158,7 +158,9 @@
         </div>
 
         <div class="row pt-5 pb-2">
-            <h4 class="font-weight-bold">Errors</h4>
+            <div class="col">
+                <h4 class="font-weight-bold">Errors</h4>
+            </div>
         </div>
         <form method="post" action="{{ route('method.errors.add', $method) }}">
             @csrf
@@ -184,7 +186,7 @@
 
 
         </form>
-        <div class="row pt-3">
+        <div class="row pt-3 table-responsive">
             <table class="table table-hover">
                 <thead>
                 <tr>

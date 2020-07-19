@@ -39,7 +39,7 @@
                 </tr>
                 <tr>
                     <th scope="row">Errors</th>
-                    <td>An array of errors.</td>
+                    <td>An array of errors. Returns only when error type is INVALID_PAYLOAD</td>
                     <td>Yes</td>
                 </tr>
                 <tr>
@@ -62,7 +62,7 @@
 {
     "type": "INVALID_PAYLOAD",
     "message": "The given data was invalid.",
-    "errors": { <code class="text-info">//This field is optional, will be returned if at least any field of payload is invalid.</code>
+    "errors": { <code class="text-info">//This field is optional, returns only when error type is INVALID_PAYLOAD.</code>
         "phone": [
             "The phone field is required."
         ]

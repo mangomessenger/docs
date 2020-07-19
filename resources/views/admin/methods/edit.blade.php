@@ -23,7 +23,7 @@
                     @enderror
 
                     <div class="form-group">
-                        <label>Name</label>
+                        <label>Endpoint</label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
                                value="{{ old('name') ?? $method->name }}">
                     </div>

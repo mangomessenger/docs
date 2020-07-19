@@ -147,7 +147,7 @@ class MethodController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Adding error to a method.
      *
      * @param Request $request
      * @param Method $method
@@ -164,7 +164,7 @@ class MethodController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Removing error from method.
      *
      * @param Method $method
      * @param Error $error
@@ -192,7 +192,7 @@ class MethodController extends Controller
     }
 
     /**
-     * Updating payload
+     * Updating response
      *
      * @param Request $request
      * @param Method $method
@@ -206,7 +206,7 @@ class MethodController extends Controller
     }
 
     /**
-     * Updating payload
+     * Changing visibility
      *
      * @param Request $request
      * @param Method $method

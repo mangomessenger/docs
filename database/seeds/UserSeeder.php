@@ -12,11 +12,10 @@ class UserSeeder extends Seeder
     public function run()
     {
         \Illuminate\Support\Facades\DB::table('users')->insert([
-            'name' => 'Donald',
-            'email' => 'dnldcode@gmail.com',
+            'username' => 'donald',
             'password' => \Illuminate\Support\Facades\Hash::make("test"),
         ]);
 
-        factory(\App\User::class, 5)->create();
+//        factory(\App\User::class, 5)->create();
     }
 }

@@ -71,7 +71,7 @@ class MethodController extends Controller
     public function index()
     {
         return View('admin.methods.index', [
-            'methods' => $this->methodService->all(),
+            'methods' => $this->methodService->paginate(),
         ]);
     }
 

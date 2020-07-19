@@ -40,5 +40,8 @@
                 </tbody>
             </table>
         </div>
+        <div class="row justify-content-center">
+            <div class="justify-content-center"> {{ $tags->links() }}</div>
+        </div>
     </div>
 @endsection

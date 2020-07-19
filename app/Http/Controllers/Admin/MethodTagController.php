@@ -38,7 +38,7 @@ class MethodTagController extends Controller
     public function index(MethodTagService $methodTagService)
     {
         return View('admin.methods.tags.index', [
-            'tags' => $methodTagService->all(),
+            'tags' => $methodTagService->paginate(),
         ]);
     }
 

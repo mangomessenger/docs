@@ -36,7 +36,7 @@ class TypeController extends Controller
     public function index()
     {
         return View('admin.types.index', [
-            'types' => $this->typeService->all(),
+            'types' => $this->typeService->paginate(),
         ]);
     }
 

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class ErrorCategory extends Model
@@ -29,5 +30,17 @@ class ErrorCategory extends Model
     public function errors()
     {
         return $this->hasMany('App\Error', 'category_id');
+    }
+
+    /**
+     * The "booted" method of the model.
+     *
+     * @return void
+     */
+    protected static function booted()
+    {
+        static::addGlobalScope('code', function (Builder $builder) {
+            $builder->orderBy('code');
+        });
     }
 }

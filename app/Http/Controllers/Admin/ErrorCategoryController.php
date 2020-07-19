@@ -39,7 +39,7 @@ class ErrorCategoryController extends Controller
     public function index()
     {
         return View('admin.errors.categories.index', [
-            'categories' => $this->errorCategoryService->paginate(3),
+            'categories' => $this->errorCategoryService->paginate(),
         ]);
     }
 

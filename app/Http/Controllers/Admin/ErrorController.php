@@ -50,7 +50,7 @@ class ErrorController extends Controller
     public function index()
     {
         return View('admin.errors.index', [
-            'errors' => $this->errorService->all(),
+            'errors' => $this->errorService->paginate(),
         ]);
     }
 

@@ -42,5 +42,8 @@
                 </tbody>
             </table>
         </div>
+        <div class="row justify-content-center">
+            <div class="justify-content-center"> {{ $errors->links() }}</div>
+        </div>
     </div>
 @endsection

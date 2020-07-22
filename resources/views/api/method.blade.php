@@ -14,7 +14,7 @@
 
         <div class="row pb-3">
             <h5 class="font-weight-bold">Type -</h5>
-            <h5 class="pl-1"><span class="badge badge-pill badge-primary"> {{ $method->type }}</span></h5>
+            <h5 class="pl-1">@include('api.partials.method_type', ['type' => $method->type])</h5>
         </div>
 
         <div>

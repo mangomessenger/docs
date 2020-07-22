@@ -11,6 +11,7 @@
             <tr>
                 <th scope="col">Endpoint</th>
                 <th scope="col">Description</th>
+                <th scope="col" style="width: 15%" class="text-center">HTTP Method</th>
             </tr>
             </thead>
             <tbody>
@@ -18,6 +19,7 @@
                 <tr>
                     <td><a href="{{ route('method', $method->formatName()) }}">{{ $method->name }}</a></td>
                     <td>{{ $method->description }}</td>
+                    <td class="text-center"><h5 class="pl-1">@include('api.partials.method_type', ['type' => $method->type])</h5></td>
                 </tr>
             @endforeach
             </tbody>

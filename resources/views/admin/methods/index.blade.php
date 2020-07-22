@@ -14,15 +14,15 @@
             </div>
         </div>
 
-        <div class="row py-3 table-responsive">
+        <div class="row py-3 table-responsive ">
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th scope="col">Tag</th>
+                    <th scope="col" style="vertical-align: middle" >Tag</th>
                     <th scope="col">Endpoint</th>
-                    <th scope="col">HTTP Method</th>
+                    <th scope="col">HTTP</th>
                     <th scope="col">Description</th>
-                    <th scope="col">Return Type</th>
+                    <th scope="col">Returns</th>
                     <th scope="col" style="width: 20%">Actions</th>
                 </tr>
                 </thead>
@@ -36,7 +36,7 @@
                             </a>
                             @if(!$method->visible) <h4 class="pt-2"><span class="badge badge-pill badge-secondary">Invisible</span></h4> @endif
                         </td>
-                        <td><h5 class="pl-1">@include('api.partials.method_type', ['type' => $method->type])</h5></td>
+                        <td><h5>@include('api.partials.method_type', ['type' => $method->type])</h5></td>
                         <td>{{ $method->description }}</td>
                         <td><a href="{{ route('type', $method->returnType) }}">{{ $method->returnType->name }}</a></td>
                         <td>

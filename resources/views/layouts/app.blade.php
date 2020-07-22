@@ -9,6 +9,9 @@
     <meta content="" name="descriptison">
     <meta content="" name="keywords">
 
+    <meta name="description" content="Mango Messenger is a mobile and desktop messaging app with a focus on security and speed.">
+    <meta name="keywords" content="Mango, Messenger">
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 

@@ -21,14 +21,18 @@
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/core.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+
 </head>
 <body>
 
 <div class="container">
     <div class="row justify-content-center">
+
         <div class="col-md-6 pt-5">
+            <div class="row justify-content-center pb-4">
+                <h4 class="font-weight-bold">{{ config('app.name') }}</h4>
+            </div>
             <div class="card">
                 <div class="card-header">
                     <form method="POST" action="{{ route('login') }}">

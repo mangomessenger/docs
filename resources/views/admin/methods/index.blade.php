@@ -36,7 +36,7 @@
                             </a>
                             @if(!$method->visible) <h4 class="pt-2"><span class="badge badge-pill badge-secondary">Invisible</span></h4> @endif
                         </td>
-                        <td>{{ $method->type }}</td>
+                        <td><h5 class="pl-1">@include('api.partials.method_type', ['type' => $method->type])</h5></td>
                         <td>{{ $method->description }}</td>
                         <td><a href="{{ route('type', $method->returnType) }}">{{ $method->returnType->name }}</a></td>
                         <td>

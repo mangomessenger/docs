@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MethodParamRequest;
+use App\Http\Requests\API\MethodParamRequest;
 use App\Method;
 use App\MethodParam;
 use App\Services\MethodParamService;

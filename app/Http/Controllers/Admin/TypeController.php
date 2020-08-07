@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\TypeRequest;
+use App\Http\Requests\API\TypeRequest;
 use App\Services\TypeService;
 use App\Type;
 use Illuminate\Http\RedirectResponse;

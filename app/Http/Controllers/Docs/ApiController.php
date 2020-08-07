@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Docs;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\API\MethodRequest;
 use App\Services\ErrorCategoryService;
 use App\Services\ErrorService;
 use App\Services\MethodService;
 use App\Services\MethodTagService;
 use App\Services\TypeService;
 use Illuminate\View\View;
+use Parsedown;
 
 class ApiController extends Controller
 {
@@ -88,11 +90,14 @@ class ApiController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param MethodRequest $request
+     * @param Parsedown $parsedown
      * @param string $method
      * @return View
      */
-    public function method(\Parsedown $parsedown, string $method)
+    public function method(MethodRequest $request, Parsedown $parsedown, string $method)
     {
+        echo 1;
         return View('api.method', [
             'title' => "$method - API Method",
             'method' => $m = $this->methodService->find($method, true),

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MethodTagRequest;
+use App\Http\Requests\API\MethodTagRequest;
 use App\MethodTag;
 use App\Services\MethodTagService;
 use Illuminate\Http\RedirectResponse;

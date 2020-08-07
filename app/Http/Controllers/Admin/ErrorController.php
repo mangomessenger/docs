@@ -3,14 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Error;
-use App\ErrorCategory;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ErrorRequest;
+use App\Http\Requests\API\ErrorRequest;
 use App\Services\ErrorCategoryService;
 use App\Services\ErrorService;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\View\View;
 
 class ErrorController extends Controller

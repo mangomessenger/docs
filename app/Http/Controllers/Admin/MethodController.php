@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Error;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MethodRequest;
+use App\Http\Requests\API\MethodRequest;
 use App\Method;
 use App\Services\ErrorService;
 use App\Services\MethodService;

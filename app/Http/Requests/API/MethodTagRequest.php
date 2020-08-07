@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\API;
 
-use App\Method;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 
-class MethodRequest extends FormRequest
+class MethodTagRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,11 +25,8 @@ class MethodRequest extends FormRequest
     public function rules()
     {
         return [
-            'tag_id' => 'required|exists:method_tags,id',
-            'name' => 'required|min:2',
-            'type' => 'required|required|in:' . implode(',', Method::$types),
+            'tag' => (Request::isMethod('put') ? '' : 'required|min:2|unique:method_tags'),
             'description' => 'required|min:5|max:1500',
-            'return_type_id' => 'required|exists:types,id',
         ];
     }
 }

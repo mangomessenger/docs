@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\TypeParamRequest;
+use App\Http\Requests\API\TypeParamRequest;
 use App\Services\TypeParamService;
 use App\Services\TypeService;
 use App\Type;

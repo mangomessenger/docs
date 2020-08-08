@@ -36,7 +36,7 @@
             </div>
 
             <div class="row">
-                <a href="{{ route('type', $method->returnType->name) }}">{{ $method->returnType->name }}</a>
+                @include('api.partials.type_cell', ['isArray' => $method->isArrayReturned(), 'returnType' => $method->returnType])
             </div>
         </div>
 

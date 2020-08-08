@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -23,6 +24,7 @@ class Method extends Model
         'payload',
         'response',
         'visible',
+        'is_array_returned',
     ];
 
     /**
@@ -76,11 +78,16 @@ class Method extends Model
     /**
      * Scope a query to only include popular users.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param Builder $query
+     * @return Builder
      */
     public function scopeVisible($query)
     {
         return $query->where('visible', true);
+    }
+
+    public function isArrayReturned()
+    {
+        return $this->is_array_returned;
     }
 }

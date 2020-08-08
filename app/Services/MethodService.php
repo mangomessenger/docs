@@ -23,7 +23,7 @@ class MethodService extends BaseService
             ->firstOrFail();
     }
 
-    public function findByType($method, String $type)
+    public function findByType($method, string $type)
     {
         return $this
             ->model

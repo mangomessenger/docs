@@ -134,6 +134,22 @@ class MethodController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @param int $id
+     * @return RedirectResponse
+     */
+    public function updateIsArrayReturned(Request $request, int $id)
+    {
+        if ($request->has('is_array_returned')) {
+            $this->methodService->update($id, $request->only('is_array_returned'));
+        } else {
+            return redirect()->back()->with('error', 'Unexpected error occurred.');
+        }
+
+        return redirect()->back()->with('success', 'Method details were successfully updated.');
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param int $id

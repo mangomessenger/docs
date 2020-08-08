@@ -45,6 +45,8 @@ Route::group([
     ])->except('show');
 
     Route::prefix('methods')->group(function () {
+        /* Method return type */
+        Route::put('/{method}/is-array-returned', 'MethodController@updateIsArrayReturned')->name('method.is-array-returned');
         /* Method Errors */
         Route::post('/{method}/errors/add', 'MethodController@addError')->name('method.errors.add');
         Route::delete('/{method}/errors/{error}', 'MethodController@removeError')->name('method.errors.remove');

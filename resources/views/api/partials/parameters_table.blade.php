@@ -20,7 +20,7 @@
                     <tr>
                         <td>{{ $param->name }}</td>
                         <td>
-                            @include('api.partials.type_cell', ['isArray' => $param->isArray()])
+                            @include('api.partials.type_cell', ['isArray' => $param->isArray(), 'returnType' => $param->returnType])
                         </td>
                         <td>{{ $param->description }}</td>
                     </tr>

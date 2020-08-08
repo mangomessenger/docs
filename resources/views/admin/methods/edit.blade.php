@@ -143,7 +143,7 @@
                     <tr>
                         <td>{{ $param->name }}</td>
                         <td>
-                            @include('api.partials.type_cell', ['isArray' => $param->isArray()])
+                            @include('api.partials.type_cell', ['isArray' => $param->isArray(), 'returnType' => $param->returnType])
                         </td>
                         <td>{{ $param->isRequiredNamed() }}</td>
                         <td>{{ $param->description }}</td>
@@ -228,7 +228,19 @@
                 <form method="post" action="{{ route("methods.visibility.change", $method) }}">
                     @csrf
                     @method('PUT')
-                    <button type="submit" class="btn btn-secondary w-100">Make {{ $method->visible ? 'invisible' : 'visible' }}</button>
+                    <button type="submit" class="btn btn-secondary w-100">
+                        Make {{ $method->visible ? 'invisible' : 'visible' }}</button>
+                </form>
+            </div>
+
+            <div class="col-4">
+                <form method="post" action="{{ route('method.is-array-returned', $method->id) }}">
+                    @csrf
+                    @method('PUT')
+                    <input type="text" name="is_array_returned" class="d-none"
+                           value={{ $method->is_array_returned ? "0" : "1" }}>
+                    <button type="submit" class="btn btn-secondary w-100">Make return
+                        as {{ $method->is_array_returned ? 'Non-array' : 'Array' }}</button>
                 </form>
             </div>
         </div>

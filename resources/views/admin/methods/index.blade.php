@@ -38,7 +38,9 @@
                         </td>
                         <td><h5>@include('api.partials.method_type', ['type' => $method->type])</h5></td>
                         <td>{{ $method->description }}</td>
-                        <td><a href="{{ route('type', $method->returnType) }}">{{ $method->returnType->name }}</a></td>
+                        <td>
+                            @include('api.partials.type_cell', ['isArray' => $method->isArrayReturned(), 'returnType' => $method->returnType])
+                        </td>
                         <td>
                             <a class="btn btn-primary w-100 mt-1" href="{{ route('methods.edit', $method) }}">Edit</a>
                             <form method="post" action="{{ route("methods.destroy", $method) }}">

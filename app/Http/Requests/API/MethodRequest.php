@@ -27,6 +27,7 @@ class MethodRequest extends FormRequest
         return [
             'tag_id' => 'required|exists:method_tags,id',
             'name' => 'required|min:2',
+            'is_array_returned' => '',
             'type' => 'required|required|in:' . implode(',', Method::TYPES),
             'description' => 'required|min:5|max:1500',
             'return_type_id' => 'required|exists:types,id',

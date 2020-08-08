@@ -5,7 +5,7 @@
 use App\Method;
 use Faker\Generator as Faker;
 
-$methods = [ 'sendMessage', 'deleteMessage', 'viewChat', 'viewMessage', 'getChats', 'reportSpam', 'banUser'];
+$methods = [ '/sendMessage', '/deleteMessage', '/viewChat', '/viewMessage', '/getChats', '/reportSpam', '/banUser'];
 
 $factory->define(Method::class, function (Faker $faker) use ($methods) {
     return [

@@ -2,20 +2,26 @@
 
 namespace Tests\Feature;
 
+use App\Method;
+use App\MethodTag;
+use App\Type;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 
 class CorrectResponseTest extends TestCase
 {
     use RefreshDatabase;
 
+    private Method $method;
+    private Type $type;
+
     public function setUp(): void
     {
         parent::setUp();
 
-        Artisan::call('db:seed');
+        $this->type = factory(Type::class)->create();
+        factory(MethodTag::class)->create();
+        $this->method = factory(Method::class)->create();
     }
 
     /**
@@ -46,7 +52,7 @@ class CorrectResponseTest extends TestCase
 
     public function test_type_page_returns_200()
     {
-        $response = $this->get('/types/1');
+        $response = $this->get("/types/{$this->type->id}");
 
         $response->assertStatus(200);
     }
@@ -60,7 +66,11 @@ class CorrectResponseTest extends TestCase
 
     public function test_method_page_returns_200()
     {
-        $response = $this->get('/methods/get/1');
+        $response = $this->get("/methods/{$this->method->type}/{$this->method->id}");
+
+        $response->assertStatus(200);
+
+        $response = $this->get("/methods/{$this->method->type}/{$this->method->formatName()}");
 
         $response->assertStatus(200);
     }

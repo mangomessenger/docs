@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-6">
+            <div class="col-md-6">
                 <form method="post" action="{{ route('errors.update', $error) }}">
                     @method('PUT')
                     @csrf

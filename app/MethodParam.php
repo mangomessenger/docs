@@ -28,8 +28,18 @@ class MethodParam extends Model
         'is_array' => 'boolean',
     ];
 
-    public function isRequired()
+    public function isRequiredNamed()
     {
         return $this->is_required ? 'Yes' : 'No';
+    }
+
+    public function isRequired()
+    {
+        return $this->is_required ? true : false;
+    }
+
+    public function isArray()
+    {
+        return $this->is_array ? true : false;
     }
 }

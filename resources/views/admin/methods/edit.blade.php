@@ -142,8 +142,10 @@
                 @foreach($method->params as $param)
                     <tr>
                         <td>{{ $param->name }}</td>
-                        <td><a href="{{ route('type', $param->returnType) }}">{{ $param->returnType->name }}</a></td>
-                        <td>{{ $param->isRequired() }}</td>
+                        <td>
+                            @include('api.partials.type_cell', ['isArray' => $param->isArray()])
+                        </td>
+                        <td>{{ $param->isRequiredNamed() }}</td>
                         <td>{{ $param->description }}</td>
                         <td>
                             <a class="btn btn-primary w-100 mt-1"

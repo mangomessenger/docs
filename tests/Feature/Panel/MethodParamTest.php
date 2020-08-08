@@ -63,7 +63,7 @@ class MethodParamTest extends TestCase
         ]));
 
         $updatedMethodPram = MethodParam::find($methodParam->id);
-        $this->assertEquals($updatedMethodPram->isRequired(), 'Yes');
+        $this->assertEquals($updatedMethodPram->isRequired(), true);
         $this->assertEquals($updatedMethodPram->is_array, 1);
     }
 }

@@ -14,7 +14,7 @@ class AddArrayAndRequiredColumnsToMethodParamsTable extends Migration
     public function up()
     {
         Schema::table('method_params', function (Blueprint $table) {
-            $table->boolean("is_required")->default(false)->after('return_type_id');
+            $table->boolean("is_required")->default(true)->after('return_type_id');
             $table->boolean("is_array")->default(false)->after('is_required');
         });
     }

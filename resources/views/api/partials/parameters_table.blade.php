@@ -20,7 +20,7 @@
                     <tr>
                         <td>{{ $param->name }}</td>
                         <td>
-                            <a href="{{ route('type', $param->returnType->name) }}">{{ $param->returnType->name }}</a>
+                            @include('api.partials.type_cell', ['isArray' => $param->isArray()])
                         </td>
                         <td>{{ $param->description }}</td>
                     </tr>

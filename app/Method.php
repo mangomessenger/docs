@@ -64,7 +64,7 @@ class Method extends Model
      */
     public function formatName()
     {
-        return rtrim(ltrim(str_replace('/', '.', $this->name), '.'), '.');
+        return rawurlencode(rtrim(ltrim(str_replace('/', '.', $this->name), '.'), '.'));
     }
 
     /**

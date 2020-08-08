@@ -85,7 +85,7 @@ class MethodController extends Controller
         return View('admin.methods.create', [
             'types' => $this->typeService->all(),
             'tags' => $this->methodTagService->all(),
-            'methodTypes' => Method::$types,
+            'methodTypes' => Method::TYPES,
         ]);
     }
 
@@ -115,7 +115,7 @@ class MethodController extends Controller
             'types' => $this->typeService->all(),
             'allErrors' => $this->errorService->all(),
             'tags' => $this->methodTagService->all(),
-            'methodTypes' => Method::$types,
+            'methodTypes' => Method::TYPES,
         ]);
     }
 

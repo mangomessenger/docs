@@ -14,7 +14,7 @@ class AddMethodTypeForMethodsTable extends Migration
     public function up()
     {
         Schema::table('methods', function (Blueprint $table) {
-            $table->enum('type', \App\Method::$types)->default('GET')->after('name');
+            $table->enum('type', \App\Method::TYPES)->default('GET')->after('name');
         });
     }
 

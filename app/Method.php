@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Method extends Model
 {
-    static public $types = [ 'GET', 'POST', 'PUT', 'DELETE'];
+    const TYPES = ['GET', 'POST', 'PUT', 'DELETE'];
 
     /**
      * The attributes that are mass assignable.
@@ -76,7 +76,7 @@ class Method extends Model
     /**
      * Scope a query to only include popular users.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeVisible($query)

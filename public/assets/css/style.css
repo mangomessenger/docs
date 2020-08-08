@@ -14,6 +14,10 @@ a {
   color: #ff8243;
 }
 
+.mango-back {
+    background-color: #ff8243;
+}
+
 a:hover {
   color: #5faee3;
   text-decoration: none;

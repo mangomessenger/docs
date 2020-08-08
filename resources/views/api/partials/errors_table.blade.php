@@ -6,7 +6,7 @@
     <div class="row table-responsive">
         <table class="table">
             <thead>
-            <tr>
+            <tr class="mango-back text-white">
                 <th scope="col">Code</th>
                 <th scope="col">Type</th>
                 <th scope="col">Message</th>

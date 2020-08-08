@@ -19,7 +19,7 @@ class MethodParamTest extends TestCase
         Artisan::call('db:seed');
     }
 
-    public function test_admin_can_create_type_param()
+    public function test_admin_can_create_method_param()
     {
         $user = factory(User::class)->create();
         $methodParam = factory(MethodParam::class)->make();
@@ -28,7 +28,7 @@ class MethodParamTest extends TestCase
         $response->assertRedirect(route('methods.edit', 1));
     }
 
-    public function test_admin_can_edit_type_param()
+    public function test_admin_can_edit_method_param()
     {
         $user = factory(User::class)->create();
         $methodParam = factory(MethodParam::class)->create();
@@ -37,7 +37,7 @@ class MethodParamTest extends TestCase
         $response->assertRedirect(route('methods.edit', 1));
     }
 
-    public function test_admin_can_delete_type_param()
+    public function test_admin_can_delete_method_param()
     {
         $user = factory(User::class)->create();
         $methodParam = factory(MethodParam::class)->create();
@@ -48,5 +48,22 @@ class MethodParamTest extends TestCase
 
         $response->assertStatus(302);
         $response->assertRedirect(route('methods.edit', 1));
+    }
+
+    public function test_admin_can_make_is_required_and_array_method_param()
+    {
+        $user = factory(User::class)->create();
+        $methodParam = factory(MethodParam::class)->create();
+
+        $response = $this->actingAs($user)
+            ->from(route('methods.edit', $methodParam->id))
+            ->put(route('methods.params.update', $methodParam->id), array_merge($methodParam->toArray(), [
+                'required' => 1,
+                'array' => 1,
+        ]));
+
+        $updatedMethodPram = MethodParam::find($methodParam->id);
+        $this->assertEquals($updatedMethodPram->isRequired(), 'Yes');
+        $this->assertEquals($updatedMethodPram->is_array, 1);
     }
 }

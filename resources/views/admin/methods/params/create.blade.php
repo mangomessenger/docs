@@ -41,18 +41,30 @@
                         @enderror
                     </div>
 
-{{--                    <div class="form-group form-check">--}}
-{{--                        <div class="row text-center">--}}
-{{--                            <div class="col">--}}
-{{--                                <input type="checkbox" class="form-check-input" name="required">--}}
-{{--                                <label class="form-check-label" for="exampleCheck1">Required</label>--}}
-{{--                            </div>--}}
-{{--                            <div class="col">--}}
-{{--                                <input type="checkbox" class="form-check-input" name="array">--}}
-{{--                                <label class="form-check-label" for="exampleCheck1">Array</label>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
+                    <div class="form-group form-check">
+                       <div class="row">
+                           <label for="name">Additional</label>
+                       </div>
+
+                        <div class="row mt-2">
+                            <div class="col">
+                                <input type="checkbox" class="form-check-input" name="required" value="1" @if(old('required')) checked @endif>
+                                <label class="form-check-label">Required</label>
+                            </div>
+                            <div class="col">
+                                <input type="checkbox" class="form-check-input" name="array" value="1" @if(old('array')) checked @endif>
+                                <label class="form-check-label">Array</label>
+                            </div>
+                        </div>
+
+                        @error("required")
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
+
+                        @error("array")
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
 
                     <button type="submit" class="btn btn-primary w-100">Create Method Parameter</button>
                 </form>

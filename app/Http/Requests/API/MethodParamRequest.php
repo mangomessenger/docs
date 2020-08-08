@@ -27,6 +27,8 @@ class MethodParamRequest extends FormRequest
         return [
             'name' => 'required|min:2',
             'description' => 'required|min:5|max:1500',
+            'required' => '',
+            'array' => '',
             'method_id' => Request::isMethod('put') ? '' : 'required|exists:methods,id',
             'return_type_id' => 'required|exists:types,id'
         ];

@@ -12,7 +12,7 @@ class MethodParam extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'description', 'method_id', 'return_type_id'
+        'name', 'description', 'method_id', 'return_type_id', 'is_required', 'is_array'
     ];
 
     /**
@@ -22,4 +22,9 @@ class MethodParam extends Model
     {
         return $this->hasOne('App\Type', 'id', 'return_type_id');
     }
+
+    protected $casts = [
+        'is_required' => 'boolean',
+        'is_array' => 'boolean',
+    ];
 }

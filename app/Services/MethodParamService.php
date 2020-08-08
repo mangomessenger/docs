@@ -12,4 +12,16 @@ class MethodParamService extends BaseService
     {
         $this->model = $methodParam;
     }
+
+    /**
+     * @param array $input
+     * @return mixed
+     */
+    public function create(array $input)
+    {
+        return $this->model->create(array_merge($input, [
+            'is_required' => isset($input['required']),
+            'is_array' => isset($input['array']),
+        ]));
+    }
 }

@@ -8,7 +8,7 @@ Route::get('/faq', 'HomeController@faq')->name('faq');
 Route::namespace('Docs')->group(function(){
     Route::get('/api', 'ApiController@index')->name('api');
     Route::get('/methods', 'ApiController@methods')->name('methods');
-    Route::get('/methods/{method}', 'ApiController@method')->name('method');
+    Route::get('/methods/{type}/{method}', 'ApiController@method')->name('method');
     Route::get('/types', 'ApiController@types')->name('types');
     Route::get('/types/{type}', 'ApiController@type')->name('type');
     Route::get('/errors', 'ApiController@errors')->name('errors');

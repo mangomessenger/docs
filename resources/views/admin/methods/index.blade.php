@@ -31,7 +31,7 @@
                     <tr>
                         <td>{{ $method->tag->tag }}</td>
                         <td>
-                            <a @if($method->visible) href="{{ route('method', $method->formatName()) }}" @endif>
+                            <a @if($method->visible) href="{{ route('method', ['type' => strtolower($method->type), 'method' => $method->formatName()]) }}" @endif>
                                 {{ $method->name }}
                             </a>
                             @if(!$method->visible) <h4 class="pt-2"><span class="badge badge-pill badge-secondary">Invisible</span></h4> @endif

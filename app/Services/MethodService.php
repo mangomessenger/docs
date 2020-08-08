@@ -14,11 +14,36 @@ class MethodService extends BaseService
         $this->model = $method;
     }
 
-    public function find($method, bool $visible = false)
+    public function find($method)
     {
-        return $visible ?
-            $this->model->visible()->where('name', Method::unformatName($method))->orWhere('id', $method)->firstOrFail() :
-            $this->model->where('name', Method::unformatName($method))->orWhere('id', $method)->firstOrFail();
+        return $this
+            ->model
+            ->where('name', Method::unformatName($method))
+            ->orWhere('id', $method)
+            ->firstOrFail();
+    }
+
+    public function findByType($method, String $type)
+    {
+        return $this
+            ->model
+            ->visible()
+            ->where(function ($query) use ($method) {
+                $query->where('name', Method::unformatName($method));
+                $query->orWhere('id', $method);
+            })
+            ->where('type', strtoupper($type))
+            ->firstOrFail();
+    }
+
+    public function findVisible($method)
+    {
+        return $this
+            ->model
+            ->visible()
+            ->where('name', Method::unformatName($method))
+            ->orWhere('id', $method)
+            ->firstOrFail();
     }
 
     public function addError(Method $method, Error $error): bool

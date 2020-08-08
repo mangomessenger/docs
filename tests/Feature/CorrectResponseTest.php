@@ -58,12 +58,12 @@ class CorrectResponseTest extends TestCase
         $response->assertStatus(200);
     }
 
-//    public function test_method_page_returns_200()
-//    {
-//        $response = $this->get('/methods/1');
-//
-//        $response->assertStatus(200);
-//    }
+    public function test_method_page_returns_200()
+    {
+        $response = $this->get('/methods/get/1');
+
+        $response->assertStatus(200);
+    }
 
     public function test_login_page_returns_200()
     {

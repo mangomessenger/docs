@@ -11,7 +11,7 @@ $factory->define(Method::class, function (Faker $faker) use ($methods) {
     return [
         'tag_id' => 1,
         'name' => collect($methods)->random(),
-        'type' => collect(Method::$types)->random(),
+        'type' => 'GET',
         'description' => $faker->text(200),
         'return_type_id' => 1,
     ];

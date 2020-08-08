@@ -17,7 +17,7 @@
             <tbody>
             @foreach($methods as $method)
                 <tr>
-                    <td><a href="{{ route('method', $method->formatName()) }}">{{ $method->name }}</a></td>
+                    <td><a href="{{ route('method', ['type' => strtolower($method->type), 'method' => $method->formatName()]) }}">{{ $method->name }}</a></td>
                     <td>{{ $method->description }}</td>
                     <td class="text-center"><h5 class="pl-1">@include('api.partials.method_type', ['type' => $method->type])</h5></td>
                 </tr>

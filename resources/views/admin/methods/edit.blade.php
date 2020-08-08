@@ -133,6 +133,7 @@
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Type</th>
+                    <th scope="col">Required</th>
                     <th scope="col">Description</th>
                     <th scope="col" style="width: 20%">Actions</th>
                 </tr>
@@ -141,8 +142,8 @@
                 @foreach($method->params as $param)
                     <tr>
                         <td>{{ $param->name }}</td>
-                        <td><a href="{{ route('type', $param->returnType) }}">{{ $param->returnType->name }}</a>
-                        </td>
+                        <td><a href="{{ route('type', $param->returnType) }}">{{ $param->returnType->name }}</a></td>
+                        <td>{{ $param->isRequired() }}</td>
                         <td>{{ $param->description }}</td>
                         <td>
                             <a class="btn btn-primary w-100 mt-1"

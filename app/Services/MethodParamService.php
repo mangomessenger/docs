@@ -24,4 +24,17 @@ class MethodParamService extends BaseService
             'is_array' => isset($input['array']),
         ]));
     }
+
+    /**
+     * @param $id
+     * @param array $input
+     * @return mixed
+     */
+    public function update($id, array $input)
+    {
+        return $this->find($id)->update(array_merge($input, [
+            'is_required' => isset($input['required']),
+            'is_array' => isset($input['array']),
+        ]));
+    }
 }

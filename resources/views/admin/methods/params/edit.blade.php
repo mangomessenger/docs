@@ -35,24 +35,30 @@
                         @enderror
                     </div>
 
-                    <div class="row mt-2">
-                        <div class="col">
-                            <input type="checkbox" class="form-check-input" name="required" value="1" @if(old('required')) checked @endif>
-                            <label class="form-check-label">Required</label>
+                    <div class="form-group form-check">
+                        <div class="row">
+                            <label for="name">Additional</label>
                         </div>
-                        <div class="col">
-                            <input type="checkbox" class="form-check-input" name="array" value="1" @if(old('array')) checked @endif>
-                            <label class="form-check-label">Array</label>
+
+                        <div class="row mt-2">
+                            <div class="col">
+                                <input type="checkbox" class="form-check-input" name="required" value="1" @if(old('required') ?? $methodParam->is_required) checked @endif>
+                                <label class="form-check-label">Required</label>
+                            </div>
+                            <div class="col">
+                                <input type="checkbox" class="form-check-input" name="array" value="1" @if(old('array') ?? $methodParam->is_array) checked @endif>
+                                <label class="form-check-label">Array</label>
+                            </div>
                         </div>
+
+                        @error("required")
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
+
+                        @error("array")
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
-
-                    @error("required")
-                    <p class="text-danger">{{ $message }}</p>
-                    @enderror
-
-                    @error("array")
-                    <p class="text-danger">{{ $message }}</p>
-                    @enderror
 
                     <button type="submit" class="btn btn-primary w-100">Edit Method Parameter</button>
                 </form>

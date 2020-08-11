@@ -23,4 +23,9 @@ class TypeParam extends Model
     {
         return $this->hasOne('App\Type', 'id', 'return_type_id');
     }
+
+    public function isArray()
+    {
+        return $this->is_array ? true : false;
+    }
 }

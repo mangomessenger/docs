@@ -26,10 +26,10 @@ composer install
 3 - Enter the core folder and rename env.example to .env
 
 ```
-cp env.example .env 
+cp .env.example .env 
 ```
 
-4 - Enter the database credentials in .env
+4 - Specify the database credentials in .env
 
 ```
 DB_CONNECTION=mysql
